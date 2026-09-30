@@ -1,6 +1,9 @@
 # Black Swan API: KBC integration guide
 
 Base URL (local): `http://localhost:8000`. Auth: header `X-API-Key`.
+Run with `SWAN_ENV=production` and `SWAN_API_KEYS=<keys>` outside local demos: that rejects the
+dev key, hides the docs and disables `/v1/demo/*`. Limits: 10 000 transactions per request,
+`as_of` at most 3 years after `enrolled_on`, demo `user_id`s must start with `demo-`.
 Full OpenAPI spec: `/docs` (Swagger UI) or `/openapi.json`.
 
 ## Integration flow

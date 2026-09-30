@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s09-template">
+      <style>
+        #s09-root { position: absolute; inset: 0; overflow: hidden; background: #eef4f8; }
+        #s09-root .glow { position: absolute; left: 50%; top: 40%; width: 2000px; height: 1300px; margin: -650px 0 0 -1000px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 174, 239, 0.18), transparent); }
+        #s09-root .chapter { color: var(--ink-2); }
+        #s09-root .head { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-size: 96px; color: var(--kbc-navy); opacity: 0; }
+        #s09-root .col { position: absolute; top: 200px; width: 300px; }
+        #s09-root .col .phone-slot { position: relative; left: 22px; top: 0; transform-origin: 0 0; }
+        #s09-root .meta { position: absolute; left: 0; top: 560px; width: 300px; text-align: center; opacity: 0; }
+        #s09-root .meta .kt { font-size: 50px; color: var(--kbc-navy); }
+        #s09-root .meta .tag { margin-top: 6px; font: 500 24px/1.3 var(--body); color: var(--ink-2); }
+        #s09-root .meta .stat { margin-top: 16px; display: inline-block; padding: 12px 18px; border-radius: 16px; font: 700 25px/1.25 var(--body); }
+        #s09-root .meta .stat.good { background: #e1f4fd; color: #0079b0; }
+        #s09-root .meta .stat.bad { background: var(--bad-soft); color: #9b2328; }
+        #s09-root .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #2aaef0, #cfeeff); transform-origin: 50% 0%; }
+      </style>
+
+      <div id="s09-root" class="hf" data-composition-id="s09" data-start="0" data-width="1920" data-height="1080">
+        <div class="glow"></div>
+        <div class="chapter" id="s09-chapter"><b>09</b><i></i>Four customers</div>
+        <p class="kt head" id="s09-head">Four people. Four swans.</p>
+        <div id="s09-cols"></div>
+        <div class="sky" id="s09-sky"></div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s09
+          const B = C.b
+          const K = window.STORY.cases
+          const P = window.STORY.payday
+          const lucasBike = (K.lucas_freelancer.events.find((e) => e.type === 'large_expense_absorbed') || {}).amount
+          const unaffordable = K.jonas_impulse.events.filter((e) => e.type === 'large_expense_unaffordable').length
+          const first = (s) => s.split(',')[0]
+          const people = [
+            { key: 'sofie', c: K.sofie_steady, at: B.sofie, stat: `${HF.money(P.investedAfter)} invested in 2 paydays`, good: true },
+            { key: 'lucas', c: K.lucas_freelancer, at: B.lucas, stat: `No wage: calendar months. ${HF.money(lucasBike)} bike repair paid by his buffer`, good: true },
+            { key: 'emma', c: K.emma_gourmet, at: B.emma, stat: `Habits ${HF.money(K.emma_gourmet.baseline)} a day, can afford ${HF.money(K.emma_gourmet.affordable)}`, good: false },
+            { key: 'jonas', c: K.jonas_impulse, at: B.jonas, stat: `${unaffordable} buys after payday flagged unaffordable`, good: false },
+          ]
+          const cols = document.getElementById('s09-cols')
+          const W = 300
+          const gap = (1920 - 2 * 150 - 4 * W) / 3
+          const devices = people.map((p, i) => {
+            const col = document.createElement('div')
+            col.className = 'col'
+            col.style.left = `${150 + i * (W + gap)}px`
+            col.innerHTML = `<div class="phone-slot"></div><div class="meta"><p class="kt">${first(p.c.name)}</p><p class="tag">${p.c.tagline}</p><p class="stat ${p.good ? 'good' : 'bad'}">${p.stat}</p></div>`
+            cols.appendChild(col)
+            const slot = col.querySelector('.phone-slot')
+            const device = HF.phone(slot, 'pond_case_' + p.key)
+            KBC.tabbar(device, 'swan', true)
+            return { col, slot, meta: col.querySelector('.meta'), p }
+          })
+
+          const tl = gsap.timeline({ paused: true })
+          gsap.set(devices.map((d) => d.slot), { scale: 0.62 })
+          gsap.set('#s09-sky', { scaleY: 0 })
+          tl.fromTo('#s09-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.1)
+          devices.forEach(({ slot, meta, p }, i) => {
+            tl.fromTo(slot, { y: 700, rotation: i % 2 ? 4 : -4, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }, p.at - 0.2)
+            tl.fromTo(meta, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, p.at + 0.2)
+            // Keep each phone gently alive after it lands.
+            tl.to(slot, { y: -10, duration: 2.4, ease: 'sine.inOut', yoyo: true, repeat: Math.max(0, Math.floor((C.dur - p.at - 0.6) / 2.4) - 1) }, p.at + 0.6)
+          })
+          // ---- "Four people. Four swans."
+          tl.fromTo('#s09-head', { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.four)
+          tl.to('#s09-chapter', { opacity: 0, duration: 0.3 }, B.four - 0.2)
+
+          // ---- hand-off to s10: the sky drops in like a curtain
+          tl.to('#s09-sky', { scaleY: 1, duration: 0.55, ease: 'power3.in' }, C.dur - 0.55)
+
+          window.__timelines['s09'] = tl
+        })()
+      </script>
+    </template>
+  </body>
+</html>

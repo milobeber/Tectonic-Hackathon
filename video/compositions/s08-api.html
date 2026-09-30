@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s08-template">
+      <style>
+        #s08-root { position: absolute; inset: 0; overflow: hidden; background: radial-gradient(1400px 900px at 50% -10%, #0a4f82, #002a50 55%, #001b36); color: #e6f3fb; }
+        #s08-root .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(127, 191, 230, 0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(127, 191, 230, 0.07) 2px, transparent 2px); background-size: 80px 80px; }
+        #s08-root .chapter { color: #7fbfe6; }
+        #s08-root .stage3d { position: absolute; inset: 0; perspective: 1800px; }
+        #s08-root #s08-phone { left: 170px; top: 106px; }
+        #s08-root .ex { position: absolute; left: 800px; top: 200px; width: 1000px; }
+        #s08-root .ex .kt { font-size: 104px; color: #fff; }
+        #s08-root .rows { margin-top: 50px; display: grid; gap: 18px; }
+        #s08-root .row { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 30px; border-radius: 22px; background: rgba(255, 255, 255, 0.07); box-shadow: inset 0 0 0 2px rgba(127, 191, 230, 0.2); font: 500 40px var(--body); color: #cfe6f7; opacity: 0; }
+        #s08-root .row b { font: 700 44px var(--mono); color: #fff; }
+        #s08-root .row.total { background: #fff; box-shadow: none; color: var(--ink); }
+        #s08-root .row.total b { color: var(--kbc-navy); }
+
+        #s08-root .arch { position: absolute; inset: 0; opacity: 0; }
+        #s08-root .node { position: absolute; top: 240px; width: 470px; height: 600px; padding: 34px; border-radius: 34px; background: rgba(255, 255, 255, 0.07); box-shadow: inset 0 0 0 3px rgba(127, 191, 230, 0.3); }
+        #s08-root .node.kbc { left: 110px; background: #fff; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7); color: var(--k-navy); }
+        #s08-root .node.swan { right: 110px; }
+        #s08-root .node .hd { display: flex; align-items: center; gap: 18px; font: 800 44px/1.05 var(--display); }
+        #s08-root .node.kbc .hd { font-family: var(--k-font); }
+        #s08-root .node .hd small { display: block; font: 500 24px var(--body); color: inherit; opacity: 0.7; }
+        #s08-root .node ul { margin-top: 30px; list-style: none; display: grid; gap: 14px; }
+        #s08-root .node li { padding: 16px 20px; border-radius: 16px; font: 600 28px var(--body); }
+        #s08-root .node.kbc li { background: var(--k-pale); }
+        #s08-root .node.swan li { background: rgba(0, 174, 239, 0.14); color: #d6ecfb; display: flex; justify-content: space-between; }
+        #s08-root .node.swan li span { font: 500 22px var(--mono); color: #7fd3ff; }
+        #s08-root .store { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+        #s08-root .store i { width: 30px; height: 12px; border-radius: 4px; background: rgba(127, 191, 230, 0.55); }
+
+        #s08-root .call { position: absolute; left: 590px; width: 740px; height: 90px; opacity: 0; }
+        #s08-root .call .line { position: absolute; left: 0; right: 0; top: 60px; height: 4px; border-radius: 2px; background: rgba(127, 191, 230, 0.45); transform-origin: 0 50%; }
+        #s08-root .call.back .line { transform-origin: 100% 50%; background: rgba(255, 210, 63, 0.7); }
+        #s08-root .call .lbl { position: absolute; left: 0; right: 0; top: 0; margin: 0 auto; width: max-content; padding: 8px 16px; border-radius: 12px; background: rgba(0, 12, 26, 0.75); box-shadow: inset 0 0 0 2px rgba(127, 191, 230, 0.3); font: 500 25px var(--mono); color: #d6ecfb; white-space: nowrap; }
+        #s08-root .call .lbl b { color: #00c2ff; }
+        #s08-root .call.back .lbl b { color: #ffd23f; }
+        #s08-root .call.del .lbl b { color: #ff7b80; }
+        #s08-root .call.del .line { background: rgba(255, 123, 128, 0.7); }
+        #s08-root .pkt { position: absolute; left: 0; top: 46px; padding: 6px 12px; border-radius: 10px; background: #fff; color: var(--ink); font: 700 18px var(--body); white-space: nowrap; opacity: 0; }
+        #s08-root .json { position: absolute; left: 600px; top: 712px; width: 720px; padding: 18px 24px; border-radius: 18px; background: rgba(0, 12, 26, 0.8); box-shadow: inset 0 0 0 2px rgba(255, 210, 63, 0.4); font: 500 21px/1.5 var(--mono); color: #d6ecfb; white-space: pre; opacity: 0; }
+        #s08-root .json b { color: #ffd23f; font-weight: 500; }
+        #s08-root .json i { font-style: normal; color: #7fd3ff; }
+        #s08-root .headline { position: absolute; left: 110px; top: 128px; font-size: 76px; color: #fff; opacity: 0; }
+        #s08-root .badges { position: absolute; left: 110px; bottom: 70px; display: flex; gap: 18px; }
+        #s08-root .badge { display: inline-flex; align-items: center; gap: 12px; padding: 16px 24px; border-radius: 18px; background: #fff; color: var(--kbc-navy); font: 700 30px var(--body); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7); opacity: 0; }
+        #s08-root .badge small { font: 500 22px var(--body); color: var(--ink-2); }
+        #s08-root .badge.red { background: #fdecec; color: #9b2328; }
+      </style>
+
+      <div id="s08-root" class="hf" data-composition-id="s08" data-start="0" data-width="1920" data-height="1080">
+        <div class="grid"></div>
+        <div class="chapter" id="s08-chapter"><b>08</b><i></i>Explainable · one API</div>
+
+        <div class="stage3d"><div class="phone-slot" id="s08-phone"><div class="phone-shadow"></div></div></div>
+        <div class="ex" id="s08-ex">
+          <p class="kt" id="s08-exh">Every limit explains itself.</p>
+          <div class="rows" id="s08-rows"></div>
+        </div>
+
+        <div class="arch" id="s08-arch">
+          <p class="kt headline" id="s08-head">For KBC, it's one API.</p>
+          <div class="node kbc" id="s08-kbc">
+            <div class="hd"><img src="assets/kbc/kbc-logo.svg" width="96" height="96" alt="" /><span>KBC Mobile<small>app + core banking</small></span></div>
+            <ul><li>Opt-in screen</li><li>Booked card payments</li><li>Plume tab</li><li>Invests the monthly buffer</li></ul>
+          </div>
+          <div class="node swan" id="s08-swan">
+            <div class="hd"><span id="s08-logo"></span><span>Plume<small>engine · FastAPI service</small></span></div>
+            <ul><li>model <span>learns the limit</span></li><li>engine <span>replays every day</span></li><li>store <span>raw inputs only</span></li></ul>
+            <div class="store" id="s08-store"></div>
+          </div>
+          <div class="call" id="s08-c-post" style="top: 330px"><span class="lbl"><b>IN</b> card payments · POST /transactions</span><span class="line"></span></div>
+          <div class="call back" id="s08-c-get" style="top: 470px"><span class="lbl"><b>OUT</b> the swan · GET /game-state</span><span class="line"></span></div>
+          <div class="call del" id="s08-c-del" style="top: 610px"><span class="lbl"><b>OPT OUT</b> DELETE /enrollment</span><span class="line"></span></div>
+          <div class="badges">
+            <span class="badge" id="s08-b1">✓ Opt-in only<small>no data before consent</small></span>
+            <span class="badge" id="s08-b2">↻ Deterministic<small>replayed from raw inputs, idempotent</small></span>
+            <span class="badge red" id="s08-b3">✕ Opt out = everything deleted</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s08
+          const B = C.b
+          const ST = window.STORY
+          const H = ST.hero
+          const P = ST.model.profile
+          const hs = ST.heroState
+
+          // ---- phone: the hero screen with "Why € 23,73 today?" opened (real markup)
+          const slot = document.getElementById('s08-phone')
+          const shadow = slot.querySelector('.phone-shadow')
+          const device = HF.phone(slot, 'pond_hero')
+          slot.prepend(shadow)
+          KBC.tabbar(device, 'swan', true)
+          device.querySelector('.statusbar').classList.add('statusbar--solid')
+          const screen = device.querySelector('.pond-screen')
+          const closed = screen.querySelector('.card.explain')
+          const holder = document.createElement('div')
+          HF.mount(holder, 'explainer_hero')
+          const open = holder.firstElementChild
+          closed.replaceWith(open)
+          const dRows = [...open.querySelectorAll('.explain-rows > div')]
+          document.getElementById('s08-logo').innerHTML = HF.logo(96)
+
+          const lines = [
+            ['You usually spend', `${HF.money(P.baseline_daily)} a day`],
+            ['Savings goal (Normal)', '− 10%'],
+            ['Thursdays', `× ${H.thu.toFixed(2).replace('.', ',')}`],
+            ['Today, Thu 24 Sept', HF.money(H.limit)],
+          ]
+          document.getElementById('s08-rows').innerHTML = lines.map(([a, b], i) => `<div class="row ${i === 3 ? 'total' : ''}"><span>${a}</span><b>${b}</b></div>`).join('')
+          const rowEls = [...document.querySelectorAll('#s08-rows .row')]
+
+          document.getElementById('s08-store').innerHTML = Array.from({ length: 36 }, () => '<i></i>').join('')
+          const merchants = ['Colruyt -24,22', 'Coffee Lab -3,81', 'Lidl -33,90', 'NMBS -3,16', 'Aldi -36,06']
+          const post = document.getElementById('s08-c-post')
+          merchants.forEach((m) => post.insertAdjacentHTML('beforeend', `<span class="pkt">${m} EUR</span>`))
+          const pkts = [...post.querySelectorAll('.pkt')]
+
+          const build = () => {
+            const tl = gsap.timeline({ paused: true })
+            const L = HF.measure(slot, (c) => {
+              const s = c.querySelector('.pond-screen')
+              return { ex: HF.pos(s.querySelector('.card.explain'), s).y }
+            })
+            const scroll = -(L.ex - 190)
+
+            // ---- rising out of the deep
+            tl.fromTo('#s08-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.1)
+            tl.fromTo(slot, { y: 700, rotationX: 30 }, { y: 0, rotationX: 0, duration: 1.2, ease: 'expo.out' }, 0)
+            tl.fromTo(screen, { y: 0 }, { y: scroll, duration: 1.1, ease: 'power3.inOut' }, 0.6)
+
+            // ---- "Every limit explains itself, line by line."
+            tl.fromTo('#s08-exh', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.explain)
+            rowEls.forEach((r, i) => {
+              const at = B.explain + 0.7 + i * 0.5
+              tl.fromTo(r, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: i === 3 ? 'back.out(1.8)' : 'power4.out' }, at)
+              if (dRows[i]) tl.fromTo(dRows[i], { backgroundColor: 'rgba(0,174,239,0)' }, { backgroundColor: 'rgba(0,174,239,0.16)', duration: 0.25, yoyo: true, repeat: 1 }, at)
+            })
+
+            // ---- "For KBC, it's one API."
+            tl.to(['#s08-ex'], { opacity: 0, x: 80, duration: 0.35, ease: 'power2.in' }, B.api - 0.4)
+            tl.to(slot, { opacity: 0, x: -200, duration: 0.4, ease: 'power2.in' }, B.api - 0.4)
+            tl.set('#s08-arch', { opacity: 1 }, B.api - 0.05)
+            tl.fromTo('#s08-head', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.55, ease: 'expo.out' }, B.api)
+            tl.fromTo('#s08-kbc', { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power4.out' }, B.api + 0.1)
+            tl.fromTo('#s08-swan', { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power4.out' }, B.api + 0.25)
+            tl.fromTo('#s08-store i', { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.02 }, B.api + 0.6)
+
+            const call = (id, at) => {
+              tl.set(id, { opacity: 1 }, at)
+              tl.fromTo(`${id} .line`, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power3.inOut' }, at)
+              tl.fromTo(`${id} .lbl`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: 'back.out(2)' }, at + 0.25)
+            }
+            // ---- "Push transactions in,"
+            call('#s08-c-post', B.push)
+            pkts.forEach((p, i) => tl.fromTo(p, { x: 0, opacity: 0 }, { x: 560, opacity: 1, duration: 0.8, ease: 'power1.inOut', keyframes: undefined }, B.push + 0.3 + i * 0.2))
+            pkts.forEach((p, i) => tl.to(p, { opacity: 0, duration: 0.15 }, B.push + 1.0 + i * 0.2))
+            // ---- "pull the swan back out."
+            call('#s08-c-get', B.pull)
+            // ---- "Opt-in only."
+            tl.fromTo('#s08-b1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(2)' }, B.optin)
+            // ---- "Deterministic."
+            tl.fromTo('#s08-b2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(2)' }, B.det)
+            tl.fromTo('#s08-swan', { rotationY: 0 }, { rotationY: 360, duration: 0.9, ease: 'power3.inOut' }, B.det + 0.1)
+            // ---- "And opting out deletes everything."
+            call('#s08-c-del', B.del)
+            tl.fromTo('#s08-b3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(2)' }, B.del + 0.4)
+            tl.to('#s08-store i', { opacity: 0, scale: 0, duration: 0.2, stagger: { each: 0.02, from: 'end' }, ease: 'power2.in' }, B.del + 0.6)
+
+            // ---- hand-off to s09: everything lifts away
+            tl.to('#s08-root .arch, #s08-chapter', { opacity: 0, y: -40, duration: 0.35, ease: 'power2.in' }, C.dur - 0.4)
+
+            window.__timelines['s08'] = tl
+          }
+          HF.fontsReady().then(build)
+        })()
+      </script>
+    </template>
+  </body>
+</html>

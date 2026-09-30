@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s07-template">
+      <style>
+        #s07-root { position: absolute; inset: 0; overflow: hidden; background: radial-gradient(1400px 900px at 50% -10%, #0a4f82, #002a50 55%, #001b36); color: #e6f3fb; }
+        #s07-root .rays { position: absolute; left: -200px; top: -300px; width: 2400px; height: 1100px; background: repeating-linear-gradient(100deg, rgba(120, 200, 255, 0) 0 90px, rgba(120, 200, 255, 0.07) 90px 150px, rgba(120, 200, 255, 0) 150px 260px); filter: blur(12px); }
+        #s07-root .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(127, 191, 230, 0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(127, 191, 230, 0.07) 2px, transparent 2px); background-size: 80px 80px; }
+        #s07-root .bub { position: absolute; border-radius: 50%; border: 2px solid rgba(190, 230, 255, 0.35); background: rgba(190, 230, 255, 0.06); }
+        #s07-root .chapter { color: #7fbfe6; }
+
+        #s07-root .title { position: absolute; left: 110px; top: 330px; transform-origin: 0 0; }
+        #s07-root .title .kt { font-size: 170px; color: #fff; }
+        #s07-root .title .badge { margin-top: 26px; display: inline-flex; gap: 14px; align-items: center; padding: 14px 24px; border-radius: 16px; background: rgba(0, 174, 239, 0.14); box-shadow: inset 0 0 0 2px rgba(0, 174, 239, 0.45); font: 500 30px var(--mono); color: #bfe6ff; }
+
+        #s07-root .rail { position: absolute; left: 110px; top: 150px; display: flex; gap: 12px; align-items: center; opacity: 0; }
+        #s07-root .step { display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 2px rgba(127, 191, 230, 0.25); font: 600 25px var(--body); color: #8fb3d0; white-space: nowrap; }
+        #s07-root .step b { font: 700 20px var(--mono); color: #5d88aa; }
+        #s07-root .step.on { background: #00aeef; box-shadow: none; color: #002a50; }
+        #s07-root .step.on b { color: #003665; }
+        #s07-root .step.done { color: #d6ecfb; }
+        #s07-root .rail .arrow { width: 26px; height: 3px; background: rgba(127, 191, 230, 0.35); border-radius: 2px; }
+
+        #s07-root .say { position: absolute; left: 110px; top: 250px; width: 1700px; font-size: 64px; color: #fff; opacity: 0; }
+        #s07-root .say em { font-style: normal; color: #00c2ff; }
+
+        #s07-root .strip { position: absolute; left: 110px; top: 400px; width: 1700px; height: 420px; }
+        #s07-root .bars { position: absolute; left: 0; bottom: 60px; width: 1700px; height: 330px; display: flex; align-items: flex-end; gap: 4px; }
+        #s07-root .bars i { flex: 1; height: 100%; border-radius: 4px 4px 1px 1px; background: #2aaef0; transform-origin: 50% 100%; }
+        #s07-root .bars i.big { background: #ff7b80; }
+        #s07-root .axis { position: absolute; left: 0; right: 0; bottom: 20px; display: flex; justify-content: space-between; font: 500 24px var(--mono); color: #7fa6c6; }
+        #s07-root .axis span:nth-child(2) { color: #d6ecfb; }
+        #s07-root .avg { position: absolute; left: 0; width: 1700px; height: 0; border-top: 5px solid #ffd23f; transform-origin: 0 50%; }
+        #s07-root .avg span { position: absolute; right: 0; top: -58px; padding: 8px 16px; border-radius: 12px; background: #ffd23f; color: #3b2400; font: 700 28px var(--body); white-space: nowrap; }
+        #s07-root .flag { position: absolute; padding: 12px 18px; border-radius: 14px; background: #fff; color: var(--ink); font: 700 26px var(--body); white-space: nowrap; box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6); }
+        #s07-root .flag b { color: #c0343a; }
+        #s07-root .flag small { display: block; font-size: 21px; font-weight: 600; color: var(--ink-2); }
+
+        #s07-root .lanes { position: absolute; left: 110px; top: 620px; width: 1700px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+        #s07-root .lane { padding: 26px 26px 22px; border-radius: 26px; background: rgba(255, 255, 255, 0.07); box-shadow: inset 0 0 0 2px rgba(127, 191, 230, 0.2); opacity: 0; }
+        #s07-root .lane .n { font: 800 64px/1 var(--display); color: #fff; }
+        #s07-root .lane .k { margin-top: 8px; font: 700 30px var(--body); color: #fff; }
+        #s07-root .lane .m { margin-top: 10px; font: 500 22px/1.4 var(--body); color: #9fbdd6; }
+        #s07-root .lane .tag { margin-top: 16px; display: inline-block; padding: 7px 14px; border-radius: 10px; font: 700 20px var(--body); }
+        #s07-root .lane .tag.no { background: rgba(255, 123, 128, 0.16); color: #ffb1b4; }
+        #s07-root .lane .tag.yes { background: #00aeef; color: #002a50; }
+        #s07-root .lane.use { background: rgba(0, 174, 239, 0.16); box-shadow: inset 0 0 0 3px #00aeef; }
+
+        #s07-root .formula { position: absolute; left: 110px; top: 850px; padding: 24px 32px; border-radius: 22px; background: rgba(0, 12, 26, 0.55); box-shadow: inset 0 0 0 2px rgba(127, 191, 230, 0.25); font: 700 44px/1.3 var(--body); color: #fff; opacity: 0; }
+        #s07-root .formula small { display: block; margin-top: 8px; font: 500 24px var(--mono); color: #7fa6c6; }
+        #s07-root .formula b { color: #00c2ff; font-weight: 700; }
+        #s07-root .formula .res { color: #ffd23f; }
+
+        #s07-root .week { position: absolute; left: 110px; top: 360px; width: 1000px; height: 560px; opacity: 0; }
+        #s07-root .wbars { position: absolute; left: 0; bottom: 70px; width: 1000px; height: 400px; display: flex; align-items: flex-end; gap: 24px; }
+        #s07-root .wcol { position: relative; flex: 1; height: 100%; display: flex; align-items: flex-end; }
+        #s07-root .wcol i { display: block; width: 100%; border-radius: 10px 10px 3px 3px; background: #2aaef0; transform-origin: 50% 100%; }
+        #s07-root .wcol.sat i { background: #ffd23f; }
+        #s07-root .wcol span { position: absolute; left: 0; right: 0; text-align: center; font: 700 28px var(--mono); color: #fff; }
+        #s07-root .wlabels { position: absolute; left: 0; bottom: 20px; width: 1000px; display: flex; gap: 24px; }
+        #s07-root .wlabels span { flex: 1; text-align: center; font: 600 28px var(--body); color: #9fbdd6; }
+        #s07-root .wlabels span.sat { color: #ffd23f; }
+        #s07-root .one { position: absolute; left: 0; width: 1000px; border-top: 3px dashed rgba(255, 255, 255, 0.4); }
+        #s07-root .wnote { position: absolute; left: 1160px; top: 440px; width: 650px; font: 500 34px/1.45 var(--body); color: #cfe6f7; opacity: 0; }
+        #s07-root .wnote b { color: #fff; }
+        #s07-root .wnote .mono { display: block; margin-top: 16px; font-size: 26px; color: #7fd3ff; }
+
+        #s07-root .goal { position: absolute; left: 110px; top: 360px; width: 1700px; opacity: 0; }
+        #s07-root .seg { display: inline-grid; grid-template-columns: repeat(3, 250px); gap: 12px; padding: 12px; border-radius: 28px; background: rgba(255, 255, 255, 0.07); }
+        #s07-root .seg div { padding: 20px; border-radius: 20px; text-align: center; font: 700 38px var(--body); color: #9fbdd6; }
+        #s07-root .seg div small { display: block; font-size: 26px; font-weight: 500; }
+        #s07-root .seg div.on { background: #fff; color: var(--kbc-navy); }
+        #s07-root .eq { margin-top: 40px; font: 600 50px/1.4 var(--mono); color: #fff; }
+        #s07-root .eq b { color: #ffd23f; }
+        #s07-root .eq .dim { color: #7fa6c6; }
+        #s07-root .cap { margin-top: 36px; width: 1300px; }
+        #s07-root .cap .track { position: relative; height: 70px; border-radius: 20px; background: rgba(255, 255, 255, 0.08); }
+        #s07-root .cap .fillc { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 20px; background: rgba(0, 174, 239, 0.35); box-shadow: inset 0 0 0 3px #00aeef; transform-origin: 0 50%; }
+        #s07-root .cap .goalm { position: absolute; top: -14px; bottom: -14px; width: 6px; border-radius: 3px; background: #ffd23f; }
+        #s07-root .cap p { margin-top: 18px; font: 500 30px var(--body); color: #cfe6f7; }
+        #s07-root .cap p b { color: #fff; }
+
+        #s07-root .freeze { position: absolute; left: 110px; top: 330px; width: 1700px; opacity: 0; }
+        #s07-root .pcard { position: absolute; left: 0; top: 30px; width: 640px; padding: 34px; border-radius: 30px; background: #fff; color: var(--ink); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7); }
+        #s07-root .pcard .eyebrow { font-size: 22px; }
+        #s07-root .pcard dl { margin-top: 16px; display: grid; gap: 0; }
+        #s07-root .pcard dl div { display: flex; justify-content: space-between; padding: 14px 0; border-top: 2px solid var(--line); font: 500 30px var(--body); }
+        #s07-root .pcard dt { color: var(--ink-2); }
+        #s07-root .pcard dd { font-weight: 700; font-variant-numeric: tabular-nums; }
+        #s07-root .lock { position: absolute; right: -34px; top: -40px; width: 110px; height: 110px; border-radius: 50%; background: #00aeef; display: grid; place-items: center; box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.6); }
+        #s07-root .ratchet { position: absolute; left: 760px; top: 20px; width: 940px; height: 560px; padding: 30px 34px; border-radius: 30px; background: rgba(0, 12, 26, 0.55); box-shadow: inset 0 0 0 2px rgba(127, 191, 230, 0.2); }
+        #s07-root .ratchet .kt { font-size: 44px; color: #fff; }
+        #s07-root .ratchet .leg { margin-top: 12px; display: flex; gap: 30px; font: 600 26px var(--body); color: #cfe6f7; }
+        #s07-root .ratchet .leg span { display: inline-flex; align-items: center; gap: 12px; }
+        #s07-root .ratchet .leg i { width: 30px; height: 6px; border-radius: 3px; }
+      </style>
+
+      <div id="s07-root" class="hf" data-composition-id="s07" data-start="0" data-width="1920" data-height="1080">
+        <div class="rays" id="s07-rays"></div>
+        <div class="grid"></div>
+        <div id="s07-bubbles"></div>
+        <div class="chapter" id="s07-chapter"><b>07</b><i></i>Under the hood</div>
+
+        <div class="title" id="s07-title">
+          <p class="kt"><span id="s07-t1">Under the hood.</span></p>
+          <p class="badge" id="s07-badge">stat-v1 · explainable statistics · no black box</p>
+        </div>
+
+        <div class="rail" id="s07-rail">
+          <span class="step" data-s="0"><b>1</b>90 days</span><span class="arrow"></span>
+          <span class="step" data-s="1"><b>2</b>Sort</span><span class="arrow"></span>
+          <span class="step" data-s="2"><b>3</b>Remove noise</span><span class="arrow"></span>
+          <span class="step" data-s="3"><b>4</b>Baseline + rhythm</span><span class="arrow"></span>
+          <span class="step" data-s="4"><b>5</b>Goal</span><span class="arrow"></span>
+          <span class="step" data-s="5"><b>6</b>Freeze</span>
+        </div>
+
+        <p class="kt say" id="s07-say1">It reads <em>90 days</em> of her KBC history.</p>
+        <p class="kt say" id="s07-say2">Rent, bills and subscriptions: <em>set aside.</em></p>
+        <p class="kt say" id="s07-say3">Big one-offs are <em>noise.</em></p>
+        <p class="kt say" id="s07-say3b">One expensive purchase doesn't change who you are.</p>
+        <p class="kt say" id="s07-say4">Her baseline, and her <em>weekly rhythm.</em></p>
+        <p class="kt say" id="s07-say5">A savings goal she picked. <em>Never more than she can afford.</em></p>
+        <p class="kt say" id="s07-say6">Frozen at opt-in. <em>Saving is never punished.</em></p>
+
+        <div class="strip" id="s07-strip">
+          <div class="bars" id="s07-bars"></div>
+          <div class="axis"><span id="s07-ax0"></span><span id="s07-axm">167 transactions</span><span id="s07-ax1"></span></div>
+          <div class="avg" id="s07-avg"><span id="s07-avglabel"></span></div>
+          <div class="flag" id="s07-ikea"></div>
+        </div>
+
+        <div class="lanes" id="s07-lanes">
+          <div class="lane" id="s07-l0"><p class="n" id="s07-n0">2</p><p class="k">Income</p><p class="m" id="s07-m0"></p><span class="tag no">Only caps the goal</span></div>
+          <div class="lane" id="s07-l1"><p class="n" id="s07-n1">9</p><p class="k">Fixed costs</p><p class="m" id="s07-m1"></p><span class="tag no">Never counted</span></div>
+          <div class="lane" id="s07-l2"><p class="n" id="s07-n2">9</p><p class="k">Subscriptions</p><p class="m" id="s07-m2"></p><span class="tag no">Detected, never counted</span></div>
+          <div class="lane use" id="s07-l3"><p class="n" id="s07-n3">146</p><p class="k">Everyday spending</p><p class="m">groceries, bakery, coffee, going out</p><span class="tag yes">This sets the limit</span></div>
+        </div>
+
+        <div class="formula" id="s07-formula"></div>
+
+        <div class="week" id="s07-week">
+          <div class="one" id="s07-one"></div>
+          <div class="wbars" id="s07-wbars"></div>
+          <div class="wlabels" id="s07-wlabels"></div>
+        </div>
+        <p class="wnote" id="s07-wnote"><b>Smoothed toward average,</b> so one wild weekend doesn't set the rule.<span class="mono" id="s07-wraw"></span></p>
+
+        <div class="goal" id="s07-goal">
+          <div class="seg"><div>Easy<small>save 5%</small></div><div class="on">Normal<small>save 10%</small></div><div>Hard<small>save 20%</small></div></div>
+          <p class="eq" id="s07-eq1"></p>
+          <div class="cap" id="s07-cap">
+            <div class="track"><div class="fillc" id="s07-capfill"></div><div class="goalm" id="s07-goalm"></div></div>
+            <p id="s07-captext"></p>
+          </div>
+        </div>
+
+        <div class="freeze" id="s07-freeze">
+          <div class="pcard" id="s07-pcard">
+            <p class="eyebrow">Sofie's profile · learned 24 July</p>
+            <dl id="s07-pdl"></dl>
+            <span class="lock" id="s07-lock"><svg viewBox="0 0 24 24" width="56" height="56"><path id="s07-shackle" d="M7.5 11V8a4.5 4.5 0 0 1 9 0v3" fill="none" stroke="#002a50" stroke-width="2.4" stroke-linecap="round" /><rect x="5" y="11" width="14" height="10" rx="2.5" fill="#002a50" /></svg></span>
+          </div>
+          <div class="ratchet">
+            <p class="kt">If it re-learned every month…</p>
+            <div class="leg"><span><i style="background: #ff7b80"></i>a saver's limit keeps shrinking</span><span><i style="background: #00c2ff"></i>frozen: stays fair</span></div>
+            <svg id="s07-rsvg" width="872" height="380" style="display: block; margin-top: 16px; overflow: visible"></svg>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s07
+          const B = C.b
+          const M = window.STORY.model
+          const P = M.profile
+          const fmtDate = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+          const addDays = (iso, n) => new Date(Date.parse(iso + 'T00:00:00Z') + n * 864e5).toISOString().slice(0, 10)
+
+          // ---- bubbles (seeded)
+          const rnd = HF.rng(7)
+          const bubbles = document.getElementById('s07-bubbles')
+          const bubs = Array.from({ length: 22 }, () => {
+            const b = document.createElement('i')
+            b.className = 'bub'
+            const s = 10 + rnd() * 26
+            b.style.cssText = `width:${s}px;height:${s}px;left:${rnd() * 1920}px;top:${700 + rnd() * 500}px`
+            bubbles.appendChild(b)
+            return { b, speed: 90 + rnd() * 140, delay: rnd() * 6 }
+          })
+
+          // ---- 90-day strip: her real daily everyday spend, with the one-off put back in
+          const per = M.perDay.slice()
+          const off = M.oneOffs[0]
+          const offIdx = Math.round((Date.parse(off.date) - Date.parse(M.firstDay)) / 864e5)
+          const days = per.map((v, i) => (i === offIdx ? v + -off.amount : v))
+          const cap = 110
+          document.getElementById('s07-bars').innerHTML = days.map((v, i) => `<i class="${i === offIdx ? 'big' : ''}" style="height:${Math.max(1.5, (Math.min(v, cap) / cap) * 100)}%"></i>`).join('')
+          const barEls = [...document.querySelectorAll('#s07-bars i')]
+          document.getElementById('s07-ax0').textContent = fmtDate(M.firstDay)
+          document.getElementById('s07-ax1').textContent = fmtDate(addDays(M.firstDay, days.length - 1))
+          const counts = M.counts
+          const total = Object.values(counts).reduce((a, b) => a + b, 0)
+          document.getElementById('s07-axm').textContent = `${total} transactions · ${P.history_days} days`
+          const barH = 330
+          const avgY = barH + 60 - (P.baseline_daily / cap) * barH
+          const avg = document.getElementById('s07-avg')
+          avg.style.bottom = `${60 + (P.baseline_daily / cap) * barH}px`
+          document.getElementById('s07-avglabel').textContent = `baseline ${HF.money(P.baseline_daily)} a day`
+          const ikea = document.getElementById('s07-ikea')
+          ikea.innerHTML = `${off.merchant} <b>${HF.money(off.amount)}</b><small>one-off: left out of the baseline</small>`
+          ikea.style.left = `${(offIdx / days.length) * 1700 - 40}px`
+          ikea.style.top = `-30px`
+
+          // ---- lanes
+          document.getElementById('s07-n0').textContent = counts.income
+          document.getElementById('s07-m0').textContent = `${M.wage[0].merchant} wage`
+          document.getElementById('s07-n1').textContent = counts.fixed
+          document.getElementById('s07-m1').textContent = 'rent, energy, insurance'
+          document.getElementById('s07-n2').textContent = counts.recurring
+          document.getElementById('s07-m2').textContent = M.recurring.join(', ')
+          document.getElementById('s07-n3').textContent = counts.discretionary
+
+          // ---- noise formula with her real numbers
+          const cfg = M.config
+          const p95x = +(cfg.p95_mult * M.p95).toFixed(2)
+          const tgt3 = +(cfg.target_mult * P.target_daily).toFixed(2)
+          // One plain sentence on screen; the exact rule in small print underneath.
+          document.getElementById('s07-formula').innerHTML =
+            `More than <span class="res">${HF.money(P.large_expense_threshold)}</span> at once = a one-off` +
+            `<small>max( €${cfg.floor}, 1.5 × her usual big buy, 3 × daily goal )</small>`
+
+          // ---- weekday rhythm
+          const WD = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+          const NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          const wmax = 1.8
+          const wh = 400
+          document.getElementById('s07-wbars').innerHTML = WD.map((d) => `<div class="wcol ${d === 'sat' ? 'sat' : ''}"><i style="height:${wh}px"></i><span></span></div>`).join('')
+          document.getElementById('s07-wlabels').innerHTML = NAMES.map((n) => `<span class="${n === 'Sat' ? 'sat' : ''}">${n}</span>`).join('')
+          document.getElementById('s07-one').style.bottom = `${70 + (1 / wmax) * wh}px`
+          const wcols = [...document.querySelectorAll('#s07-wbars .wcol')]
+          document.getElementById('s07-wraw').textContent = `Sun ×${M.rawWeekday.sun.toFixed(2)} → ×${P.weekday_factors.sun.toFixed(2)}`
+
+          // ---- goal maths
+          const H = window.STORY.hero
+          document.getElementById('s07-eq1').innerHTML = `${HF.money(P.baseline_daily)} × (1 − 10%) = <b>${HF.money(P.target_daily)}</b> <span class="dim">a day</span>`
+          document.getElementById('s07-captext').innerHTML = `Cap: 90% of (income − fixed costs) = <b>${HF.money(P.affordable_daily)}</b> a day. Her goal fits.`
+          const capMax = 50
+          gsap.set('#s07-goalm', { left: `${(P.target_daily / capMax) * 100}%` })
+
+          // ---- frozen profile vs ratchet
+          const rows = [
+            ['Baseline', `${HF.money(P.baseline_daily)} a day`],
+            ['Savings goal', '−10%'],
+            ['Daily goal', HF.money(P.target_daily)],
+            ['One-off above', HF.money(P.large_expense_threshold)],
+            ['Weekday range', `×${Math.min(...Object.values(P.weekday_factors)).toFixed(2)} to ×${Math.max(...Object.values(P.weekday_factors)).toFixed(2)}`],
+          ]
+          document.getElementById('s07-pdl').innerHTML = rows.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join('')
+          // A saver who spends 80% of their limit; re-learning each month would set next month's
+          // baseline to what they spent: the limit ratchets down 20% (x 0.9 goal) every month.
+          const months = 6
+          const re = Array.from({ length: months }, (_, i) => P.target_daily * Math.pow(0.8, i))
+          const fr = Array.from({ length: months }, () => P.target_daily)
+          const RW = 872
+          const RH = 380
+          const rx = (i) => (i / (months - 1)) * (RW - 60) + 20
+          const ry = (v) => RH - 30 - (v / 25) * (RH - 60)
+          const step = (arr) => arr.map((v, i) => (i ? `${rx(i)},${ry(arr[i - 1])} ${rx(i)},${ry(v)}` : `${rx(0)},${ry(v)}`)).join(' ')
+          document.getElementById('s07-rsvg').innerHTML =
+            `<polyline class="rl" points="${step(re)}" fill="none" stroke="#ff7b80" stroke-width="6" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>` +
+            `<polyline class="rl" points="${step(fr)}" fill="none" stroke="#00c2ff" stroke-width="6" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>` +
+            ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((m, i) => `<text x="${rx(i)}" y="${RH + 6}" text-anchor="middle" font-family="Onest" font-size="22" fill="#7fa6c6">${m}</text>`).join('')
+
+          const tl = gsap.timeline({ paused: true })
+          const drv = HF.driver(tl)
+
+          // ---- ambient
+          tl.fromTo('#s07-rays', { x: -60 }, { x: 60, duration: C.dur, ease: 'sine.inOut' }, 0)
+          bubs.forEach(({ b, speed, delay }) => tl.fromTo(b, { y: 0, opacity: 0 }, { y: -speed * (C.dur - delay), opacity: 0.9, duration: C.dur - delay, ease: 'none' }, delay))
+          tl.fromTo('#s07-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.2)
+
+          // ---- "Under the hood? No black box."
+          tl.fromTo('#s07-t1', { opacity: 0, y: 80, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'expo.out' }, B.hood)
+          tl.fromTo('#s07-badge', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.5, ease: 'back.out(1.6)' }, B.nobox)
+          tl.to('#s07-title', { opacity: 0, y: -80, duration: 0.4, ease: 'power2.in' }, B.history - 0.35)
+
+          // ---- the rail: which step is on
+          const steps = [...document.querySelectorAll('#s07-rail .step')]
+          const stepAt = [B.history, B.aside, B.noise, B.baseline, B.save, B.freeze]
+          tl.fromTo('#s07-rail', { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, B.history - 0.1)
+          drv.add((t) => steps.forEach((s, i) => {
+            const on = t >= stepAt[i] && (i === steps.length - 1 || t < stepAt[i + 1])
+            s.classList.toggle('on', on)
+            s.classList.toggle('done', t >= (stepAt[i + 1] ?? 1e9))
+          }))
+          const say = (id, at, until) => {
+            tl.fromTo(id, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.55, ease: 'expo.out' }, at)
+            tl.to(id, { opacity: 0, y: -30, duration: 0.28, ease: 'power2.in' }, until - 0.3)
+          }
+
+          // ---- 1. "The model reads 90 days of history."
+          say('#s07-say1', B.history, B.aside)
+          tl.fromTo('#s07-strip', { opacity: 0 }, { opacity: 1, duration: 0.3 }, B.history)
+          tl.fromTo(barEls, { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: 'back.out(1.7)', stagger: 0.012 }, B.history + 0.1)
+
+          // ---- 2. "It sets aside rent, bills and subscriptions."
+          say('#s07-say2', B.aside, B.noise)
+          tl.to('#s07-strip', { y: -40, scale: 0.55, transformOrigin: '0% 0%', duration: 0.7, ease: 'power3.inOut' }, B.aside - 0.2)
+          ;[0, 1, 2, 3].forEach((i) => tl.fromTo(`#s07-l${i}`, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power4.out' }, B.aside + 0.2 + i * 0.25))
+          tl.to(['#s07-l0', '#s07-l1', '#s07-l2'], { opacity: 0.45, duration: 0.5, ease: 'sine.inOut' }, B.aside + 1.9)
+          tl.to('#s07-lanes', { opacity: 0, y: 40, duration: 0.35, ease: 'power2.in' }, B.noise - 0.35)
+
+          // ---- 3. "It flags big one-offs as noise..."
+          say('#s07-say3', B.noise, B.because)
+          tl.to('#s07-strip', { y: 0, scale: 1, duration: 0.7, ease: 'power3.inOut' }, B.noise - 0.3)
+          tl.fromTo('#s07-formula', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'expo.out' }, B.noise + 0.5)
+          tl.fromTo('#s07-ikea', { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(2)' }, B.noise + 1.4)
+          tl.fromTo(barEls[offIdx], { scaleY: 1 }, { scaleY: 1.06, duration: 0.18, yoyo: true, repeat: 3, ease: 'sine.inOut' }, B.noise + 1.3)
+          // "...because one expensive purchase doesn't change who you are": out it goes.
+          say('#s07-say3b', B.because, B.baseline)
+          tl.to('#s07-formula', { opacity: 0, y: -20, duration: 0.3 }, B.because - 0.2)
+          tl.to(barEls[offIdx], { scaleY: 0.04, opacity: 0.35, duration: 0.7, ease: 'power3.inOut' }, B.because + 0.6)
+          tl.to('#s07-ikea', { y: -70, opacity: 0, duration: 0.7, ease: 'power3.in' }, B.because + 0.6)
+
+          // ---- 4. "It learns your baseline, and your weekly rhythm..."
+          say('#s07-say4', B.baseline, B.save)
+          tl.fromTo('#s07-avg', { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: 'power3.inOut' }, B.baseline + 0.1)
+          tl.fromTo('#s07-avglabel', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: 'back.out(2)' }, B.baseline + 0.8)
+          tl.to('#s07-strip', { opacity: 0, y: -40, duration: 0.4, ease: 'power2.in' }, B.baseline + 1.9)
+          tl.fromTo('#s07-week', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.baseline + 2.2)
+          // Raw weekday ratios, then shrunk toward 1: the model's real factors.
+          const wShrink = B.baseline + 3.4
+          drv.add((t) => {
+            const grow = HF.prog(t, B.baseline + 2.3, 0.7, 'back.out(1.4)')
+            const shrink = HF.prog(t, wShrink, 0.9, 'power3.inOut')
+            wcols.forEach((c, i) => {
+              const raw = M.rawWeekday[WD[i]]
+              const fin = P.weekday_factors[WD[i]]
+              const v = (raw + (fin - raw) * shrink) * grow
+              c.querySelector('i').style.transform = `scaleY(${v / wmax})`
+              const lab = c.querySelector('span')
+              lab.textContent = `×${(raw + (fin - raw) * shrink).toFixed(2)}`
+              lab.style.bottom = `${(v / wmax) * wh + 12}px`
+              lab.style.opacity = shrink > 0.95 ? 1 : 0
+            })
+          })
+          tl.fromTo('#s07-wnote', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, wShrink)
+          // "more room on Saturdays"
+          tl.fromTo(wcols[5], { y: 0 }, { y: -18, duration: 0.25, yoyo: true, repeat: 1, ease: 'power2.out' }, B.saturday + 0.4)
+          tl.to(['#s07-week', '#s07-wnote'], { opacity: 0, y: -30, duration: 0.35, ease: 'power2.in' }, B.save - 0.35)
+
+          // ---- 5. "Then it asks you to save 5, 10 or 20%. Never more than your income allows."
+          say('#s07-say5', B.save, B.freeze)
+          tl.fromTo('#s07-goal', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.save)
+          tl.fromTo('#s07-eq1', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, B.save + 1.2)
+          tl.fromTo('#s07-cap', { opacity: 0 }, { opacity: 1, duration: 0.4 }, B.cap)
+          tl.fromTo('#s07-capfill', { scaleX: 0, width: `${(P.affordable_daily / capMax) * 100}%` }, { scaleX: 1, duration: 0.8, ease: 'power3.out' }, B.cap + 0.1)
+          tl.fromTo('#s07-goalm', { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.35, ease: 'back.out(2)' }, B.cap + 0.8)
+          tl.to('#s07-goal', { opacity: 0, y: -30, duration: 0.35, ease: 'power2.in' }, B.freeze - 0.35)
+
+          // ---- 6. "And it freezes that profile, so saving is never punished with a tighter limit."
+          say('#s07-say6', B.freeze, C.dur + 1)
+          tl.fromTo('#s07-freeze', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.freeze)
+          tl.fromTo('#s07-lock', { scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.5, ease: 'back.out(2.4)' }, B.freeze + 0.5)
+          tl.fromTo('#s07-shackle', { y: -5 }, { y: 0, duration: 0.2, ease: 'power4.in' }, B.freeze + 1.0)
+          tl.to('#s07-rsvg .rl', { strokeDashoffset: 0, duration: 2.2, ease: 'power1.inOut', stagger: 0.2 }, B.freeze + 1.1)
+
+          window.__timelines['s07'] = tl
+        })()
+      </script>
+    </template>
+  </body>
+</html>

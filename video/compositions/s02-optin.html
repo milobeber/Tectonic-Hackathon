@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template id="s02-template">
+      <style>
+        #s02-root { position: absolute; inset: 0; overflow: hidden; background: var(--k-page); }
+        #s02-root .grid { position: absolute; inset: -60px; background-image: radial-gradient(rgba(13, 42, 80, 0.13) 1.6px, transparent 1.8px); background-size: 34px 34px; }
+        #s02-root .glow { position: absolute; left: -200px; top: 60px; width: 1300px; height: 1000px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 151, 219, 0.2), transparent); }
+        #s02-root .glow-sky { position: absolute; right: -300px; top: -200px; width: 1400px; height: 1400px; border-radius: 50%; background: radial-gradient(closest-side, rgba(42, 174, 240, 0.28), rgba(207, 238, 255, 0.18) 60%, transparent); opacity: 0; }
+        #s02-root .chapter { color: var(--k-text-light); }
+        #s02-root .stage3d { position: absolute; inset: 0; perspective: 1800px; }
+        #s02-root .phone-slot { left: 300px; top: 106px; }
+        #s02-root .copy { position: absolute; left: 860px; top: 0; width: 980px; height: 1080px; }
+        #s02-root .beat { position: absolute; left: 0; top: 0; width: 980px; height: 1080px; display: flex; flex-direction: column; justify-content: center; opacity: 0; }
+
+        #s02-root .what { font: 800 96px/1.02 var(--k-font); letter-spacing: -0.035em; color: var(--k-navy); }
+        #s02-root .what em { font-style: normal; color: var(--k-blue); }
+
+        #s02-root .meet-row { display: flex; align-items: center; gap: 34px; }
+        #s02-root .meet-row .kt { font-size: 168px; color: var(--kbc-navy); }
+        #s02-root .meet-sub { margin-top: 34px; display: flex; align-items: center; gap: 18px; font: 600 44px/1.2 var(--body); color: var(--ink-2); }
+        #s02-root .meet-sub .tabchip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 22px 10px 16px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 3px var(--k-blue), 0 14px 30px -12px rgba(0, 110, 170, 0.5); color: var(--k-navy); font: 800 34px var(--k-font); }
+        #s02-root .meet-sub .tabchip svg { color: var(--k-blue); }
+
+        #s02-root .title { font-size: 100px; color: var(--kbc-navy); }
+        #s02-root .opts { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 12px; border-radius: 30px; background: #fff; box-shadow: 0 20px 50px -30px rgba(0, 54, 101, 0.5); }
+        #s02-root .opt { display: grid; gap: 6px; padding: 26px 10px; border-radius: 22px; text-align: center; font: 700 40px var(--body); color: var(--ink-2); }
+        #s02-root .opt small { font-size: 26px; font-weight: 500; }
+        #s02-root .opt.on { background: var(--kbc-navy); color: #fff; }
+
+        #s02-root .funds-big { margin-top: 50px; display: grid; gap: 16px; }
+        #s02-root .fund-big { display: flex; align-items: center; gap: 24px; padding: 26px 30px; border-radius: 24px; background: #fff; box-shadow: inset 0 0 0 3px var(--line); font: 600 38px var(--body); color: var(--ink); }
+        #s02-root .fund-big .dot { width: 30px; height: 30px; border-radius: 50%; box-shadow: inset 0 0 0 3px #b9c8d6; flex: none; }
+        #s02-root .fund-big .name { flex: 1; }
+        #s02-root .fund-big .risk { display: flex; gap: 5px; }
+        #s02-root .fund-big .risk i { width: 12px; height: 28px; border-radius: 4px; background: var(--line); }
+        #s02-root .fund-big .risk i.lit { background: var(--kbc-navy); }
+        #s02-root .fund-big.on { background: #f2fbff; box-shadow: inset 0 0 0 4px var(--kbc-sky); }
+        #s02-root .fund-big.on .dot { box-shadow: inset 0 0 0 9px var(--kbc-navy); }
+        #s02-root .fund-note { margin-top: 20px; font: 500 28px var(--body); color: var(--ink-2); }
+
+        #s02-root .consent-big { margin-top: 50px; display: flex; gap: 28px; align-items: flex-start; padding: 32px 36px; border-radius: 26px; background: #fff; box-shadow: 0 20px 50px -30px rgba(0, 54, 101, 0.5); font: 500 36px/1.4 var(--body); color: var(--ink-2); }
+        #s02-root .box { position: relative; flex: none; width: 56px; height: 56px; margin-top: 4px; border-radius: 12px; box-shadow: inset 0 0 0 4px #9fb2c4; }
+        #s02-root .box .fill { position: absolute; inset: 0; border-radius: 12px; background: var(--kbc-navy); }
+        #s02-root .box svg { position: absolute; inset: 0; }
+        #s02-root .api { margin-top: 34px; display: inline-flex; align-items: center; gap: 18px; align-self: flex-start; padding: 14px 22px; border-radius: 14px; background: var(--deep-2); color: #cfe6f7; font: 500 27px var(--mono); }
+        #s02-root .api b { color: #3ddc97; font-weight: 700; }
+        #s02-root .api .verb { color: var(--kbc-sky); font-weight: 700; }
+
+        #s02-root .hatch-row { display: flex; align-items: center; gap: 30px; }
+        #s02-root .hatch-row .kt { font-size: 124px; color: var(--kbc-navy); }
+        #s02-root .hatch-egg { width: 300px; flex: none; }
+        #s02-root .hatch-egg svg { width: 100%; height: auto; display: block; }
+      </style>
+
+      <div data-hf-id="hf-cgr7" id="s02-root" class="hf" data-composition-id="s02" data-start="0" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-zhjw" class="grid" id="s02-grid"></div>
+        <div data-hf-id="hf-z03o" class="glow" id="s02-glow"></div>
+        <div data-hf-id="hf-9mk3" class="glow-sky" id="s02-glowsky"></div>
+        <div data-hf-id="hf-iw8y" class="chapter" id="s02-chapter"><b data-hf-id="hf-2ll3">02</b><i data-hf-id="hf-wt6k"></i>Opt in</div>
+
+        <div data-hf-id="hf-5t4z" class="stage3d">
+          <div data-hf-id="hf-nfiz" class="phone-slot" id="s02-phone"><div data-hf-id="hf-8htt" class="phone-shadow"></div></div>
+        </div>
+
+        <div data-hf-id="hf-bdx3" class="copy">
+          <div data-hf-id="hf-6t8p" class="beat" id="s02-b-what"><p data-hf-id="hf-th6p" class="what">What if your bank could help you <em data-hf-id="hf-o04w">before</em>?</p></div>
+
+          <div data-hf-id="hf-peda" class="beat" id="s02-b-meet">
+            <div data-hf-id="hf-lflq" class="meet-row"><span data-hf-id="hf-gr1l" id="s02-logo"></span><span data-hf-id="hf-e661" class="kt" id="s02-name">Plume</span></div>
+            <p data-hf-id="hf-zp4m" class="meet-sub" id="s02-sub">A new tab, right inside KBC Mobile <span data-hf-id="hf-85u7" class="tabchip" id="s02-tabchip"></span></p>
+          </div>
+
+          <div data-hf-id="hf-1i1i" class="beat" id="s02-b-ch">
+            <p data-hf-id="hf-iawl" class="kt title">Choose your challenge.</p>
+            <div data-hf-id="hf-a4xe" class="opts">
+              <div data-hf-id="hf-l3eb" class="opt" id="s02-o-easy">Easy<small data-hf-id="hf-hjn9">Save 5%</small></div>
+              <div data-hf-id="hf-5b75" class="opt" id="s02-o-normal">Normal<small data-hf-id="hf-8jb9">Save 10%</small></div>
+              <div data-hf-id="hf-ljpx" class="opt" id="s02-o-hard">Hard<small data-hf-id="hf-6g50">Save 20%</small></div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-xu3a" class="beat" id="s02-b-fund">
+            <p data-hf-id="hf-y0uh" class="kt title">Pick where your savings grow.</p>
+            <div data-hf-id="hf-7ej5" class="funds-big">
+              <div data-hf-id="hf-8566" class="fund-big" id="s02-f0"><span data-hf-id="hf-9gry" class="dot"></span><span data-hf-id="hf-bjr4" class="name">Sustainable Defensive</span><span data-hf-id="hf-zqu8" class="risk"><i data-hf-id="hf-h1kv" class="lit"></i><i data-hf-id="hf-xfsv" class="lit"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i></span></div>
+              <div data-hf-id="hf-c3a7" class="fund-big" id="s02-f1"><span data-hf-id="hf-zcc2" class="dot"></span><span data-hf-id="hf-zlv7" class="name">Sustainable Balanced</span><span data-hf-id="hf-nxy0" class="risk"><i data-hf-id="hf-x1hu" class="lit"></i><i data-hf-id="hf-wn6t" class="lit"></i><i data-hf-id="hf-zfc0" class="lit"></i><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i><i data-hf-id="hf-2krg"></i></span></div>
+              <div data-hf-id="hf-3fec" class="fund-big" id="s02-f2"><span data-hf-id="hf-zqn3" class="dot"></span><span data-hf-id="hf-i8x8" class="name">Sustainable Dynamic</span><span data-hf-id="hf-mr0x" class="risk"><i data-hf-id="hf-z10z" class="lit"></i><i data-hf-id="hf-ympy" class="lit"></i><i data-hf-id="hf-y8ex" class="lit"></i><i data-hf-id="hf-unno" class="lit"></i><i data-hf-id="hf-oz7w"></i><i data-hf-id="hf-okwv"></i><i data-hf-id="hf-o6lu"></i></span></div>
+            </div>
+            <p data-hf-id="hf-k2ys" class="fund-note">KBC funds, risk class out of 7</p>
+          </div>
+
+          <div data-hf-id="hf-cssy" class="beat" id="s02-b-opt">
+            <p data-hf-id="hf-0gvw" class="kt title">One tap to opt in.</p>
+            <div data-hf-id="hf-aeqz" class="consent-big">
+              <span data-hf-id="hf-2l5s" class="box"><span data-hf-id="hf-5ue2" class="fill" id="s02-boxfill"></span><svg data-hf-id="hf-tdp7" viewBox="0 0 56 56"><path data-hf-id="hf-0hu0" id="s02-tick" d="M15 29l9 9 18-20" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" /></svg></span>
+              <span data-hf-id="hf-fpao">Use my KBC transactions to set my daily limit. I can stop any time.</span>
+            </div>
+            <p data-hf-id="hf-qfsw" class="api" id="s02-api"><span data-hf-id="hf-xojr" class="verb">PUT</span> /v1/users/sofie/enrollment <b data-hf-id="hf-q0xa" id="s02-ok">200 OK</b></p>
+          </div>
+
+          <div data-hf-id="hf-7q93" class="beat" id="s02-b-hatch">
+            <div data-hf-id="hf-x2b1" class="hatch-row"><span data-hf-id="hf-rjz1" class="kt">…and hatch your swan.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s02
+          const B = C.b
+          const slot = document.getElementById('s02-phone')
+          const shadow = slot.querySelector('.phone-shadow')
+          const device = HF.phoneWith(slot, KBC.home(KBC.TX, { swanTip: true }))
+          slot.prepend(shadow)
+          const bar = KBC.tabbar(device, 'start', false)
+          const status = device.querySelector('.statusbar')
+          status.classList.add('statusbar--solid')
+          const dscreen = device.querySelector('.device-screen')
+          dscreen.insertAdjacentHTML('beforeend', KBC.fab() + '<span class="touch"></span>')
+          const fab = dscreen.querySelector('.kbc-fab')
+          const dot = dscreen.querySelector('.touch')
+          const home = device.querySelector('.kbc-home')
+          const rows = [...home.querySelectorAll('.kbc-tx-row')]
+          const tip = home.querySelector('[data-swan-tip]')
+          const swanTab = bar.querySelector('.tab--swan')
+          swanTab.insertAdjacentHTML('beforeend', '<i class="tab-badge"></i>')
+          document.getElementById('s02-logo').innerHTML = HF.logo(150)
+          document.getElementById('s02-tabchip').innerHTML = swanTab.querySelector('svg').outerHTML + 'Plume'
+
+          // The real opt-in screen, pushed in from the right when the card is tapped.
+          const optWrap = HF.addScreen(device, 'optin')
+          const opt = optWrap.firstElementChild
+          const seg = [...opt.querySelectorAll('.segmented button')]
+          const funds = [...opt.querySelectorAll('.fund')]
+          const consent = opt.querySelector('.consent input')
+          const cta = opt.querySelector('.cta')
+          const content = device.querySelector('.device-content')
+
+          const build = () => {
+            const tl = gsap.timeline({ paused: true })
+            const drv = HF.driver(tl)
+
+            // Layout, measured once on an off-canvas clone of the phone.
+            const L = HF.measure(slot, (c) => {
+              const h = c.querySelector('.kbc-home')
+              const t = c.querySelector('[data-swan-tip]')
+              const w = c.querySelector('.hf-screen')
+              const o = w.firstElementChild
+              const segs = [...o.querySelectorAll('.segmented button')]
+              return {
+                tipY: HF.pos(t, h).y,
+                tryIt: HF.pos(t.querySelector('.kbc-tip-cta'), h),
+                segY: HF.pos(o.querySelector('.segmented'), w).y,
+                hard: HF.pos(segs[2], w),
+                normal: HF.pos(segs[1], w),
+                fundBal: HF.pos(o.querySelectorAll('.fund')[1], w),
+                box: HF.pos(o.querySelector('.consent input'), w),
+                cta: HF.pos(o.querySelector('.cta'), w),
+              }
+            })
+            const homeScroll = -(L.tipY - 330)
+            const optScroll1 = -(L.segY - 250)
+            const optScroll2 = -(L.cta.y - 600)
+
+            // ---- pose carried over from s01
+            gsap.set(slot, { rotationY: 8, rotationX: 2, y: -8, opacity: 1 })
+            gsap.set(home, { y: -150 })
+            gsap.set(rows, { opacity: 0.42 })
+            gsap.set(dscreen, { filter: 'grayscale(0.85)' })
+            gsap.set(tip, { opacity: 0, y: 30, scale: 0.94 })
+            gsap.set(optWrap, { xPercent: 100 })
+
+            tl.fromTo('#s02-grid', { x: -34, y: -34 }, { x: -80, y: -80, duration: C.dur, ease: 'none' }, 0)
+
+            // ---- "What if your bank could help you before?"
+            tl.to(dscreen, { filter: 'grayscale(0)', duration: 1.2, ease: 'sine.inOut' }, B.what)
+            tl.to(rows, { opacity: 1, duration: 1.0, ease: 'sine.out', stagger: 0.015 }, B.what)
+            tl.fromTo('#s02-b-what', { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, B.what + 0.05)
+            tl.fromTo('#s02-b-what em', { color: '#0d2a50' }, { color: '#0097db', duration: 0.5, ease: 'power1.inOut' }, B.what + 1.4)
+
+            // ---- "Meet Plume": the card lands in For you
+            tl.to('#s02-b-what', { opacity: 0, y: -60, duration: 0.3, ease: 'power2.in' }, B.meet - 0.3)
+            tl.fromTo('#s02-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, B.meet)
+            tl.set('#s02-b-meet', { opacity: 1 }, B.meet)
+            tl.fromTo('#s02-logo', { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.7, ease: 'back.out(2)' }, B.meet)
+            tl.fromTo('#s02-name', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.9, ease: 'expo.out' }, B.plume - 0.05)
+            tl.fromTo('#s02-glowsky', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'sine.out' }, B.meet)
+            tl.to(home, { y: homeScroll, duration: 0.9, ease: 'power3.inOut' }, B.meet - 0.2)
+            tl.to(tip, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.8)' }, B.card)
+
+            // ---- "A new tab, right inside KBC Mobile."
+            tl.fromTo('#s02-sub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, B.tab)
+            tl.fromTo(swanTab, { width: 0, opacity: 0 }, { width: 70, opacity: 1, duration: 0.55, ease: 'back.out(1.6)' }, B.tab + 0.1)
+            tl.fromTo(swanTab.querySelector('svg'), { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: 'back.out(2.4)' }, B.tab + 0.2)
+            tl.fromTo(swanTab.querySelector('.tab-badge'), { scale: 0 }, { scale: 1, duration: 0.3, ease: 'back.out(3)' }, B.tab + 0.6)
+            tl.fromTo('#s02-tabchip', { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(2)' }, B.tab + 0.35)
+
+            // The phone turns to face us for the taps.
+            tl.to(slot, { rotationY: 0, rotationX: 0, y: 0, x: 40, scale: 1.04, duration: 1.2, ease: 'power3.inOut' }, B.tab - 0.3)
+
+            // ---- tap "Try it": the opt-in screen pushes in
+            HF.tap(tl, dot, L.tryIt.cx, L.tryIt.cy + homeScroll, B.tapCard)
+            tl.to(tip.querySelector('.kbc-tip-cta'), { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1, ease: 'power1.inOut' }, B.tapCard - 0.05)
+            tl.to(home, { xPercent: -28, opacity: 0.6, duration: 0.55, ease: 'power3.inOut' }, B.tapCard + 0.15)
+            tl.to(fab, { opacity: 0, duration: 0.2 }, B.tapCard + 0.15)
+            tl.to(optWrap, { xPercent: 0, duration: 0.55, ease: 'power3.inOut' }, B.tapCard + 0.15)
+            drv.add((t) => status.classList.toggle('statusbar--solid', t < B.tapCard + 0.4 || t >= B.challenge - 0.3))
+            HF.classAt(drv, swanTab, 'tab--on', B.tapCard + 0.2)
+            HF.classAt(drv, bar.querySelector('.tab--start'), 'tab--on', -1, B.tapCard + 0.2)
+            tl.to(swanTab.querySelector('.tab-badge'), { scale: 0, duration: 0.2 }, B.tapCard + 0.2)
+            tl.to('#s02-b-meet', { opacity: 0, y: -60, duration: 0.3, ease: 'power2.in' }, B.challenge - 0.35)
+
+            // ---- "Choose your challenge."
+            tl.to(optWrap, { y: optScroll1, duration: 0.8, ease: 'power3.inOut' }, B.challenge - 0.6)
+            tl.fromTo('#s02-b-ch', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.challenge)
+            tl.fromTo('#s02-b-ch .opt', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out', stagger: 0.08 }, B.challenge + 0.15)
+            // Hard first, then settle on Normal.
+            HF.tap(tl, dot, L.hard.cx, L.hard.cy + optScroll1, B.challenge + 0.7)
+            HF.tap(tl, dot, L.normal.cx, L.normal.cy + optScroll1, B.challenge + 1.45)
+            drv.add((t) => {
+              const pick = t >= B.challenge + 1.45 ? 1 : t >= B.challenge + 0.7 ? 2 : 1
+              seg.forEach((b, i) => b.classList.toggle('on', i === pick))
+              ;['easy', 'normal', 'hard'].forEach((k, i) => document.getElementById('s02-o-' + k).classList.toggle('on', i === pick && t >= B.challenge + 0.5))
+            })
+            tl.to('#s02-b-ch', { opacity: 0, y: -60, duration: 0.3, ease: 'power2.in' }, B.fund - 0.35)
+
+            // ---- "Choose the fund where your savings will grow."
+            tl.fromTo('#s02-b-fund', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.fund)
+            tl.fromTo('#s02-b-fund .fund-big', { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power4.out', stagger: 0.07 }, B.fund + 0.12)
+            HF.tap(tl, dot, L.fundBal.cx, L.fundBal.cy + optScroll1, B.fund + 0.9)
+            drv.add((t) => {
+              funds.forEach((f, i) => f.classList.toggle('on', i === 1))
+              document.getElementById('s02-f1').classList.toggle('on', t >= B.fund + 0.9)
+            })
+            tl.to('#s02-b-fund', { opacity: 0, y: -60, duration: 0.3, ease: 'power2.in' }, B.optin - 0.35)
+
+            // ---- "One tap to opt in..."
+            tl.to(optWrap, { y: optScroll2, duration: 0.8, ease: 'power3.inOut' }, B.optin - 0.7)
+            tl.fromTo('#s02-b-opt', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.optin)
+            HF.tap(tl, dot, L.box.cx, L.box.cy + optScroll2, B.optin + 0.5)
+            tl.fromTo('#s02-boxfill', { scale: 0 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' }, B.optin + 0.5)
+            tl.fromTo('#s02-tick', { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.3, ease: 'power2.out' }, B.optin + 0.62)
+            tl.fromTo('#s02-api', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: 'power3.out' }, B.optin + 1.0)
+            tl.fromTo('#s02-ok', { opacity: 0 }, { opacity: 1, duration: 0.2 }, B.optin + 1.5)
+            drv.add((t) => {
+              const on = t >= B.optin + 0.5
+              consent.checked = on
+              cta.disabled = !on
+            })
+            tl.to('#s02-b-opt', { opacity: 0, y: -60, duration: 0.3, ease: 'power2.in' }, B.hatch - 0.35)
+
+            // ---- "...and hatch your swan."
+            tl.fromTo('#s02-b-hatch', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: 'expo.out' }, B.hatch)
+            HF.tap(tl, dot, L.cta.cx, L.cta.cy + optScroll2, B.hatch + 0.4)
+            tl.to(cta, { scale: 0.97, duration: 0.1, yoyo: true, repeat: 1 }, B.hatch + 0.35)
+            drv.add((t) => (cta.textContent = t >= B.hatch + 0.45 ? 'Hatching…' : 'Hatch my swan'))
+            // Hand-off to s03: the copy clears, the phone holds.
+            tl.to(['#s02-b-hatch', '#s02-chapter'], { opacity: 0, y: -50, filter: 'blur(8px)', duration: 0.35, ease: 'power2.in' }, C.dur - 0.4)
+
+            window.__timelines['s02'] = tl
+          }
+          HF.fontsReady().then(build)
+        })()
+      </script>
+    </template>
+  </body>
+</html>

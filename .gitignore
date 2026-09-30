@@ -7,3 +7,13 @@ backend/data/
 .env
 .DS_Store
 node_modules/
+.env.*
+!.env.example
+
+# Video: caches and render output (regenerate with npm run build / hyperframes render)
+video/renders/
+video/snapshots/
+video/.thumbnails/
+video/.waveform-cache/
+video/.hyperframes/preview/
+video/build/.out/

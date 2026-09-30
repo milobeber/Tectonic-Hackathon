@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s03-template">
+      <style>
+        #s03-root { position: absolute; inset: 0; overflow: hidden; background: var(--k-page); }
+        #s03-root .grid { position: absolute; inset: -60px; background-image: radial-gradient(rgba(13, 42, 80, 0.13) 1.6px, transparent 1.8px); background-size: 34px 34px; }
+        #s03-root .cam { position: absolute; inset: 0; transform-origin: 547px 463px; }
+        #s03-root .stage3d { position: absolute; inset: 0; perspective: 1800px; }
+        #s03-root #s03-phone { left: 300px; top: 106px; }
+        #s03-root .world { z-index: 5; }
+        #s03-root .flash { position: absolute; left: 547px; top: 463px; width: 2600px; height: 2600px; margin: -1300px 0 0 -1300px; border-radius: 50%; background: radial-gradient(closest-side, #fff 0, #fff 18%, rgba(255, 255, 255, 0.85) 34%, rgba(255, 255, 255, 0) 70%); z-index: 8; opacity: 0; pointer-events: none; }
+        #s03-root .crack { fill: none; stroke: #e8f6ff; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+
+        #s03-root .over { position: absolute; inset: 0; z-index: 10; }
+        #s03-root .chapter { color: #fff; text-shadow: 0 2px 12px rgba(0, 40, 80, 0.3); }
+        #s03-root .headline { position: absolute; left: 120px; top: 150px; width: 1100px; color: #fff; text-shadow: 0 4px 30px rgba(0, 40, 90, 0.35); }
+        #s03-root .headline .kt { font-size: 136px; }
+        #s03-root .sub { position: absolute; left: 124px; top: 452px; width: 780px; color: #fff; text-shadow: 0 3px 20px rgba(0, 40, 90, 0.4); }
+        #s03-root .sub .kt { font-size: 74px; }
+        #s03-root .nos { position: absolute; left: 124px; top: 660px; display: flex; gap: 22px; }
+        #s03-root .no { position: relative; display: inline-flex; align-items: center; gap: 16px; padding: 18px 28px; border-radius: 20px; background: rgba(0, 38, 76, 0.42); color: #fff; font: 600 36px var(--body); backdrop-filter: blur(10px); }
+        #s03-root .no .strike { position: absolute; left: 18px; right: 18px; top: 50%; height: 5px; margin-top: -2px; border-radius: 3px; background: #ff8a8f; transform-origin: 0 50%; }
+        #s03-root .learned { position: absolute; left: 124px; top: 452px; width: 760px; color: #fff; text-shadow: 0 3px 20px rgba(0, 40, 90, 0.4); }
+        #s03-root .learned .kt { font-size: 74px; }
+        #s03-root .learned .meta { margin-top: 26px; display: inline-flex; gap: 14px; padding: 14px 24px; border-radius: 16px; background: rgba(0, 38, 76, 0.42); font: 500 30px var(--mono); color: #d6ecfb; text-shadow: none; }
+        #s03-root .learned .meta b { color: #fff; }
+
+        #s03-root #s03-phone2 { left: 1330px; top: 106px; z-index: 12; }
+        #s03-root .notif { position: absolute; left: 10px; right: 10px; top: 54px; z-index: 35; display: grid; grid-template-columns: 38px 1fr auto; gap: 10px; align-items: center; padding: 12px 14px; border-radius: 20px; background: rgba(250, 252, 255, 0.94); box-shadow: 0 10px 30px rgba(0, 30, 60, 0.3); font-family: var(--k-font); color: var(--k-navy); }
+        #s03-root .notif .ic { width: 38px; height: 38px; border-radius: 9px; overflow: hidden; }
+        #s03-root .notif .ic svg { width: 38px; height: 38px; display: block; }
+        #s03-root .notif b { display: block; font-size: 14px; font-weight: 800; }
+        #s03-root .notif span { font-size: 13.5px; color: var(--k-text-light); }
+        #s03-root .notif em { font-style: normal; font-size: 12px; color: var(--k-text-light); align-self: start; }
+        #s03-root .chips { position: absolute; inset: 0; z-index: 14; pointer-events: none; }
+        #s03-root .chip { position: absolute; left: 0; top: 0; padding: 12px 20px; border-radius: 999px; background: #fff; color: var(--k-navy); font: 700 26px var(--k-font); white-space: nowrap; box-shadow: 0 10px 26px rgba(0, 40, 80, 0.28); opacity: 0; }
+        #s03-root .chip small { font-size: 22px; color: var(--k-blue-600); margin-left: 10px; }
+      </style>
+
+      <div id="s03-root" class="hf" data-composition-id="s03" data-start="0" data-width="1920" data-height="1080">
+        <div class="grid"></div>
+        <div class="cam" id="s03-cam">
+          <div class="stage3d">
+            <div class="phone-slot" id="s03-phone"></div>
+          </div>
+          <div class="world" id="s03-world"></div>
+        </div>
+        <div class="flash" id="s03-flash"></div>
+
+        <div class="over">
+          <div class="chapter" id="s03-chapter"><b>03</b><i></i>One number a day</div>
+          <div class="headline" id="s03-h1"><p class="line"><span class="kt" id="s03-h1a">One number</span></p><p class="line"><span class="kt" id="s03-h1b">a day.</span></p></div>
+          <div class="sub" id="s03-today"><p class="line"><span class="kt" id="s03-ta">What's left to spend.</span></p><p class="line"><span class="kt" id="s03-tb">Today.</span></p></div>
+          <div class="nos" id="s03-nos">
+            <span class="no" id="s03-no1">No spreadsheets<i class="strike"></i></span>
+            <span class="no" id="s03-no2">No lectures<i class="strike"></i></span>
+          </div>
+          <div class="learned" id="s03-learned">
+            <p class="kt">Learned from your own transactions.</p>
+            <p class="meta"><b>90</b> days of history <b>·</b> <b id="s03-txn">0</b> transactions</p>
+          </div>
+        </div>
+
+        <div class="stage3d" style="z-index: 12">
+          <div class="phone-slot" id="s03-phone2"><div class="phone-shadow"></div></div>
+        </div>
+        <div class="chips" id="s03-chips"></div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s03
+          const B = C.b
+
+          // ---- phone 1: the opt-in screen as s02 left it, then the hatching pond
+          const slot = document.getElementById('s03-phone')
+          const device = HF.phone(slot, 'optin')
+          KBC.tabbar(device, 'swan', true)
+          const status = device.querySelector('.statusbar')
+          const content = device.querySelector('.device-content')
+          const optin = content.firstElementChild
+          const pondWrap = HF.addScreen(device, 'pond_hatching')
+          const pond = pondWrap.firstElementChild
+          const swanBox = pond.querySelector('.world-swan')
+          const egg = swanBox.querySelector('.egg')
+          ;(egg.querySelector('.egg-wobble') || egg).insertAdjacentHTML(
+            'beforeend',
+            '<path class="crack" id="s03-crack" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" d="M 111 98 L 121 106 L 116 114 L 128 121 L 123 131 L 134 138"/>',
+          )
+          // The app draws the egg inside the World SVG (swan frame 330x240); the hatched swan goes in the same frame.
+          swanBox.insertAdjacentHTML('beforeend', `<g id="s03-newswan" opacity="0">${HF.uniq(HF.snip('swan_thriving')).replace('<svg class="swan', '<svg width="330" height="240" class="swan')}</g>`)
+          HF.swanRig(swanBox.querySelector('#s03-newswan'), 0.8)
+          pond.querySelector('.pond-overlay').style.opacity = 0
+
+          // ---- the landscape world, aligned so its swan sits exactly on the phone's swan
+          const world = document.getElementById('s03-world')
+          HF.mount(world, 'world_thriving')
+          HF.swanRig(world, 0.55, 0, 60) // same size as s04, which picks up this shot
+
+          // ---- phone 2: the hero screen, Thursday 24 September, before her first purchase
+          const slot2 = document.getElementById('s03-phone2')
+          const shadow2 = slot2.querySelector('.phone-shadow')
+          const device2 = HF.phone(slot2, 'pond_hero_morning')
+          slot2.prepend(shadow2)
+          KBC.tabbar(device2, 'swan', true)
+          const hero = device2.querySelector('.pond-screen')
+          const whole = hero.querySelector('.hero-whole')
+          const cents = hero.querySelector('.hero-cents')
+          const heroSub = hero.querySelector('.hero-sub')
+          device2.querySelector('.device-screen').insertAdjacentHTML(
+            'beforeend',
+            `<div class="notif" id="s03-notif"><span class="ic"><svg viewBox="0 0 160 160"><rect width="160" height="160" rx="36" fill="#0097db"/><circle cx="80.5" cy="53" r="16" fill="#fff"/><path d="M92.5 66.3c-3.1 3.4-8.6 6.7-15.5 6.7-5.4 0-10.1-2.1-13.1-4.4C46.2 70.4 33 73 33 73v7.2h94V65.4s-16.1-.1-34.5.9z" fill="#fff"/></svg></span><div><b>Card payment</b><span>Bakkerij Mertens · -4,66 EUR</span></div><em>now</em></div>`,
+          )
+
+          const build = () => {
+            const tl = gsap.timeline({ paused: true })
+            const drv = HF.driver(tl)
+
+            const L = HF.measure(slot, (c) => {
+              const o = c.querySelector('.device-content').firstElementChild
+              return { ctaY: HF.pos(o.querySelector('.cta'), o).y }
+            })
+            const optScroll = -(L.ctaY - 600)
+
+            // ---- pose carried over from s02
+            gsap.set('#s03-cam', { transformOrigin: '547px 463px' })
+            gsap.set(slot, { x: 40, scale: 1.04 })
+            gsap.set(optin, { y: optScroll })
+            gsap.set(pondWrap, { xPercent: 100 })
+            gsap.set(world, { x: 48, y: 101, scale: 1.04, clipPath: 'circle(60px at 480px 348px)', opacity: 0 })
+            gsap.set(slot2, { xPercent: 150, rotationY: -30 })
+            drv.add((t) => {
+              status.classList.toggle('statusbar--solid', t < 0.25)
+              optin.querySelector('.cta').textContent = 'Hatching…'
+              optin.querySelector('.consent input').checked = true
+            })
+
+            // ---- the pond slides in, the egg cracks
+            tl.to(optin, { xPercent: -30, duration: 0.5, ease: 'power3.inOut' }, 0.05)
+            tl.to(pondWrap, { xPercent: 0, duration: 0.5, ease: 'power3.inOut' }, 0.05)
+            tl.fromTo(egg, { x: 0 }, { x: 5, duration: 0.05, yoyo: true, repeat: 13, ease: 'sine.inOut' }, B.crack + 0.25)
+            tl.to('#s03-crack', { strokeDashoffset: 0, duration: 0.45, ease: 'power2.in' }, B.crack + 0.3)
+
+            // ---- flash: egg becomes swan, and the world breaks out of the screen
+            const hatch = B.world - 0.25
+            tl.fromTo('#s03-flash', { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' }, hatch - 0.15)
+            tl.to(egg, { opacity: 0, duration: 0.05 }, hatch)
+            tl.fromTo('#s03-newswan', { opacity: 0, scale: 0.6, svgOrigin: '168 196' }, { opacity: 1, scale: 1, svgOrigin: '168 196', duration: 0.6, ease: 'back.out(2.2)' }, hatch)
+            tl.set(world, { opacity: 1 }, hatch + 0.05)
+            tl.to('#s03-flash', { opacity: 0, duration: 0.9, ease: 'power2.out' }, hatch + 0.15)
+            tl.to(world, { clipPath: 'circle(640px at 480px 348px)', duration: 1.2, ease: 'power3.inOut' }, B.world - 0.15)
+            tl.to('#s03-cam', { scale: 1.923, x: 413, y: 233, duration: 1.4, ease: 'expo.inOut' }, B.world)
+            tl.to(slot, { opacity: 0, duration: 0.5, ease: 'power1.in' }, B.world + 0.1)
+
+            // ---- "One number a day."
+            tl.fromTo('#s03-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, B.one)
+            tl.fromTo('#s03-h1a', { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: 'expo.out' }, B.one + 0.2)
+            tl.fromTo('#s03-h1b', { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: 'expo.out' }, B.one + 0.38)
+
+            // ---- the phone comes back, hero number front and centre
+            tl.to(slot2, { xPercent: 0, rotationY: -8, duration: 1.1, ease: 'expo.out' }, B.today - 0.6)
+            tl.fromTo('#s03-ta', { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: 'power4.out' }, B.today)
+            tl.fromTo('#s03-tb', { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: 'back.out(1.6)' }, B.today + 0.55)
+            // A card payment lands: the number ticks down.
+            const pay = B.today + 1.0
+            tl.fromTo('#s03-notif', { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'back.out(1.4)' }, pay)
+            tl.to('#s03-notif', { y: -120, opacity: 0, duration: 0.35, ease: 'power2.in' }, pay + 1.9)
+            const limit = 23.73
+            const spent = 4.66
+            drv.add((t) => {
+              const p = HF.prog(t, pay + 0.35, 0.9, 'power3.out')
+              const left = limit - spent * p
+              const [w, c] = left.toFixed(2).split('.')
+              whole.textContent = w
+              cents.textContent = ',' + c
+              heroSub.textContent = `${HF.money(spent * p)} of ${HF.money(limit)} spent · Thu 24 Sept`
+            })
+            tl.fromTo(hero.querySelector('.hero-num'), { scale: 1 }, { scale: 1.08, duration: 0.18, yoyo: true, repeat: 1, ease: 'power2.out', transformOrigin: '0% 50%' }, pay + 0.35)
+
+            // ---- "No spreadsheets. No lectures."
+            tl.to('#s03-today', { opacity: 0, y: -40, duration: 0.3, ease: 'power2.in' }, B.no + 1.6)
+            tl.fromTo('#s03-no1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, B.no)
+            tl.fromTo('#s03-no1 .strike', { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power2.inOut' }, B.no + 0.45)
+            tl.fromTo('#s03-no2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, B.no + 0.7)
+            tl.fromTo('#s03-no2 .strike', { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power2.inOut' }, B.no + 1.1)
+            tl.to('#s03-nos', { opacity: 0, y: 30, duration: 0.3, ease: 'power2.in' }, B.learned - 0.3)
+
+            // ---- "A daily limit, learned from your own transactions."
+            tl.fromTo('#s03-learned', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.learned)
+            HF.count(drv, document.getElementById('s03-txn'), 0, 167, B.learned + 0.4, 2.4, (v) => Math.round(v), 'power1.out')
+            // Her real transactions fly into the number.
+            const hist = [
+              ['Colruyt', '-41,98'], ['Coffee Lab', '-2,75'], ['Bakkerij Mertens', '-4,96'], ['Aldi', '-34,87'], ['De Lijn', '-8,36'],
+              ['Pizzeria Da Mario', '-24,65'], ['Lidl', '-35,54'], ['Kruidvat', '-12,40'], ['Cafe De Markt', '-20,69'], ['Hema', '-18,20'],
+            ]
+            const chips = document.getElementById('s03-chips')
+            const rnd = HF.rng(24)
+            const target = { x: 1330 + 12 + 90, y: 106 + 12 + 150 }
+            hist.forEach(([m, a], i) => {
+              const el = document.createElement('span')
+              el.className = 'chip'
+              el.innerHTML = `${m}<small>${a} EUR</small>`
+              chips.appendChild(el)
+              const sx = 60 + rnd() * 900
+              const sy = 820 + rnd() * 240
+              const at = B.learned + 0.2 + i * 0.1
+              tl.fromTo(el, { x: sx, y: sy + 80, opacity: 0, scale: 1 }, { x: sx + (rnd() - 0.5) * 60, y: sy, opacity: 1, duration: 0.35, ease: 'power2.out' }, at)
+              tl.to(el, { x: target.x, y: target.y, scale: 0.25, opacity: 0, duration: 0.75, ease: 'power3.in' }, at + 0.45)
+            })
+
+            // ---- hand-off to s04: the phone leaves, the camera pushes onto the swan
+            tl.to(slot2, { xPercent: 160, rotationY: -25, duration: 0.55, ease: 'power3.in' }, C.dur - 0.7)
+            tl.to(['#s03-learned', '#s03-chapter'], { opacity: 0, y: -40, duration: 0.35, ease: 'power2.in' }, C.dur - 0.6)
+            tl.to('#s03-cam', { scale: 1.923 * 1.25, duration: 0.7, ease: 'power2.in' }, C.dur - 0.7)
+            tl.to(world, { filter: 'blur(6px)', duration: 0.3, ease: 'power1.in' }, C.dur - 0.3)
+
+            window.__timelines['s03'] = tl
+          }
+          HF.fontsReady().then(build)
+        })()
+      </script>
+    </template>
+  </body>
+</html>

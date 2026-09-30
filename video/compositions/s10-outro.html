@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s10-template">
+      <style>
+        #s10-root { position: absolute; inset: 0; overflow: hidden; background: #2aaef0; }
+        #s10-root .cam { position: absolute; inset: 0; }
+        #s10-root .space { position: absolute; left: 0; top: 0; width: 960px; height: 540px; }
+        #s10-root .space .pond { height: 540px; }
+        #s10-root .space .pond-clouds { opacity: 0; } /* keep the sky behind the white lockup clean */
+        #s10-root .lock { position: absolute; left: 0; right: 0; top: 120px; display: flex; flex-direction: column; align-items: center; color: #fff; text-shadow: 0 6px 34px rgba(0, 40, 90, 0.35); }
+        #s10-root .mark { display: flex; align-items: center; gap: 36px; }
+        #s10-root .mark .kt { font-size: 220px; }
+        #s10-root .for { margin-top: 18px; display: inline-flex; align-items: center; gap: 18px; padding: 12px 26px 12px 16px; border-radius: 999px; background: #fff; color: var(--k-navy); font: 800 38px var(--k-font); text-shadow: none; box-shadow: 0 20px 40px -20px rgba(0, 40, 90, 0.6); }
+        #s10-root .tag { margin-top: 40px; font-size: 76px; }
+        #s10-root .tag span { display: inline-block; }
+        #s10-root .credit { position: absolute; left: 0; right: 0; bottom: 46px; text-align: center; font: 500 26px var(--body); color: rgba(255, 255, 255, 0.92); text-shadow: 0 2px 10px rgba(0, 40, 90, 0.4); }
+        #s10-root .credit b { font-weight: 700; }
+        #s10-root .end { position: absolute; inset: 0; background: #001b36; opacity: 0; }
+      </style>
+
+      <div id="s10-root" class="hf" data-composition-id="s10" data-start="0" data-width="1920" data-height="1080">
+        <div class="cam" id="s10-cam"><div class="space" id="s10-space"></div></div>
+        <div class="lock">
+          <div class="mark"><span id="s10-logo"></span><span class="kt" id="s10-name">Plume</span></div>
+          <span class="for" id="s10-for"><img src="assets/kbc/kbc-logo.svg" width="64" height="64" alt="" />for KBC Mobile</span>
+          <p class="kt tag"><span id="s10-t1">Spend with intent.</span> <span id="s10-t2">Keep your swan alive.</span></p>
+        </div>
+        <p class="credit" id="s10-credit">A concept by <b>team Black Swans</b> · Tectonic Hackathon · KBC case · every number in this film comes from the real Plume engine</p>
+        <div class="end" id="s10-end"></div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s10
+          const B = C.b
+          const space = document.getElementById('s10-space')
+          HF.mount(space, 'world_thriving')
+          document.getElementById('s10-logo').innerHTML = HF.logo(170)
+          // The sprite swan is tall: keep it small and low on the lake, under the lockup.
+          const rig = HF.swanRig(space, 0.36, 0, 95)
+
+          const tl = gsap.timeline({ paused: true })
+          gsap.set(space, { scale: 2, transformOrigin: '0px 0px' })
+          gsap.set('#s10-cam', { transformOrigin: '960px 0px' })
+
+          // Out of s09's sky curtain: the camera pulls back from the sky to the whole pond.
+          tl.fromTo('#s10-cam', { scale: 1.7 }, { scale: 1.0, duration: 2.6, ease: 'power3.inOut' }, 0)
+          const drv = HF.driver(tl)
+          drv.add((t) => rig(0.36, 90 * (1 - HF.prog(t, 0.2, 3.4, 'power2.out')), 95))
+
+          // ---- "Plume. For KBC."
+          tl.fromTo('#s10-logo', { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.8)' }, B.name)
+          tl.fromTo('#s10-name', { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.9, ease: 'expo.out' }, B.name + 0.1)
+          tl.fromTo('#s10-for', { opacity: 0, y: 24, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(2)' }, B.kbc)
+          // ---- "Spend with intent. Keep your swan alive."
+          tl.fromTo('#s10-t1', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power4.out' }, B.intent)
+          tl.fromTo('#s10-t2', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.alive)
+          tl.fromTo('#s10-credit', { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'sine.out' }, B.alive + 1.0)
+          // A slow settle, then the final fade.
+          tl.to('#s10-cam', { scale: 1.04, duration: C.dur - 2.6, ease: 'sine.inOut' }, 2.6)
+          tl.to('#s10-end', { opacity: 1, duration: 0.9, ease: 'power1.in' }, C.dur - 0.9)
+
+          window.__timelines['s10'] = tl
+        })()
+      </script>
+    </template>
+  </body>
+</html>

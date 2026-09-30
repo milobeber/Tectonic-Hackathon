@@ -135,3 +135,66 @@ def test_deck_cases_tell_their_story(client):
     assert jonas["rewards"]["total_invested"] == 0
     assert all(c["swan_died"] for c in tl["cycles"])
     assert any(e["type"] == "large_expense_unaffordable" for e in jonas["events"])
+
+
+# ---------------------------------------------------------------- hardening
+
+
+def test_security_headers(client):
+    r = client.get("/v1/funds", headers=H)
+    assert r.headers["x-content-type-options"] == "nosniff"
+    assert r.headers["x-frame-options"] == "DENY"
+    assert r.headers["cache-control"] == "no-store"
+    assert "default-src 'none'" in r.headers["content-security-policy"]
+    assert "content-security-policy" not in client.get("/docs").headers
+
+
+def test_cors_only_allows_local_frontend(client):
+    ok = client.options("/v1/funds", headers={"Origin": "http://localhost:5173", "Access-Control-Request-Method": "GET"})
+    assert ok.headers.get("access-control-allow-origin") == "http://localhost:5173"
+    bad = client.options("/v1/funds", headers={"Origin": "https://evil.example", "Access-Control-Request-Method": "GET"})
+    assert "access-control-allow-origin" not in bad.headers
+
+
+def test_demo_seed_cannot_touch_real_users(client):
+    client.put("/v1/users/u1/enrollment", json={}, headers=H)
+    r = client.post("/v1/demo/seed", json={"persona": "steady_saver", "user_id": "u1"}, headers=H)
+    assert r.status_code == 422
+    assert client.get("/v1/users/u1/enrollment", headers=H).status_code == 200
+
+
+def test_replay_window_is_bounded(client):
+    client.put("/v1/users/u1/enrollment", json={"enrolled_on": ENROLLED.isoformat()}, headers=H)
+    assert client.get("/v1/users/u1/game-state", params={"as_of": "9999-12-31"}, headers=H).status_code == 422
+    assert client.get("/v1/users/u1/timeline", params={"as_of": "2040-01-01"}, headers=H).status_code == 422
+    assert client.put("/v1/users/u1/enrollment", json={"enrolled_on": "0001-01-01"}, headers=H).status_code == 422
+    r = client.post("/v1/demo/seed", json={"persona": "sofie_steady", "as_of": "9999-12-31"}, headers=H)
+    assert r.status_code == 422
+
+
+def test_rejects_non_finite_and_oversized_input(client, tx):
+    client.put("/v1/users/u1/enrollment", json={}, headers=H)
+    nan = '{"transactions": [{"transaction_id": "x", "booking_date": "2026-09-01", "amount": NaN}]}'
+    r = client.post("/v1/users/u1/transactions", content=nan, headers={**H, "content-type": "application/json"})
+    assert r.status_code == 422
+    long_id = {"transactions": [{"transaction_id": "x" * 500, "booking_date": "2026-09-01", "amount": -1}]}
+    assert client.post("/v1/users/u1/transactions", json=long_id, headers=H).status_code == 422
+    body = {"user_id": "../../etc", "enrollment": {}, "transactions": []}
+    assert client.post("/v1/evaluate", json=body, headers=H).status_code == 422
+
+
+def test_production_mode(monkeypatch):
+    monkeypatch.setenv("SWAN_ENV", "production")
+    monkeypatch.delenv("SWAN_API_KEYS", raising=False)
+    with pytest.raises(RuntimeError):
+        create_app(Store(":memory:"))
+    monkeypatch.setenv("SWAN_API_KEYS", "dev-key")
+    with pytest.raises(RuntimeError):
+        create_app(Store(":memory:"))
+
+    monkeypatch.setenv("SWAN_API_KEYS", "prod-key")
+    prod = TestClient(create_app(Store(":memory:")))
+    assert prod.get("/v1/funds", headers={"X-API-Key": "dev-key"}).status_code == 401
+    assert prod.get("/v1/funds", headers={"X-API-Key": "prod-key"}).status_code == 200
+    assert prod.get("/docs").status_code == 404
+    assert prod.get("/v1/demo/personas", headers={"X-API-Key": "prod-key"}).status_code == 404

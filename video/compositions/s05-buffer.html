@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s05-template">
+      <style>
+        #s05-root { position: absolute; inset: 0; overflow: hidden; background: #eef4f8; }
+        #s05-root .glow { position: absolute; left: -300px; top: -200px; width: 1500px; height: 1500px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 174, 239, 0.22), transparent); }
+        #s05-root .ghost { position: absolute; right: -40px; bottom: -70px; font: 800 380px/1 var(--display); letter-spacing: -0.05em; color: rgba(0, 54, 101, 0.05); white-space: nowrap; }
+        #s05-root .chapter { color: var(--ink-2); }
+        #s05-root .stage3d { position: absolute; inset: 0; perspective: 1800px; }
+        #s05-root #s05-phone { left: 190px; top: 106px; }
+        #s05-root .stack { position: relative; }
+        #s05-root .scr { position: absolute; left: 0; top: 0; width: 100%; }
+
+        #s05-root .right { position: absolute; left: 790px; top: 0; width: 1050px; height: 1080px; }
+        #s05-root .head { position: absolute; left: 0; top: 150px; width: 1050px; height: 260px; }
+        #s05-root .head .h { position: absolute; left: 0; top: 0; width: 1050px; font-size: 84px; color: var(--kbc-navy); opacity: 0; }
+        #s05-root .head .h em { font-style: normal; color: var(--kbc-sky); }
+        #s05-root .head .h.red em { color: #c0343a; }
+
+        #s05-root .bins { position: absolute; left: 0; top: 470px; width: 1050px; height: 440px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        #s05-root .bin { position: relative; border-radius: 34px; background: #fff; box-shadow: 0 30px 60px -36px rgba(0, 54, 101, 0.55), inset 0 0 0 3px rgba(0, 54, 101, 0.06); padding: 34px 36px; }
+        #s05-root .bin .eyebrow { font-size: 22px; letter-spacing: 0.08em; }
+        #s05-root .bin .val { margin-top: 10px; font: 700 76px/1 var(--display); letter-spacing: -0.03em; color: var(--kbc-navy); font-variant-numeric: tabular-nums; }
+        #s05-root .gauge { margin-top: 36px; height: 34px; border-radius: 17px; background: var(--mist); overflow: hidden; }
+        #s05-root .gauge i { display: block; width: 100%; height: 100%; border-radius: 17px; background: var(--kbc-sky); transform-origin: 0 50%; }
+        #s05-root .ok { margin-top: 30px; display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px; border-radius: 14px; background: #e1f4fd; color: #0079b0; font: 700 28px var(--body); }
+        #s05-root .drop { position: absolute; right: 36px; bottom: 34px; width: 180px; height: 234px; }
+        #s05-root .owe { position: absolute; left: 36px; bottom: 40px; padding: 14px 22px; border-radius: 16px; background: var(--bad-soft); color: #9b2328; font: 700 34px var(--body); font-variant-numeric: tabular-nums; }
+        #s05-root .owe small { display: block; font-size: 22px; font-weight: 600; opacity: 0.85; }
+        #s05-root .ledger { position: absolute; left: 36px; bottom: 36px; display: grid; gap: 6px; font: 600 24px var(--body); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+        #s05-root .ledger div { display: flex; gap: 16px; opacity: 0; }
+        #s05-root .ledger b { color: #0079b0; }
+
+        #s05-root .chips { position: absolute; left: 0; top: 330px; width: 1050px; height: 120px; }
+        #s05-root .chip { position: absolute; top: 0; display: inline-flex; align-items: center; gap: 16px; padding: 16px 26px; border-radius: 22px; background: #fff; box-shadow: 0 20px 40px -18px rgba(0, 54, 101, 0.55); font: 700 30px var(--body); color: var(--ink); opacity: 0; white-space: nowrap; }
+        #s05-root .chip b { color: #c0343a; font-variant-numeric: tabular-nums; }
+        #s05-root .chip .tag { padding: 4px 12px; border-radius: 8px; background: var(--kbc-navy); color: #fff; font-size: 20px; letter-spacing: 0.04em; text-transform: uppercase; }
+        #s05-root .rule { position: absolute; left: 0; top: 930px; display: inline-flex; align-items: center; gap: 14px; padding: 14px 22px; border-radius: 14px; background: var(--deep-2); color: #d6ecfb; font: 500 26px var(--mono); opacity: 0; }
+        #s05-root .rule b { color: #7fd3ff; }
+
+        #s05-root .chart { position: absolute; left: 0; top: 420px; width: 1050px; height: 520px; border-radius: 34px; background: #fff; box-shadow: 0 30px 60px -36px rgba(0, 54, 101, 0.55); padding: 30px 36px; opacity: 0; }
+        #s05-root .chart-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        #s05-root .chart-top .eyebrow { font-size: 22px; letter-spacing: 0.08em; }
+        #s05-root .debt { font: 700 60px/1.05 var(--display); color: #9b2328; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+        #s05-root .debt small { display: block; font: 600 22px var(--body); color: var(--ink-2); letter-spacing: 0; }
+        #s05-root .swanok { display: flex; align-items: center; gap: 14px; font: 700 26px var(--body); color: #0079b0; }
+        #s05-root .swanok span { display: block; width: 96px; }
+        #s05-root .swanok svg { width: 100%; height: auto; display: block; }
+        #s05-root .fresh { position: absolute; right: 36px; bottom: 30px; padding: 12px 20px; border-radius: 14px; background: #e1f4fd; color: #0079b0; font: 700 26px var(--body); opacity: 0; }
+        #s05-root .date { font: 600 26px var(--mono); color: var(--ink-2); }
+      </style>
+
+      <div id="s05-root" class="hf" data-composition-id="s05" data-start="0" data-width="1920" data-height="1080">
+        <div class="glow"></div>
+        <div class="ghost" id="s05-ghost">buffer</div>
+        <div class="chapter" id="s05-chapter"><b>05</b><i></i>The buffer</div>
+
+        <div class="stage3d">
+          <div class="phone-slot" id="s05-phone"><div class="phone-shadow"></div></div>
+        </div>
+
+        <div class="right">
+          <div class="head">
+            <p class="kt h" id="s05-h1">Every euro you don't spend lands in your <em>buffer</em>.</p>
+            <p class="kt h" id="s05-h2">Life happens.</p>
+            <p class="kt h" id="s05-h3">Your buffer catches it. <em>Not today's limit.</em></p>
+            <p class="kt h red" id="s05-h4">Can't cover it all?</p>
+            <p class="kt h" id="s05-h5">Your limit dips a little, until you've <em>earned it back</em>.</p>
+          </div>
+
+          <div class="chips">
+            <span class="chip" id="s05-bike"><span class="tag">One-off</span>Bike repair · Fietsen Janssens <b>-145,00 EUR</b></span>
+            <span class="chip" id="s05-laptop"><span class="tag">One-off</span>Laptop · MediaMarkt <b>-449,00 EUR</b></span>
+          </div>
+
+          <div class="bins" id="s05-bins">
+            <div class="bin" id="s05-limitbin">
+              <p class="eyebrow">Today's limit · Thu 3 Sept</p>
+              <p class="val" id="s05-limitval">€ 23,73</p>
+              <div class="gauge"><i id="s05-gauge"></i></div>
+              <p class="ok" id="s05-ok">✓ Not touched by one-offs</p>
+            </div>
+            <div class="bin" id="s05-bufbin">
+              <p class="eyebrow">Buffer</p>
+              <p class="val" id="s05-bufval">€ 0,00</p>
+              <div class="ledger" id="s05-ledger"></div>
+              <svg class="drop" viewBox="0 0 40 52" aria-hidden="true">
+                <defs><clipPath id="s05-dropclip"><path d="M20 2C20 2 4 22 4 33a16 16 0 0 0 32 0C36 22 20 2 20 2z" /></clipPath></defs>
+                <path d="M20 2C20 2 4 22 4 33a16 16 0 0 0 32 0C36 22 20 2 20 2z" fill="#e6f3fb" />
+                <g clip-path="url(#s05-dropclip)"><rect id="s05-fill" x="0" y="0" width="40" height="52" fill="#00aeef" /></g>
+              </svg>
+              <p class="owe" id="s05-owe">-389,60 EUR<small>left to earn back</small></p>
+            </div>
+          </div>
+          <p class="rule" id="s05-rule">one-off &gt; <b>€100</b> → paid from the buffer</p>
+
+          <div class="chart" id="s05-chart">
+            <div class="chart-top">
+              <div>
+                <p class="eyebrow">Left to earn back</p>
+                <p class="debt"><span id="s05-debt">€ 389,60</span><small id="s05-date">Thu 3 Sept</small></p>
+              </div>
+              <div class="swanok"><span id="s05-swanicon"></span>Swan stays healthy</div>
+            </div>
+            <svg id="s05-svg" width="978" height="300" style="display:block; margin-top: 18px; overflow: visible"></svg>
+            <p class="fresh" id="s05-fresh">25 Sept, payday: the rest is forgiven. Fresh start.</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s05
+          const B = C.b
+          const ST = window.STORY.laptop
+          // Lucas's real bike repair (a deck case), absorbed by his buffer.
+          const bike = window.STORY.cases.lucas_freelancer.events.find((e) => e.type === 'large_expense_absorbed')
+          document.querySelector('#s05-bike b').textContent = `-${HF.kbc(bike.amount).whole},${HF.kbc(bike.amount).cents} EUR`
+
+          const slot = document.getElementById('s05-phone')
+          const shadow = slot.querySelector('.phone-shadow')
+          const device = HF.phone(slot, 'pond_laptop_2026-09-02')
+          slot.prepend(shadow)
+          KBC.tabbar(device, 'swan', true)
+          device.querySelector('.statusbar').classList.add('statusbar--solid')
+          const content = device.querySelector('.device-content')
+          const scrA = content.firstElementChild
+          const later = ['2026-09-03', '2026-09-10', '2026-09-17', '2026-09-24'].map((d) => HF.addScreen(device, 'pond_laptop_' + d))
+          const screens = [scrA, ...later]
+          HF.mount(document.getElementById('s05-swanicon'), 'swan_thriving')
+
+          // Ledger: the last settled days before the purchase, each adding to the buffer.
+          const g = ST.growth
+          const fmtDay = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })
+          const rows = []
+          for (let i = Math.max(1, g.length - 4); i <= g.length; i++) {
+            const prev = g[i - 1].buffer
+            const next = i < g.length ? g[i].buffer : ST.bufferBefore
+            rows.push({ date: g[i - 1].date, delta: next - prev })
+          }
+          const shown = rows.filter((r) => r.delta > 0).slice(-4)
+          document.getElementById('s05-ledger').innerHTML = shown.map((r) => `<div><span>${fmtDay(r.date)}</span><b>+${HF.money(r.delta)}</b></div>`).join('')
+
+          // Earn-back chart: base limit vs the reduced limit, 3 to 24 Sept (real engine days).
+          const days = ST.days.filter((d) => d.date >= ST.buyDay && d.date <= '2026-09-24')
+          const W = 978
+          const H = 300
+          const maxL = 30
+          const x = (i) => (i / (days.length - 1)) * W
+          const y = (v) => H - (v / maxL) * (H - 20)
+          const base = days.map((d, i) => `${x(i)},${y(d.base)}`).join(' ')
+          const lim = days.map((d, i) => `${x(i)},${y(d.limit)}`).join(' ')
+          const band = days.map((d, i) => `${x(i)},${y(d.base)}`).concat(days.slice().reverse().map((d, j) => `${x(days.length - 1 - j)},${y(d.limit)}`)).join(' ')
+          document.getElementById('s05-svg').innerHTML = `
+            <defs><pattern id="s05-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#fdecec"/><rect width="4" height="10" fill="#f6c9cb"/></pattern>
+            <clipPath id="s05-reveal"><rect id="s05-revealrect" x="0" y="-20" width="${W}" height="${H + 40}"/></clipPath></defs>
+            <g clip-path="url(#s05-reveal)">
+              <polygon points="${band}" fill="url(#s05-hatch)"/>
+              <polyline points="${base}" fill="none" stroke="#9fb2c4" stroke-width="4" stroke-dasharray="8 10" stroke-linejoin="round"/>
+              <polyline points="${lim}" fill="none" stroke="#003665" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+            </g>
+            <text x="0" y="${H + 34}" font-family="Onest" font-size="22" fill="#51637a">3 Sept</text>
+            <text x="${W}" y="${H + 34}" text-anchor="end" font-family="Onest" font-size="22" fill="#51637a">24 Sept</text>
+            <text x="${W - 6}" y="${y(days[days.length - 1].base) - 14}" text-anchor="end" font-family="Onest" font-weight="600" font-size="22" fill="#51637a">your normal limit</text>
+            <text x="${W - 6}" y="${y(days[days.length - 1].limit) + 34}" text-anchor="end" font-family="Onest" font-weight="700" font-size="22" fill="#003665">while earning it back</text>`
+
+          const build = () => {
+            const tl = gsap.timeline({ paused: true })
+            const drv = HF.driver(tl)
+            const L = HF.measure(slot, (c) => {
+              const s = c.querySelector('.device-content').firstElementChild
+              return { buf: HF.pos(s.querySelector('.buffer'), s).y }
+            })
+            const scrollBuf = -(L.buf - 170)
+
+            gsap.set(screens, { y: scrollBuf })
+            gsap.set(later, { opacity: 0 })
+            gsap.set('#s05-fill', { y: 52 })
+            gsap.set('#s05-owe', { opacity: 0, y: 20 })
+
+            // ---- entrance out of s04's white-out
+            tl.fromTo(slot, { x: -120, opacity: 0, rotationY: 20 }, { x: 0, opacity: 1, rotationY: 10, duration: 1.0, ease: 'expo.out' }, 0)
+            tl.to(slot, { rotationY: 4, duration: C.dur - 1, ease: 'sine.inOut' }, 1)
+            tl.fromTo('#s05-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.2)
+            tl.fromTo('#s05-ghost', { x: 120 }, { x: -120, duration: C.dur, ease: 'none' }, 0)
+            const heads = ['#s05-h1', '#s05-h2', '#s05-h3', '#s05-h4', '#s05-h5']
+            const headAt = [B.buffer, B.life, B.catches, B.cant, B.earn]
+            heads.forEach((h, i) => {
+              tl.fromTo(h, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: i % 2 ? 'expo.out' : 'power4.out' }, headAt[i])
+              if (i < heads.length - 1) tl.to(h, { opacity: 0, y: -40, duration: 0.28, ease: 'power2.in' }, headAt[i + 1] - 0.3)
+            })
+
+            // ---- "Every euro you don't spend lands in your buffer."
+            tl.fromTo('#s05-bins', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, B.buffer + 0.2)
+            tl.fromTo('#s05-ledger div', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out', stagger: 0.35 }, B.buffer + 0.6)
+            tl.to('#s05-fill', { y: 52 - 0.62 * 52, duration: 1.8, ease: 'power2.inOut' }, B.buffer + 0.6)
+            HF.count(drv, document.getElementById('s05-bufval'), 0, ST.bufferBefore, B.buffer + 0.6, 1.8, HF.money, 'power2.inOut')
+            // The phone's own buffer card grows with it (time-lapse of the days before the purchase).
+            HF.count(drv, scrA.querySelector('.buffer-num'), 0, ST.bufferBefore, B.buffer + 0.6, 1.8, HF.money, 'power2.inOut')
+            tl.to('#s05-ledger', { opacity: 0, duration: 0.3 }, B.life - 0.2)
+
+            // ---- "So when life happens, a new laptop, a bike repair..."
+            tl.fromTo('#s05-bike', { opacity: 0, x: 800, y: 74, rotation: 6 }, { opacity: 1, x: 150, y: 74, rotation: -1.5, duration: 0.6, ease: 'back.out(1.4)' }, B.laptop + 0.5)
+            tl.fromTo('#s05-laptop', { opacity: 0, x: 800, y: -10, rotation: -6 }, { opacity: 1, x: 0, y: -10, rotation: 1.5, duration: 0.6, ease: 'back.out(1.4)' }, B.laptop)
+            tl.to('#s05-bike', { opacity: 0, y: -30, duration: 0.3 }, B.catches - 0.2)
+            tl.fromTo('#s05-rule', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, B.laptop + 0.9)
+
+            // ---- "...your buffer catches it. Not today's limit."
+            tl.to('#s05-laptop', { x: 600, y: 300, scale: 0.5, rotation: 0, duration: 0.55, ease: 'power3.in' }, B.catches)
+            tl.to('#s05-laptop', { opacity: 0, duration: 0.15 }, B.catches + 0.5)
+            tl.fromTo('#s05-bufbin', { scale: 1 }, { scale: 1.04, duration: 0.14, yoyo: true, repeat: 1, ease: 'power2.out' }, B.catches + 0.5)
+            tl.to('#s05-fill', { y: 52, duration: 0.9, ease: 'power2.in' }, B.catches + 0.55)
+            HF.count(drv, document.getElementById('s05-bufval'), ST.bufferBefore, 0, B.catches + 0.55, 0.9, (v) => (v <= 0.004 && v >= -0.004 ? HF.money(0) : HF.money(v)), 'power2.in')
+            tl.to(screens[0], { opacity: 0, duration: 0.4 }, B.catches + 0.8)
+            tl.to(screens[1], { opacity: 1, duration: 0.4 }, B.catches + 0.8)
+            tl.fromTo('#s05-limitbin', { scale: 1 }, { scale: 1.035, duration: 0.18, yoyo: true, repeat: 1, ease: 'power2.out' }, B.not)
+            tl.fromTo('#s05-ok', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: 'back.out(2)' }, B.not + 0.1)
+
+            // ---- "Can't cover it all?"
+            tl.to('#s05-owe', { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(1.8)' }, B.cant + 0.2)
+
+            // ---- "Your limit dips a little, until you've earned it back."
+            tl.to(['#s05-bins', '#s05-rule'], { opacity: 0, y: -30, duration: 0.35, ease: 'power2.in' }, B.earn - 0.3)
+            tl.fromTo('#s05-chart', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.earn)
+            const scrub = 2.3
+            tl.fromTo('#s05-revealrect', { attr: { width: 0 } }, { attr: { width: W }, duration: scrub, ease: 'none' }, B.earn + 0.4)
+            drv.add((t) => {
+              const p = HF.prog(t, B.earn + 0.4, scrub)
+              const i = Math.round(p * (days.length - 1))
+              document.getElementById('s05-debt').textContent = HF.money(days[i].debt)
+              document.getElementById('s05-date').textContent = fmtDay(days[i].date)
+            })
+            ;[1, 2, 3].forEach((k) => {
+              const at = B.earn + 0.4 + (scrub * k) / 3
+              tl.to(screens[k], { opacity: 0, duration: 0.3 }, at)
+              tl.to(screens[k + 1], { opacity: 1, duration: 0.3 }, at)
+            })
+            tl.fromTo('#s05-fresh', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(1.8)' }, B.earn + 0.5 + scrub)
+
+            window.__timelines['s05'] = tl
+          }
+          HF.fontsReady().then(build)
+        })()
+      </script>
+    </template>
+  </body>
+</html>

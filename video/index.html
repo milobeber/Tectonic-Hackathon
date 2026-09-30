@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="assets/lib/gsap.min.js"></script>
+    <script src="data/snippets.js"></script>
+    <script src="data/story.js"></script>
+    <script src="assets/lib/cues.js"></script>
+    <script src="assets/lib/hf.js"></script>
+    <script src="assets/lib/kbc.js"></script>
+    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="assets/video.css">
+    <link rel="stylesheet" href="assets/kbc.css">
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f3f8fa;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      [data-composition-id="main"] > div[data-composition-src] {
+        position: absolute;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-r7uy" id="root" data-composition-id="main" data-start="0" data-duration="166.45" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-drzz" id="el-s01" data-composition-id="s01" data-composition-src="compositions/s01-bank.html" data-start="0" data-duration="10.1" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-dsm7" id="el-s02" data-composition-id="s02" data-composition-src="compositions/s02-optin.html" data-start="10.1" data-duration="14.45" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-om0d" id="el-s03" data-composition-id="s03" data-composition-src="compositions/s03-number.html" data-start="24.55" data-duration="13.2" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-o9tb" id="el-s04" data-composition-id="s04" data-composition-src="compositions/s04-swan.html" data-start="37.75" data-duration="17.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-opvw" id="el-s05" data-composition-id="s05" data-composition-src="compositions/s05-buffer.html" data-start="55.25" data-duration="18" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-jzh9" id="el-s06" data-composition-id="s06" data-composition-src="compositions/s06-payday.html" data-start="73.25" data-duration="10.4" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-b8yf" id="el-s07" data-composition-id="s07" data-composition-src="compositions/s07-model.html" data-start="83.65" data-duration="40.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-n9ts" id="el-s08" data-composition-id="s08" data-composition-src="compositions/s08-api.html" data-start="124.25" data-duration="18.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-yuyu" id="el-s09" data-composition-id="s09" data-composition-src="compositions/s09-people.html" data-start="142.75" data-duration="14.29" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-snd0" id="el-s10" data-composition-id="s10" data-composition-src="compositions/s10-outro.html" data-start="157.04" data-duration="9.41" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <audio id="el-vo" src="assets/vo/vo.wav" data-start="0" data-duration="163.65" data-track-index="10" data-volume="1"></audio>
+      <!-- sfx:start -->
+
+      <!-- sfx:end -->
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

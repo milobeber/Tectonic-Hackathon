@@ -1,0 +1,87 @@
+{
+ "s01": {
+  "app": 1.64,
+  "coffee": 3.5,
+  "grocery": 4.24,
+  "late": 5.3,
+  "tells": 6.43,
+  "after": 8.0
+ },
+ "s02": {
+  "what": 10.5,
+  "meet": 13.03,
+  "plume": 13.81,
+  "tab": 14.52,
+  "challenge": 17.77,
+  "fund": 18.85,
+  "optin": 21.64,
+  "hatch": 23.53
+ },
+ "s03": {
+  "one": 26.57,
+  "today": 28.95,
+  "no": 31.47,
+  "learned": 33.07,
+  "learn": 34.51
+ },
+ "s04": {
+  "thrive": 38.23,
+  "turns": 40.15,
+  "tired": 43.19,
+  "sick": 44.9,
+  "dies": 45.67,
+  "diesword": 47.38,
+  "bad": 49.22,
+  "habit": 51.21
+ },
+ "s05": {
+  "buffer": 55.97,
+  "life": 58.89,
+  "laptop": 60.72,
+  "catches": 62.69,
+  "not": 64.45,
+  "cant": 65.81,
+  "earn": 68.35
+ },
+ "s06": {
+  "payday": 73.81,
+  "lake": 78.26,
+  "passive": 79.6
+ },
+ "s07": {
+  "hood": 84.07,
+  "nobox": 85.49,
+  "history": 87.63,
+  "aside": 90.92,
+  "noise": 95.31,
+  "because": 97.85,
+  "baseline": 102.62,
+  "saturday": 106.14,
+  "save": 110.82,
+  "cap": 114.03,
+  "freeze": 117.97
+ },
+ "s08": {
+  "explain": 125.06,
+  "api": 129.76,
+  "push": 132.98,
+  "pull": 134.44,
+  "optin": 135.97,
+  "det": 137.88,
+  "del": 138.97
+ },
+ "s09": {
+  "sofie": 143.39,
+  "lucas": 144.97,
+  "works": 147.69,
+  "emma": 149.22,
+  "jonas": 151.61,
+  "four": 154.13
+ },
+ "s10": {
+  "name": 158.16,
+  "kbc": 158.86,
+  "intent": 160.0,
+  "alive": 161.35
+ }
+}
