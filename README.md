@@ -1,5 +1,11 @@
 # Tectonic Hackathon: Black Swan 🦢
 
+> [!IMPORTANT]
+> **Jury / Aikido Security: please read the [Security](#security) section.**
+> We wanted to scan this repo with Aikido, but access was behind a waitlist and we (like many
+> teams) did not get in before the deadline. Instead we predicted what Aikido would flag
+> (dependencies, secrets, SAST, API hardening) and fixed it ourselves.
+
 **KBC case: improve the experience of spenders.**
 
 Customers opt in to a small game in the KBC app. A model learns their spending
@@ -48,6 +54,27 @@ cd backend
   `SWAN_CORS_ORIGINS=http://192.168.1.20:5173,...`
 
 ## Security
+
+> [!NOTE]
+> **Why this section exists.** Aikido Security (hackathon sponsor) offered its scanner, but it
+> had a waitlist and we could not get access in time. Many teams had the same problem. So we
+> treated this as a self-audit: we worked out what Aikido checks (vulnerable dependencies,
+> leaked secrets, static code analysis, insecure configuration) and fixed what we expected it to
+> find, hoping a real scan would turn up far less than it otherwise would have. Everything below
+> came out of that exercise.
+
+What we checked and found:
+
+- **Dependencies:** `npm audit` is clean for the frontend and video. The Python requirements
+  used loose `>=` ranges that allowed vulnerable `starlette` (14 advisories) and `h11` (request
+  smuggling). Now fully pinned; the pinned versions have no known CVEs (checked against OSV).
+- **Secrets:** no API keys, tokens or passwords in the code or git history. The only key is the
+  local `dev-key` demo default.
+- **Code and configuration:** fixed below. Expected false positives we left alone: the video
+  scenes set `innerHTML` from their own static data, and `video/build/cues.mjs` uses
+  `new Function` on a local file at build time. No user input reaches either.
+
+What we changed:
 
 - `SWAN_ENV=production` refuses to start without real `SWAN_API_KEYS` (the dev key is rejected),
   hides `/docs` and turns off the demo endpoints (re-enable with `SWAN_ENABLE_DEMO=1`).
