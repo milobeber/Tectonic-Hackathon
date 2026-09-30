@@ -35,9 +35,125 @@ month end, so good habits turn into passive income.
 | `backend/blackswan/schemas.py` | **API contract** (request and response models) |
 | `backend/blackswan/config.py` | Every tunable number (difficulty, health tuning, thresholds) |
 | `backend/blackswan/synthetic.py` | Fake KBC customers (4 personas) for demos |
-| `frontend/` | Demo UI (Vite + React), work in progress |
+| `backend/blackswan/cases.py` | The four story-driven deck customers (Sofie, Lucas, Emma, Jonas) |
+| `backend/blackswan/store.py` | SQLite persistence (enrollments and raw transactions only) |
+| `frontend/` | Demo UI (Vite + React): the swan screen as it would appear in KBC Mobile |
+| `video/` | Demo film (HyperFrames), built from the real frontend components and engine output |
 | `docs/API.md` | Integration guide for KBC with example payloads |
 | `docs/GAME_RULES.md` | Game rules, model details, open questions |
+
+## Technical overview
+
+### Layers
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Clients                                                                  │
+│   KBC app / core banking (server to server)   Demo frontend (React)      │
+└───────────────┬───────────────────────────────────────┬──────────────────┘
+                │ HTTPS + X-API-Key, JSON               │ same API, or an in-browser mock
+┌───────────────▼───────────────────────────────────────▼──────────────────┐
+│ API layer        api.py (FastAPI)  +  schemas.py (Pydantic contract)     │
+│   auth, CORS, security headers, input validation, date-window limits     │
+├──────────────────────────────────────────────────────────────────────────┤
+│ Domain layer     engine.py  ──uses──▶  model.py        config.py         │
+│   day-by-day replay:            learns the spending     every tunable    │
+│   limits, buffer/debt,          profile + daily goal    number           │
+│   swan health, sweeps           from 90 days history                     │
+├──────────────────────────────────────────────────────────────────────────┤
+│ Persistence      store.py (SQLite): enrollments + raw transactions only  │
+├──────────────────────────────────────────────────────────────────────────┤
+│ Demo data        synthetic.py (personas), cases.py (deck customers),     │
+│                  funds.py (placeholder KBC fund catalogue)               │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+The backend is pure Python (FastAPI, Pydantic, SQLite from the standard library). No numpy,
+no ML framework: the model is plain statistics so every limit can be explained to a customer.
+
+### Request lifecycle
+
+Take `POST /v1/users/{id}/transactions`, the call KBC makes whenever transactions book:
+
+1. **Middleware**: CORS check for browser callers, then the API key is compared in constant
+   time. Security headers are added to every response on the way out.
+2. **Validation**: Pydantic parses the body against `TransactionBatch` (bounded sizes,
+   finite amounts, valid ids). Bad input returns 422 before any code runs.
+3. **Store**: transactions are inserted with `INSERT OR IGNORE` on
+   `(user_id, transaction_id)`, so late or duplicate deliveries are harmless.
+4. **Replay**: `engine.replay` loads all of the user's transactions and plays the game from
+   the enrollment date to `as_of`, one day at a time (details below).
+5. **Response**: a `GameState` JSON with the swan, today's limit, the current cycle, rewards,
+   history and events. KBC renders it as is.
+
+### Model: from history to a daily goal (`model.py`)
+
+Learned once, from the 90 days before enrollment, then frozen (re-learning from game data
+would ratchet savers' limits tighter every cycle):
+
+1. **Classify** every transaction: income, fixed cost (by category), recurring (same merchant,
+   about monthly, stable amount), large one-off, or discretionary.
+2. **Detect the wage**: the biggest income that lands about monthly. It defines the game's
+   cycles (payday to payday; calendar months when there is none).
+3. **Baseline**: mean daily discretionary spend, one-offs removed, winsorized at p98.
+4. **Weekday factors**: per-weekday spend relative to the mean, shrunk toward 1 and clipped.
+5. **Target**: baseline × (1 − savings rate by difficulty), capped at 90% of disposable
+   income and floored at EUR 5. Daily base limit = target × weekday factor.
+
+`GET /v1/users/{id}/profile` returns exactly these numbers, which is what the app's
+"Why €X today?" screen shows.
+
+### Engine: deterministic replay (`engine.py`)
+
+Game state is never stored. Every request replays from scratch, which makes the service
+stateless apart from raw inputs, idempotent, and trivially correct when data arrives late.
+For each day the engine:
+
+- computes the day's limit (base limit minus any debt reduction),
+- settles yesterday: under the limit adds to the **buffer**, over takes from it,
+- handles large one-offs: paid from the buffer, the uncovered part becomes **debt** that
+  lowers the remaining days' limits,
+- scores the rolling 7-day pace and moves the swan's **health** (EWMA), with extra penalties
+  for unaffordable buys; below 10 health the swan dies until the next cycle,
+- on payday closes the cycle: the buffer is **swept** into the chosen fund (never more than
+  what is really left of the income), debt is forgiven, a dead swan re-hatches.
+
+A replay of a few months takes milliseconds, and the window is capped at 3 years per request.
+The full rules and every constant are in [docs/GAME_RULES.md](docs/GAME_RULES.md); the
+numbers live in `config.py`.
+
+### Persistence (`store.py`)
+
+Two SQLite tables: `enrollments` (difficulty, fund, enrollment date) and `transactions` (the
+raw JSON payload, keyed on user + transaction id). No derived data is stored, so opting out
+(`DELETE /enrollment`) deletes everything we know about a customer in one transaction. All
+queries are parameterized; a lock serializes access to the single connection.
+
+### Frontend (`frontend/`)
+
+Vite + React 19 + TypeScript, no UI or state library.
+
+- `api/client.ts` defines one `SwanSource` interface with two implementations: `liveSource`
+  (the real API) and `mockSource` (`mock/simulate.ts`, an in-browser port of the model and
+  engine), so the demo also runs with no backend. `api/types.ts` mirrors `schemas.py`.
+- `App.tsx` owns the state (persona, date, `GameState`) and caches a state per day, so
+  scrubbing the timeline is instant.
+- `screens/` (pond, opt-in, gallery) and `components/` (swan, weather, lake, phone frame)
+  render only what is in `GameState`. KBC could rebuild the screen natively from the same JSON.
+- `components/DemoPanel.tsx` has the presenter controls (data source, persona, timeline,
+  test spending).
+
+### Demo film (`video/`)
+
+A HyperFrames project: each scene is an HTML composition animated with GSAP. `npm run build`
+runs the real engine offline (`build/export_data.py`), renders the real React components to
+static HTML (`build/snippets.tsx`) and copies the app's CSS, so every screen and number in the
+film comes from the actual product. See [video/README.md](video/README.md).
+
+### Tests
+
+`backend/tests/` (pytest) covers the model, the engine, payday cycles, the full API flow
+and the security hardening.
 
 ## Run the backend
 
