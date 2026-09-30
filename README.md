@@ -44,6 +44,22 @@ cd backend
 - Interactive docs: http://localhost:8000/docs
 - Every `/v1/*` call needs the header `X-API-Key: dev-key` (set real keys with `SWAN_API_KEYS=key1,key2`)
 - SQLite file: `backend/data/swan.db` (override with `SWAN_DB_PATH`)
+- Browser access is allowed from the local Vite ports only (`5173`, `4173`). Add origins with
+  `SWAN_CORS_ORIGINS=http://192.168.1.20:5173,...`
+
+## Security
+
+- `SWAN_ENV=production` refuses to start without real `SWAN_API_KEYS` (the dev key is rejected),
+  hides `/docs` and turns off the demo endpoints (re-enable with `SWAN_ENABLE_DEMO=1`).
+- API keys are compared in constant time. Responses carry `nosniff`, `DENY` framing, a strict CSP
+  and `Cache-Control: no-store` on `/v1/*` (transaction data).
+- Inputs are bounded: user ids match `^[A-Za-z0-9_-]{1,64}$`, at most 10 000 transactions per
+  request, finite amounts, capped string lengths, and a replay window of 3 years from enrollment.
+  Demo seeding only writes `demo-*` users, so it can never wipe a real customer.
+- Validation errors never echo the submitted input back.
+- Python dependencies are fully pinned in `backend/requirements*.txt`; npm deps are locked.
+- The frontend's `VITE_API_KEY` is baked into the browser bundle, so it must only ever be the
+  local demo key. A real KBC integration calls this API server to server.
 
 Try it in one call:
 

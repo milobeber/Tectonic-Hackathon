@@ -28,6 +28,11 @@ EventType = Literal[
     "month_swept",
 ]
 
+USER_ID_PATTERN = r"^[A-Za-z0-9_-]{1,64}$"
+# Demo seeding wipes the user first, so it may only touch the demo namespace.
+DEMO_USER_ID_PATTERN = r"^demo-[A-Za-z0-9_-]{1,59}$"
+MAX_TRANSACTIONS_PER_REQUEST = 10_000
+
 
 # ---------------------------------------------------------------- input
 
@@ -35,18 +40,25 @@ EventType = Literal[
 class Transaction(BaseModel):
     """One booked transaction, roughly the shape of a PSD2 account transaction."""
 
-    transaction_id: str = Field(..., examples=["tx_2026_09_14_0001"])
+    transaction_id: str = Field(..., min_length=1, max_length=128, examples=["tx_2026_09_14_0001"])
     booking_date: date
-    amount: float = Field(..., description="Signed amount in EUR. Negative = money out.", examples=[-23.5])
-    currency: str = "EUR"
-    merchant: str | None = Field(None, examples=["Delhaize"])
-    category: str | None = Field(None, description="KBC category, lower_snake_case.", examples=["groceries"])
-    description: str | None = None
+    amount: float = Field(
+        ...,
+        description="Signed amount in EUR. Negative = money out.",
+        examples=[-23.5],
+        ge=-1e9,
+        le=1e9,
+        allow_inf_nan=False,
+    )
+    currency: str = Field("EUR", max_length=8)
+    merchant: str | None = Field(None, max_length=256, examples=["Delhaize"])
+    category: str | None = Field(None, max_length=64, description="KBC category, lower_snake_case.", examples=["groceries"])
+    description: str | None = Field(None, max_length=1024)
 
 
 class EnrollmentRequest(BaseModel):
     difficulty: Difficulty = "normal"
-    fund_id: str = "kbc-sustainable-balanced"
+    fund_id: str = Field("kbc-sustainable-balanced", max_length=64)
     enrolled_on: date | None = Field(None, description="Defaults to today.")
 
 
@@ -58,7 +70,7 @@ class Enrollment(BaseModel):
 
 
 class TransactionBatch(BaseModel):
-    transactions: list[Transaction]
+    transactions: list[Transaction] = Field(..., max_length=MAX_TRANSACTIONS_PER_REQUEST)
 
 
 class IngestResult(BaseModel):
@@ -70,18 +82,18 @@ class IngestResult(BaseModel):
 class EvaluateRequest(BaseModel):
     """Stateless evaluation: send everything, get a game state back, nothing is stored."""
 
-    user_id: str = "anonymous"
+    user_id: str = Field("anonymous", pattern=USER_ID_PATTERN)
     enrollment: EnrollmentRequest
-    transactions: list[Transaction]
+    transactions: list[Transaction] = Field(..., max_length=MAX_TRANSACTIONS_PER_REQUEST)
     as_of: date | None = None
 
 
 class DemoSeedRequest(BaseModel):
-    persona: str = "steady_saver"
-    user_id: str | None = None
+    persona: str = Field("steady_saver", max_length=64)
+    user_id: str | None = Field(None, pattern=DEMO_USER_ID_PATTERN, description="Must start with `demo-`.")
     as_of: date | None = Field(None, description="Last day of generated data. Defaults to today.")
     enrolled_days_ago: int = Field(20, ge=0, le=200)
-    seed: int = 42
+    seed: int = Field(42, ge=0, le=2**31 - 1)
 
 
 # ---------------------------------------------------------------- output
