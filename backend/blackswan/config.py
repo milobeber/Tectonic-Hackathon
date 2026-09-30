@@ -41,6 +41,13 @@ class ModelConfig:
     recurring_max_amount_cv: float = 0.15
     recurring_gap_days: tuple[int, int] = (25, 35)
 
+    # Wage = biggest income arriving about monthly. Game cycles run payday to payday.
+    wage_max_amount_cv: float = 0.25
+    wage_min_amount: float = 200.0
+    # Two paydays are at least this far apart; a late wage still counts within the grace period.
+    wage_min_gap_days: int = 20
+    wage_grace_days: int = 5
+
     # Large one-off expense ("noise") detection.
     large_expense_floor: float = 100.0
     large_expense_p95_multiplier: float = 1.5
@@ -70,12 +77,17 @@ class GameConfig:
     rebirth_health: float = 50.0
     # Health moves toward 100 * day_score with this smoothing factor (EWMA).
     health_alpha: float = 0.2
-    # How fast the day score drops once over the limit: score = 1 - steepness * over_ratio.
+    # Each day is scored on the pace of the last N days: over = (spent - limits) / limits.
+    pace_window_days: int = 7
+    # The end-of-cycle projection trusts the goal as if it were this many observed days.
+    pace_prior_days: int = 7
+    # How fast the score drops once over pace: score = 1 - steepness * over.
     overspend_steepness: float = 2.0
-    # Share of an overspend that is forgiven (for health only) when the buffer can cover it.
-    buffer_cushion: float = 0.5
     # One-off health hit when a large expense is NOT covered by the buffer.
     uncovered_large_expense_penalty: float = 15.0
+    # ...and a bigger one if it puts the cycle's spending above the cycle's income.
+    # Multiplied by the number of such buys in the cycle (30, 60, 90...).
+    unaffordable_large_expense_penalty: float = 30.0
     # Below this the swan dies for the rest of the month.
     death_threshold: float = 10.0
     # Limit reductions never push the daily limit below this share of the base limit.

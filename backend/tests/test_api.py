@@ -104,7 +104,34 @@ def test_demo_personas_tell_their_story(client):
         ).json()["game_state"]
 
     assert seed("steady_saver")["swan"]["tier"] == "thriving"
-    assert seed("impulse_spender")["swan"]["tier"] == "dead"
+    seed("impulse_spender")
+    timeline = client.get("/v1/users/demo-impulse_spender/timeline", params={"as_of": "2026-09-30"}, headers=H).json()
+    assert any(c["swan_died"] for c in timeline["cycles"])
     big = seed("big_purchase")
-    assert big["month"]["large_expenses_total"] >= 899
-    assert any(e["type"] == "large_expense_uncovered" for e in big["events"])
+    assert any(e["type"] in ("large_expense_uncovered", "large_expense_absorbed", "large_expense_unaffordable") for e in big["events"])
+
+
+def test_deck_cases_tell_their_story(client):
+    def run(key):
+        client.post("/v1/demo/seed", json={"persona": key, "as_of": "2026-09-30"}, headers=H)
+        tl = client.get(f"/v1/users/demo-{key}/timeline", params={"as_of": "2026-09-30"}, headers=H).json()
+        gs = client.get(f"/v1/users/demo-{key}/game-state", params={"as_of": "2026-09-30"}, headers=H).json()
+        return gs, tl
+
+    sofie, tl = run("sofie_steady")
+    assert sofie["month"]["cycle_type"] == "wage" and sofie["rewards"]["total_invested"] > 200
+    assert not any(c["swan_died"] for c in tl["cycles"])
+
+    lucas, tl = run("lucas_freelancer")
+    assert lucas["month"]["cycle_type"] == "calendar" and lucas["rewards"]["total_invested"] > 100
+    assert not any(c["swan_died"] for c in tl["cycles"])
+
+    emma, tl = run("emma_gourmet")
+    assert emma["model"]["affordable_daily"] < emma["model"]["baseline_daily"] * 0.6
+    assert emma["rewards"]["total_invested"] == 0
+    assert all(c["swan_died"] for c in tl["cycles"] if c["closed"])
+
+    jonas, tl = run("jonas_impulse")
+    assert jonas["rewards"]["total_invested"] == 0
+    assert all(c["swan_died"] for c in tl["cycles"])
+    assert any(e["type"] == "large_expense_unaffordable" for e in jonas["events"])

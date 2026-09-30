@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 from fastapi import Depends, FastAPI, Header, HTTPException, Path, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
 
-from . import engine, synthetic
+from . import cases, engine, synthetic
 from .funds import FUNDS
 from .schemas import (
     DemoSeedRequest,
@@ -23,6 +23,7 @@ from .schemas import (
     GameState,
     IngestResult,
     SpendingProfile,
+    Timeline,
     TransactionBatch,
 )
 from .store import Store
@@ -131,6 +132,15 @@ def create_app(store: Store | None = None, api_keys: set[str] | None = None) -> 
         """Everything KBC needs to render the swan screen."""
         return game_state(user_id, enrollment_or_404(user_id), as_of)
 
+    @app.get("/v1/users/{user_id}/timeline", tags=["game"], dependencies=auth)
+    def get_timeline(user_id: UserId, as_of: AsOf = None) -> Timeline:
+        """Every day since enrollment across all cycles, plus a summary per cycle. For charts."""
+        e = enrollment_or_404(user_id)
+        try:
+            return engine.replay(user_id, e, store.get_transactions(user_id), as_of or today())[1]
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+
     @app.get("/v1/users/{user_id}/profile", tags=["game"], dependencies=auth)
     def get_profile(user_id: UserId) -> SpendingProfile:
         """What the model learned: baseline, weekday pattern, recurring payments, noise threshold."""
@@ -157,20 +167,37 @@ def create_app(store: Store | None = None, api_keys: set[str] | None = None) -> 
 
     @app.get("/v1/demo/personas", tags=["demo"], dependencies=auth)
     def personas() -> list[dict]:
-        return [{"key": p.key, "description": p.description} for p in synthetic.PERSONAS.values()]
+        """Deck cases (fixed story dates, from 2026-07-24) first, then generic personas."""
+        deck = [
+            {"key": c.key, "kind": "case", "name": c.name, "tagline": c.tagline, "verdict": c.verdict,
+             "description": c.story, "enrolled_on": c.enrolled_on}
+            for c in cases.CASES.values()
+        ]
+        generic = [{"key": p.key, "kind": "persona", "description": p.description} for p in synthetic.PERSONAS.values()]
+        return deck + generic
 
     @app.post("/v1/demo/seed", tags=["demo"], dependencies=auth)
     def seed(body: DemoSeedRequest) -> dict:
-        """Create an enrolled demo user with synthetic KBC-like history. Replaces any previous data for that user."""
-        if body.persona not in synthetic.PERSONAS:
-            raise HTTPException(status_code=422, detail=f"Unknown persona '{body.persona}'")
+        """Create an enrolled demo user with synthetic KBC-like history. Replaces any previous data for that user.
+
+        Deck cases keep their own story dates (enrolled_days_ago is ignored); generic personas enroll
+        `enrolled_days_ago` before `as_of`.
+        """
         user_id = body.user_id or f"demo-{body.persona}"
         end = body.as_of or today()
-        enrolled_on = end - timedelta(days=body.enrolled_days_ago)
+        if body.persona in cases.CASES:
+            enrolled_on = cases.CASES[body.persona].enrolled_on
+            if end < enrolled_on:
+                raise HTTPException(status_code=422, detail=f"as_of must be on or after {enrolled_on}")
+            txs = cases.generate_case(body.persona, end=end, user_id=user_id)
+        elif body.persona in synthetic.PERSONAS:
+            enrolled_on = end - timedelta(days=body.enrolled_days_ago)
+            txs = synthetic.generate(body.persona, user_id, end=end, enrolled_on=enrolled_on, seed=body.seed)
+        else:
+            raise HTTPException(status_code=422, detail=f"Unknown persona '{body.persona}'")
         store.delete_user(user_id)
         e = Enrollment(user_id=user_id, difficulty="normal", fund_id="kbc-sustainable-balanced", enrolled_on=enrolled_on)
         store.upsert_enrollment(e)
-        txs = synthetic.generate(body.persona, user_id, end=end, enrolled_on=enrolled_on, seed=body.seed)
         store.add_transactions(user_id, txs)
         return {
             "user_id": user_id,

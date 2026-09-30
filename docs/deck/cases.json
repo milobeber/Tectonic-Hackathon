@@ -1,0 +1,3609 @@
+{
+ "as_of": "2026-09-30",
+ "cases": [
+  {
+   "key": "sofie_steady",
+   "name": "Sofie, 29, nurse",
+   "tagline": "The steady saver",
+   "verdict": "good",
+   "story": "Cooks at home, bikes to work, one night out a week. Once she opts in she trims her spending by about a fifth. Her swan thrives and every payday her buffer is invested.",
+   "enrolled_on": "2026-07-24",
+   "transactions": 269,
+   "model": {
+    "version": "stat-v1",
+    "confidence": "high",
+    "history_days": 90,
+    "baseline_daily": 23.44,
+    "savings_rate": 0.1,
+    "target_daily": 21.1,
+    "weekday_factors": {
+     "mon": 0.874,
+     "tue": 0.748,
+     "wed": 0.952,
+     "thu": 1.125,
+     "fri": 0.924,
+     "sat": 1.094,
+     "sun": 1.283
+    },
+    "large_expense_threshold": 100.0,
+    "recurring_merchants": [
+     "ag insurance",
+     "basic fit",
+     "engie",
+     "immo de vos",
+     "proximus",
+     "spotify"
+    ],
+    "monthly_income": 2488.68,
+    "monthly_fixed_costs": 991.14,
+    "wage": {
+     "payer": "Zorggroep Aurora",
+     "amount": 2488.68,
+     "day_of_month": 25
+    },
+    "affordable_daily": 44.28,
+    "spend_by_category": {
+     "groceries": 9.93,
+     "restaurants": 5.95,
+     "bakery": 2.64,
+     "shopping": 2.46,
+     "transport": 2.01,
+     "coffee": 1.25
+    },
+    "ignored_one_offs_total": 329.0
+   },
+   "history_monthly": {
+    "income": 2488.68,
+    "fixed": 933.31,
+    "recurring": 57.83,
+    "discretionary": 737.85,
+    "large": 111.28,
+    "left_after_habits": 759.69
+   },
+   "cycles": [
+    {
+     "start": "2026-07-24",
+     "end": "2026-08-24",
+     "planned_end": "2026-08-24",
+     "cycle_type": "wage",
+     "closed": true,
+     "days_under": 19,
+     "days_over": 13,
+     "large_expenses_total": 0.0,
+     "swept": 175.25,
+     "swan_generation": 1,
+     "swan_died": false
+    },
+    {
+     "start": "2026-08-25",
+     "end": "2026-09-24",
+     "planned_end": "2026-09-24",
+     "cycle_type": "wage",
+     "closed": true,
+     "days_under": 20,
+     "days_over": 11,
+     "large_expenses_total": 0.0,
+     "swept": 132.25,
+     "swan_generation": 1,
+     "swan_died": false
+    },
+    {
+     "start": "2026-09-25",
+     "end": "2026-09-30",
+     "planned_end": "2026-10-24",
+     "cycle_type": "wage",
+     "closed": false,
+     "days_under": 3,
+     "days_over": 2,
+     "large_expenses_total": 0.0,
+     "swept": 0.0,
+     "swan_generation": 1,
+     "swan_died": false
+    }
+   ],
+   "days": [
+    {
+     "date": "2026-07-24",
+     "limit": 19.5,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 19.5,
+     "health": 76.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-25",
+     "limit": 23.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 42.58,
+     "health": 80.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-26",
+     "limit": 27.08,
+     "spent": 46.36,
+     "large_expenses": 0.0,
+     "buffer": 23.29,
+     "health": 84.6,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-27",
+     "limit": 18.44,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 41.73,
+     "health": 87.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-28",
+     "limit": 15.79,
+     "spent": 31.69,
+     "large_expenses": 0.0,
+     "buffer": 25.83,
+     "health": 90.2,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-29",
+     "limit": 20.08,
+     "spent": 40.85,
+     "large_expenses": 0.0,
+     "buffer": 5.06,
+     "health": 92.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-30",
+     "limit": 23.73,
+     "spent": 26.5,
+     "large_expenses": 0.0,
+     "buffer": 2.29,
+     "health": 93.7,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-31",
+     "limit": 19.5,
+     "spent": 41.37,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 84.4,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-01",
+     "limit": 23.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 23.08,
+     "health": 76.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-02",
+     "limit": 27.08,
+     "spent": 3.07,
+     "large_expenses": 0.0,
+     "buffer": 47.08,
+     "health": 81.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-03",
+     "limit": 18.44,
+     "spent": 5.94,
+     "large_expenses": 0.0,
+     "buffer": 59.58,
+     "health": 84.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-04",
+     "limit": 15.79,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 75.37,
+     "health": 87.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-05",
+     "limit": 20.08,
+     "spent": 8.0,
+     "large_expenses": 0.0,
+     "buffer": 87.45,
+     "health": 90.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-06",
+     "limit": 23.73,
+     "spent": 37.4,
+     "large_expenses": 0.0,
+     "buffer": 73.78,
+     "health": 92.2,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-07",
+     "limit": 19.5,
+     "spent": 34.67,
+     "large_expenses": 0.0,
+     "buffer": 58.61,
+     "health": 93.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-08",
+     "limit": 23.08,
+     "spent": 38.14,
+     "large_expenses": 0.0,
+     "buffer": 43.55,
+     "health": 95.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-09",
+     "limit": 27.08,
+     "spent": 61.28,
+     "large_expenses": 0.0,
+     "buffer": 9.35,
+     "health": 85.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-10",
+     "limit": 18.44,
+     "spent": 7.76,
+     "large_expenses": 0.0,
+     "buffer": 20.02,
+     "health": 77.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-11",
+     "limit": 15.79,
+     "spent": 24.06,
+     "large_expenses": 0.0,
+     "buffer": 11.75,
+     "health": 65.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-12",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 31.83,
+     "health": 57.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-13",
+     "limit": 23.73,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 55.57,
+     "health": 60.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-14",
+     "limit": 19.5,
+     "spent": 21.05,
+     "large_expenses": 0.0,
+     "buffer": 54.02,
+     "health": 67.3,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-15",
+     "limit": 23.08,
+     "spent": 17.76,
+     "large_expenses": 0.0,
+     "buffer": 59.33,
+     "health": 73.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-16",
+     "limit": 27.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 86.41,
+     "health": 79.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-17",
+     "limit": 18.44,
+     "spent": 31.53,
+     "large_expenses": 0.0,
+     "buffer": 73.32,
+     "health": 83.3,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-18",
+     "limit": 15.79,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 89.1,
+     "health": 86.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-19",
+     "limit": 20.08,
+     "spent": 8.29,
+     "large_expenses": 0.0,
+     "buffer": 100.9,
+     "health": 89.3,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-20",
+     "limit": 23.73,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 124.63,
+     "health": 91.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-21",
+     "limit": 19.5,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 144.13,
+     "health": 93.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-22",
+     "limit": 23.08,
+     "spent": 3.94,
+     "large_expenses": 0.0,
+     "buffer": 163.27,
+     "health": 94.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-23",
+     "limit": 27.08,
+     "spent": 6.65,
+     "large_expenses": 0.0,
+     "buffer": 183.69,
+     "health": 95.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-24",
+     "limit": 18.44,
+     "spent": 26.88,
+     "large_expenses": 0.0,
+     "buffer": 175.25,
+     "health": 96.5,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-25",
+     "limit": 15.79,
+     "spent": 4.7,
+     "large_expenses": 0.0,
+     "buffer": 11.09,
+     "health": 97.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-26",
+     "limit": 20.08,
+     "spent": 5.61,
+     "large_expenses": 0.0,
+     "buffer": 25.56,
+     "health": 97.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-27",
+     "limit": 23.73,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 49.29,
+     "health": 98.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-28",
+     "limit": 19.5,
+     "spent": 26.47,
+     "large_expenses": 0.0,
+     "buffer": 42.32,
+     "health": 98.6,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-29",
+     "limit": 23.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 65.4,
+     "health": 98.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-30",
+     "limit": 27.08,
+     "spent": 32.84,
+     "large_expenses": 0.0,
+     "buffer": 59.63,
+     "health": 99.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-31",
+     "limit": 18.44,
+     "spent": 8.23,
+     "large_expenses": 0.0,
+     "buffer": 69.84,
+     "health": 99.3,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-01",
+     "limit": 15.79,
+     "spent": 46.31,
+     "large_expenses": 0.0,
+     "buffer": 39.32,
+     "health": 99.4,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-02",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 59.4,
+     "health": 99.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-03",
+     "limit": 23.73,
+     "spent": 9.46,
+     "large_expenses": 0.0,
+     "buffer": 73.67,
+     "health": 99.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-04",
+     "limit": 19.5,
+     "spent": 4.52,
+     "large_expenses": 0.0,
+     "buffer": 88.65,
+     "health": 99.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-05",
+     "limit": 23.08,
+     "spent": 3.72,
+     "large_expenses": 0.0,
+     "buffer": 108.01,
+     "health": 99.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-06",
+     "limit": 27.08,
+     "spent": 31.31,
+     "large_expenses": 0.0,
+     "buffer": 103.78,
+     "health": 99.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-07",
+     "limit": 18.44,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 122.22,
+     "health": 99.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-08",
+     "limit": 15.79,
+     "spent": 6.02,
+     "large_expenses": 0.0,
+     "buffer": 131.98,
+     "health": 99.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-09",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 152.06,
+     "health": 99.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-10",
+     "limit": 23.73,
+     "spent": 69.54,
+     "large_expenses": 0.0,
+     "buffer": 106.26,
+     "health": 99.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-11",
+     "limit": 19.5,
+     "spent": 10.69,
+     "large_expenses": 0.0,
+     "buffer": 115.07,
+     "health": 99.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-12",
+     "limit": 23.08,
+     "spent": 28.26,
+     "large_expenses": 0.0,
+     "buffer": 109.88,
+     "health": 99.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-13",
+     "limit": 27.08,
+     "spent": 35.64,
+     "large_expenses": 0.0,
+     "buffer": 101.32,
+     "health": 99.3,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-14",
+     "limit": 18.44,
+     "spent": 2.5,
+     "large_expenses": 0.0,
+     "buffer": 117.26,
+     "health": 98.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-15",
+     "limit": 15.79,
+     "spent": 44.73,
+     "large_expenses": 0.0,
+     "buffer": 88.32,
+     "health": 86.6,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-16",
+     "limit": 20.08,
+     "spent": 34.87,
+     "large_expenses": 0.0,
+     "buffer": 73.53,
+     "health": 69.3,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-17",
+     "limit": 23.73,
+     "spent": 8.67,
+     "large_expenses": 0.0,
+     "buffer": 88.59,
+     "health": 70.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-18",
+     "limit": 19.5,
+     "spent": 8.36,
+     "large_expenses": 0.0,
+     "buffer": 99.73,
+     "health": 72.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-19",
+     "limit": 23.08,
+     "spent": 23.7,
+     "large_expenses": 0.0,
+     "buffer": 99.11,
+     "health": 75.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-20",
+     "limit": 27.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 126.18,
+     "health": 80.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-21",
+     "limit": 18.44,
+     "spent": 63.71,
+     "large_expenses": 0.0,
+     "buffer": 80.91,
+     "health": 74.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-22",
+     "limit": 15.79,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 96.7,
+     "health": 79.3,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-23",
+     "limit": 20.08,
+     "spent": 3.6,
+     "large_expenses": 0.0,
+     "buffer": 113.18,
+     "health": 83.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-24",
+     "limit": 23.73,
+     "spent": 4.66,
+     "large_expenses": 0.0,
+     "buffer": 132.25,
+     "health": 86.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-25",
+     "limit": 19.5,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 19.5,
+     "health": 89.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-26",
+     "limit": 23.08,
+     "spent": 118.76,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 79.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-27",
+     "limit": 27.08,
+     "spent": 3.81,
+     "large_expenses": 0.0,
+     "buffer": 23.27,
+     "health": 71.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-28",
+     "limit": 18.44,
+     "spent": 36.06,
+     "large_expenses": 0.0,
+     "buffer": 5.64,
+     "health": 71.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-29",
+     "limit": 15.79,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 21.43,
+     "health": 72.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-30",
+     "limit": 20.08,
+     "spent": 41.04,
+     "large_expenses": 0.0,
+     "buffer": 21.43,
+     "health": 72.2,
+     "status": "today"
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-08-24",
+     "type": "month_swept",
+     "amount": 175.25,
+     "health_delta": null,
+     "message": "Payday! EUR 175.25 saved this cycle is invested in your fund."
+    },
+    {
+     "date": "2026-09-24",
+     "type": "month_swept",
+     "amount": 132.25,
+     "health_delta": null,
+     "message": "Payday! EUR 132.25 saved this cycle is invested in your fund."
+    }
+   ],
+   "highlights": [
+    {
+     "date": "2026-08-12",
+     "caption": "A normal Wednesday: limit met, buffer growing",
+     "today": {
+      "date": "2026-08-12",
+      "base_limit": 20.08,
+      "limit_reduction": 0.0,
+      "limit": 20.08,
+      "spent": 0.0,
+      "remaining": 20.08,
+      "large_expenses": 0.0,
+      "status": "on_track"
+     },
+     "swan": {
+      "health": 65.1,
+      "tier": "healthy",
+      "mood": "content",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 0
+     },
+     "month": {
+      "month": "2026-07",
+      "cycle_type": "wage",
+      "start": "2026-07-24",
+      "end": "2026-08-24",
+      "days_left": 12,
+      "buffer": 11.75,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 9,
+      "days_over": 10,
+      "large_expenses_total": 0.0,
+      "income": 2616.22,
+      "spent_total": 1371.37,
+      "projected_end_balance": 911.14
+     },
+     "events_today": []
+    },
+    {
+     "date": "2026-08-24",
+     "caption": "Last day before payday: buffer about to be invested",
+     "today": {
+      "date": "2026-08-24",
+      "base_limit": 18.44,
+      "limit_reduction": 0.0,
+      "limit": 18.44,
+      "spent": 26.88,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 95.6,
+      "tier": "thriving",
+      "mood": "worried",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 6
+     },
+     "month": {
+      "month": "2026-07",
+      "cycle_type": "wage",
+      "start": "2026-07-24",
+      "end": "2026-08-24",
+      "days_left": 0,
+      "buffer": 183.69,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 19,
+      "days_over": 12,
+      "large_expenses_total": 0.0,
+      "income": 2616.22,
+      "spent_total": 1499.46,
+      "projected_end_balance": 1051.09
+     },
+     "events_today": []
+    },
+    {
+     "date": "2026-09-30",
+     "caption": "Today: two cycles in, EUR 300+ invested",
+     "today": {
+      "date": "2026-09-30",
+      "base_limit": 20.08,
+      "limit_reduction": 0.0,
+      "limit": 20.08,
+      "spent": 41.04,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 72.2,
+      "tier": "healthy",
+      "mood": "worried",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 1
+     },
+     "month": {
+      "month": "2026-09",
+      "cycle_type": "wage",
+      "start": "2026-09-25",
+      "end": "2026-10-24",
+      "days_left": 24,
+      "buffer": 21.43,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 3,
+      "days_over": 2,
+      "large_expenses_total": 0.0,
+      "income": 2452.7,
+      "spent_total": 199.67,
+      "projected_end_balance": 663.58
+     },
+     "events_today": []
+    }
+   ],
+   "final": {
+    "swan": {
+     "health": 72.2,
+     "tier": "healthy",
+     "mood": "worried",
+     "alive": true,
+     "generation": 1,
+     "streak_days": 1
+    },
+    "month": {
+     "month": "2026-09",
+     "cycle_type": "wage",
+     "start": "2026-09-25",
+     "end": "2026-10-24",
+     "days_left": 24,
+     "buffer": 21.43,
+     "debt": 0.0,
+     "limit_reduction_per_day": 0.0,
+     "days_under": 3,
+     "days_over": 2,
+     "large_expenses_total": 0.0,
+     "income": 2452.7,
+     "spent_total": 199.67,
+     "projected_end_balance": 663.58
+    },
+    "total_invested": 307.5,
+    "swans_lost": 0
+   }
+  },
+  {
+   "key": "lucas_freelancer",
+   "name": "Lucas, 34, freelance designer",
+   "tagline": "Good spender, irregular income",
+   "verdict": "good",
+   "story": "Paid per project, so there is no single monthly wage: the game falls back to calendar months. Disciplined day to day. A EUR 135 bike repair at the end of August is paid from his buffer, which the game treats as noise: no harm to his swan.",
+   "enrolled_on": "2026-08-01",
+   "transactions": 321,
+   "model": {
+    "version": "stat-v1",
+    "confidence": "high",
+    "history_days": 90,
+    "baseline_daily": 32.9,
+    "savings_rate": 0.1,
+    "target_daily": 29.61,
+    "weekday_factors": {
+     "mon": 1.025,
+     "tue": 1.007,
+     "wed": 0.96,
+     "thu": 0.992,
+     "fri": 1.029,
+     "sat": 0.938,
+     "sun": 1.048
+    },
+    "large_expense_threshold": 100.0,
+    "recurring_merchants": [
+     "adobe",
+     "immo brugmann",
+     "luminus",
+     "netflix",
+     "sociaal verzekeringsfonds",
+     "telenet"
+    ],
+    "monthly_income": 3762.2,
+    "monthly_fixed_costs": 1130.08,
+    "wage": null,
+    "affordable_daily": 77.82,
+    "spend_by_category": {
+     "groceries": 15.06,
+     "lunch": 6.1,
+     "bars": 3.92,
+     "transport": 3.37,
+     "coffee": 2.31,
+     "shopping": 2.21
+    },
+    "ignored_one_offs_total": 420.0
+   },
+   "history_monthly": {
+    "income": 3762.2,
+    "fixed": 999.21,
+    "recurring": 130.87,
+    "discretionary": 1003.2,
+    "large": 142.05,
+    "left_after_habits": 1628.92
+   },
+   "cycles": [
+    {
+     "start": "2026-08-01",
+     "end": "2026-08-31",
+     "planned_end": "2026-08-31",
+     "cycle_type": "calendar",
+     "closed": true,
+     "days_under": 20,
+     "days_over": 11,
+     "large_expenses_total": 135.0,
+     "swept": 173.94,
+     "swan_generation": 1,
+     "swan_died": false
+    },
+    {
+     "start": "2026-09-01",
+     "end": "2026-09-30",
+     "planned_end": "2026-09-30",
+     "cycle_type": "calendar",
+     "closed": false,
+     "days_under": 17,
+     "days_over": 12,
+     "large_expenses_total": 0.0,
+     "swept": 0.0,
+     "swan_generation": 1,
+     "swan_died": false
+    }
+   ],
+   "days": [
+    {
+     "date": "2026-08-01",
+     "limit": 27.78,
+     "spent": 6.94,
+     "large_expenses": 0.0,
+     "buffer": 20.84,
+     "health": 76.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-02",
+     "limit": 31.04,
+     "spent": 40.22,
+     "large_expenses": 0.0,
+     "buffer": 11.67,
+     "health": 80.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-03",
+     "limit": 30.37,
+     "spent": 3.02,
+     "large_expenses": 0.0,
+     "buffer": 39.01,
+     "health": 84.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-04",
+     "limit": 29.82,
+     "spent": 30.44,
+     "large_expenses": 0.0,
+     "buffer": 38.39,
+     "health": 87.7,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-05",
+     "limit": 28.44,
+     "spent": 42.17,
+     "large_expenses": 0.0,
+     "buffer": 24.66,
+     "health": 90.2,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-06",
+     "limit": 29.37,
+     "spent": 19.06,
+     "large_expenses": 0.0,
+     "buffer": 34.98,
+     "health": 92.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-07",
+     "limit": 30.46,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 65.43,
+     "health": 93.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-08",
+     "limit": 27.78,
+     "spent": 2.31,
+     "large_expenses": 0.0,
+     "buffer": 90.91,
+     "health": 95.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-09",
+     "limit": 31.04,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 121.95,
+     "health": 96.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-10",
+     "limit": 30.37,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 152.32,
+     "health": 96.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-11",
+     "limit": 29.82,
+     "spent": 6.14,
+     "large_expenses": 0.0,
+     "buffer": 176.0,
+     "health": 97.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-12",
+     "limit": 28.44,
+     "spent": 40.37,
+     "large_expenses": 0.0,
+     "buffer": 164.07,
+     "health": 97.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-13",
+     "limit": 29.37,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 193.44,
+     "health": 98.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-14",
+     "limit": 30.46,
+     "spent": 9.7,
+     "large_expenses": 0.0,
+     "buffer": 214.19,
+     "health": 98.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-15",
+     "limit": 27.78,
+     "spent": 20.3,
+     "large_expenses": 0.0,
+     "buffer": 221.68,
+     "health": 98.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-16",
+     "limit": 31.04,
+     "spent": 26.12,
+     "large_expenses": 0.0,
+     "buffer": 226.6,
+     "health": 99.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-17",
+     "limit": 30.37,
+     "spent": 2.83,
+     "large_expenses": 0.0,
+     "buffer": 254.14,
+     "health": 99.3,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-18",
+     "limit": 29.82,
+     "spent": 2.17,
+     "large_expenses": 0.0,
+     "buffer": 281.79,
+     "health": 99.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-19",
+     "limit": 28.44,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 310.23,
+     "health": 99.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-20",
+     "limit": 29.37,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 339.6,
+     "health": 99.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-21",
+     "limit": 30.46,
+     "spent": 48.47,
+     "large_expenses": 0.0,
+     "buffer": 321.59,
+     "health": 99.7,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-22",
+     "limit": 27.78,
+     "spent": 10.31,
+     "large_expenses": 0.0,
+     "buffer": 339.06,
+     "health": 99.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-23",
+     "limit": 31.04,
+     "spent": 2.64,
+     "large_expenses": 0.0,
+     "buffer": 367.46,
+     "health": 99.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-24",
+     "limit": 30.37,
+     "spent": 36.76,
+     "large_expenses": 0.0,
+     "buffer": 361.07,
+     "health": 99.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-25",
+     "limit": 29.82,
+     "spent": 88.46,
+     "large_expenses": 0.0,
+     "buffer": 302.43,
+     "health": 99.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-26",
+     "limit": 28.44,
+     "spent": 41.54,
+     "large_expenses": 0.0,
+     "buffer": 289.33,
+     "health": 95.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-27",
+     "limit": 29.37,
+     "spent": 34.17,
+     "large_expenses": 135.0,
+     "buffer": 149.53,
+     "health": 86.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-28",
+     "limit": 30.46,
+     "spent": 4.73,
+     "large_expenses": 0.0,
+     "buffer": 175.26,
+     "health": 86.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-29",
+     "limit": 27.78,
+     "spent": 51.39,
+     "large_expenses": 0.0,
+     "buffer": 151.65,
+     "health": 79.2,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-30",
+     "limit": 31.04,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 182.7,
+     "health": 73.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-31",
+     "limit": 30.37,
+     "spent": 39.12,
+     "large_expenses": 0.0,
+     "buffer": 173.94,
+     "health": 69.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-01",
+     "limit": 29.82,
+     "spent": 2.31,
+     "large_expenses": 0.0,
+     "buffer": 27.51,
+     "health": 75.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-02",
+     "limit": 28.44,
+     "spent": 16.46,
+     "large_expenses": 0.0,
+     "buffer": 39.49,
+     "health": 80.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-03",
+     "limit": 29.37,
+     "spent": 37.21,
+     "large_expenses": 0.0,
+     "buffer": 31.65,
+     "health": 84.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-04",
+     "limit": 30.46,
+     "spent": 40.33,
+     "large_expenses": 0.0,
+     "buffer": 21.78,
+     "health": 87.3,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-05",
+     "limit": 27.78,
+     "spent": 32.59,
+     "large_expenses": 0.0,
+     "buffer": 16.97,
+     "health": 89.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-06",
+     "limit": 31.04,
+     "spent": 29.77,
+     "large_expenses": 0.0,
+     "buffer": 18.25,
+     "health": 91.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-07",
+     "limit": 30.37,
+     "spent": 59.6,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 91.4,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-08",
+     "limit": 29.82,
+     "spent": 6.41,
+     "large_expenses": 0.0,
+     "buffer": 23.41,
+     "health": 90.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-09",
+     "limit": 28.44,
+     "spent": 16.76,
+     "large_expenses": 0.0,
+     "buffer": 35.09,
+     "health": 89.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-10",
+     "limit": 29.37,
+     "spent": 25.36,
+     "large_expenses": 0.0,
+     "buffer": 39.1,
+     "health": 90.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-11",
+     "limit": 30.46,
+     "spent": 9.78,
+     "large_expenses": 0.0,
+     "buffer": 59.78,
+     "health": 92.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-12",
+     "limit": 27.78,
+     "spent": 68.24,
+     "large_expenses": 0.0,
+     "buffer": 19.32,
+     "health": 92.4,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-13",
+     "limit": 31.04,
+     "spent": 33.73,
+     "large_expenses": 0.0,
+     "buffer": 16.64,
+     "health": 91.5,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-14",
+     "limit": 30.37,
+     "spent": 30.06,
+     "large_expenses": 0.0,
+     "buffer": 16.94,
+     "health": 93.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-15",
+     "limit": 29.82,
+     "spent": 21.74,
+     "large_expenses": 0.0,
+     "buffer": 25.02,
+     "health": 94.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-16",
+     "limit": 28.44,
+     "spent": 38.81,
+     "large_expenses": 0.0,
+     "buffer": 14.65,
+     "health": 91.7,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-17",
+     "limit": 29.37,
+     "spent": 44.06,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 85.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-18",
+     "limit": 30.46,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 30.46,
+     "health": 83.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-19",
+     "limit": 27.78,
+     "spent": 139.82,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 66.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-20",
+     "limit": 31.04,
+     "spent": 10.43,
+     "large_expenses": 0.0,
+     "buffer": 20.61,
+     "health": 58.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-21",
+     "limit": 30.37,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 50.98,
+     "health": 57.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-22",
+     "limit": 29.82,
+     "spent": 34.33,
+     "large_expenses": 0.0,
+     "buffer": 46.47,
+     "health": 54.5,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-23",
+     "limit": 28.44,
+     "spent": 2.47,
+     "large_expenses": 0.0,
+     "buffer": 72.44,
+     "health": 59.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-24",
+     "limit": 29.37,
+     "spent": 2.17,
+     "large_expenses": 0.0,
+     "buffer": 99.64,
+     "health": 67.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-25",
+     "limit": 30.46,
+     "spent": 50.4,
+     "large_expenses": 0.0,
+     "buffer": 79.7,
+     "health": 67.5,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-26",
+     "limit": 27.78,
+     "spent": 77.87,
+     "large_expenses": 0.0,
+     "buffer": 29.61,
+     "health": 74.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-27",
+     "limit": 31.04,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 60.66,
+     "health": 79.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-28",
+     "limit": 30.37,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 91.02,
+     "health": 83.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-29",
+     "limit": 29.82,
+     "spent": 17.67,
+     "large_expenses": 0.0,
+     "buffer": 103.17,
+     "health": 86.7,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-30",
+     "limit": 28.44,
+     "spent": 15.58,
+     "large_expenses": 0.0,
+     "buffer": 103.17,
+     "health": 86.7,
+     "status": "today"
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-08-27",
+     "type": "large_expense_absorbed",
+     "amount": 135.0,
+     "health_delta": null,
+     "message": "Fietsen Janssens: EUR 135.00 covered by your buffer."
+    },
+    {
+     "date": "2026-08-31",
+     "type": "month_swept",
+     "amount": 173.94,
+     "health_delta": null,
+     "message": "New month! EUR 173.94 saved this cycle is invested in your fund."
+    }
+   ],
+   "highlights": [
+    {
+     "date": "2026-08-27",
+     "caption": "Bike repair EUR 135: paid from the buffer, swan unharmed",
+     "today": {
+      "date": "2026-08-27",
+      "base_limit": 29.37,
+      "limit_reduction": 0.0,
+      "limit": 29.37,
+      "spent": 34.17,
+      "remaining": 0.0,
+      "large_expenses": 135.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 95.9,
+      "tier": "thriving",
+      "mood": "worried",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 0
+     },
+     "month": {
+      "month": "2026-08",
+      "cycle_type": "calendar",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "days_left": 4,
+      "buffer": 154.33,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 18,
+      "days_over": 8,
+      "large_expenses_total": 135.0,
+      "income": 3831.41,
+      "spent_total": 2074.86,
+      "projected_end_balance": 1673.25
+     },
+     "events_today": [
+      {
+       "date": "2026-08-27",
+       "type": "large_expense_absorbed",
+       "amount": 135.0,
+       "health_delta": null,
+       "message": "Fietsen Janssens: EUR 135.00 covered by your buffer."
+      }
+     ]
+    },
+    {
+     "date": "2026-08-31",
+     "caption": "Month end (no wage, so calendar cycle): buffer invested",
+     "today": {
+      "date": "2026-08-31",
+      "base_limit": 30.37,
+      "limit_reduction": 0.0,
+      "limit": 30.37,
+      "spent": 39.12,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 73.8,
+      "tier": "healthy",
+      "mood": "worried",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 1
+     },
+     "month": {
+      "month": "2026-08",
+      "cycle_type": "calendar",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "days_left": 0,
+      "buffer": 182.7,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 20,
+      "days_over": 10,
+      "large_expenses_total": 135.0,
+      "income": 3831.41,
+      "spent_total": 2170.1,
+      "projected_end_balance": 1661.31
+     },
+     "events_today": []
+    },
+    {
+     "date": "2026-09-30",
+     "caption": "Today: healthy swan, second sweep coming",
+     "today": {
+      "date": "2026-09-30",
+      "base_limit": 28.44,
+      "limit_reduction": 0.0,
+      "limit": 28.44,
+      "spent": 15.58,
+      "remaining": 12.86,
+      "large_expenses": 0.0,
+      "status": "on_track"
+     },
+     "swan": {
+      "health": 86.7,
+      "tier": "thriving",
+      "mood": "happy",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 3
+     },
+     "month": {
+      "month": "2026-09",
+      "cycle_type": "calendar",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "days_left": 0,
+      "buffer": 103.17,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 17,
+      "days_over": 12,
+      "large_expenses_total": 0.0,
+      "income": 3707.82,
+      "spent_total": 2294.94,
+      "projected_end_balance": 1412.88
+     },
+     "events_today": []
+    }
+   ],
+   "final": {
+    "swan": {
+     "health": 86.7,
+     "tier": "thriving",
+     "mood": "happy",
+     "alive": true,
+     "generation": 1,
+     "streak_days": 3
+    },
+    "month": {
+     "month": "2026-09",
+     "cycle_type": "calendar",
+     "start": "2026-09-01",
+     "end": "2026-09-30",
+     "days_left": 0,
+     "buffer": 103.17,
+     "debt": 0.0,
+     "limit_reduction_per_day": 0.0,
+     "days_under": 17,
+     "days_over": 12,
+     "large_expenses_total": 0.0,
+     "income": 3707.82,
+     "spent_total": 2294.94,
+     "projected_end_balance": 1412.88
+    },
+    "total_invested": 173.94,
+    "swans_lost": 0
+   }
+  },
+  {
+   "key": "emma_gourmet",
+   "name": "Emma, 31, marketing coordinator",
+   "tagline": "Premium groceries, runs short every month",
+   "verdict": "bad",
+   "story": "No big splurges, just an expensive daily routine: deli and organic shopping several times a week, specialty coffee, takeaway. Her habits cost more than her income leaves after fixed costs, so the model caps her limit at what she can afford. She keeps her routine, overspends almost daily, runs short before payday and her swan dies every cycle.",
+   "enrolled_on": "2026-07-24",
+   "transactions": 342,
+   "model": {
+    "version": "stat-v1",
+    "confidence": "high",
+    "history_days": 90,
+    "baseline_daily": 41.21,
+    "savings_rate": 0.1,
+    "target_daily": 22.03,
+    "weekday_factors": {
+     "mon": 0.833,
+     "tue": 1.368,
+     "wed": 1.0,
+     "thu": 0.805,
+     "fri": 1.159,
+     "sat": 0.892,
+     "sun": 0.944
+    },
+    "large_expense_threshold": 112.5,
+    "recurring_merchants": [
+     "engie",
+     "ethias",
+     "immo zuid",
+     "jims",
+     "kbc autolening",
+     "netflix",
+     "orange",
+     "spotify"
+    ],
+    "monthly_income": 2138.47,
+    "monthly_fixed_costs": 1393.22,
+    "wage": {
+     "payer": "Brightside Media NV",
+     "amount": 2138.47,
+     "day_of_month": 25
+    },
+    "affordable_daily": 22.03,
+    "spend_by_category": {
+     "groceries": 28.91,
+     "shopping": 3.95,
+     "bakery": 3.42,
+     "coffee": 2.57,
+     "takeaway": 2.26,
+     "transport": 0.89
+    },
+    "ignored_one_offs_total": 0.0
+   },
+   "history_monthly": {
+    "income": 2138.47,
+    "fixed": 1262.35,
+    "recurring": 130.87,
+    "discretionary": 1278.48,
+    "large": 0.0,
+    "left_after_habits": -533.23
+   },
+   "cycles": [
+    {
+     "start": "2026-07-24",
+     "end": "2026-08-24",
+     "planned_end": "2026-08-24",
+     "cycle_type": "wage",
+     "closed": true,
+     "days_under": 16,
+     "days_over": 16,
+     "large_expenses_total": 0.0,
+     "swept": 0.0,
+     "swan_generation": 1,
+     "swan_died": true
+    },
+    {
+     "start": "2026-08-25",
+     "end": "2026-09-24",
+     "planned_end": "2026-09-24",
+     "cycle_type": "wage",
+     "closed": true,
+     "days_under": 16,
+     "days_over": 15,
+     "large_expenses_total": 0.0,
+     "swept": 0.0,
+     "swan_generation": 2,
+     "swan_died": true
+    },
+    {
+     "start": "2026-09-25",
+     "end": "2026-09-30",
+     "planned_end": "2026-10-24",
+     "cycle_type": "wage",
+     "closed": false,
+     "days_under": 3,
+     "days_over": 2,
+     "large_expenses_total": 0.0,
+     "swept": 0.0,
+     "swan_generation": 3,
+     "swan_died": false
+    }
+   ],
+   "days": [
+    {
+     "date": "2026-07-24",
+     "limit": 25.54,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 25.54,
+     "health": 76.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-25",
+     "limit": 19.65,
+     "spent": 108.66,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 60.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-26",
+     "limit": 20.79,
+     "spent": 113.9,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 48.6,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-27",
+     "limit": 18.35,
+     "spent": 67.91,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 38.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-28",
+     "limit": 30.14,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 30.14,
+     "health": 31.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-29",
+     "limit": 22.03,
+     "spent": 2.63,
+     "large_expenses": 0.0,
+     "buffer": 49.55,
+     "health": 24.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-30",
+     "limit": 17.74,
+     "spent": 102.37,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 19.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-31",
+     "limit": 25.54,
+     "spent": 121.2,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 15.9,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-01",
+     "limit": 19.65,
+     "spent": 45.62,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 12.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-02",
+     "limit": 20.79,
+     "spent": 29.34,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 10.2,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-03",
+     "limit": 18.35,
+     "spent": 11.25,
+     "large_expenses": 0.0,
+     "buffer": 7.1,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-04",
+     "limit": 30.14,
+     "spent": 30.22,
+     "large_expenses": 0.0,
+     "buffer": 7.02,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-05",
+     "limit": 22.03,
+     "spent": 73.02,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-06",
+     "limit": 17.74,
+     "spent": 61.5,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-07",
+     "limit": 25.54,
+     "spent": 44.53,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-08",
+     "limit": 19.65,
+     "spent": 47.59,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-09",
+     "limit": 20.79,
+     "spent": 54.64,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-10",
+     "limit": 18.35,
+     "spent": 4.56,
+     "large_expenses": 0.0,
+     "buffer": 13.79,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-11",
+     "limit": 30.14,
+     "spent": 52.88,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-12",
+     "limit": 22.03,
+     "spent": 73.73,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-13",
+     "limit": 17.74,
+     "spent": 6.06,
+     "large_expenses": 0.0,
+     "buffer": 11.68,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-14",
+     "limit": 25.54,
+     "spent": 5.16,
+     "large_expenses": 0.0,
+     "buffer": 32.06,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-15",
+     "limit": 19.65,
+     "spent": 13.13,
+     "large_expenses": 0.0,
+     "buffer": 38.57,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-16",
+     "limit": 20.79,
+     "spent": 51.74,
+     "large_expenses": 0.0,
+     "buffer": 7.62,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-17",
+     "limit": 18.35,
+     "spent": 9.11,
+     "large_expenses": 0.0,
+     "buffer": 16.86,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-18",
+     "limit": 30.14,
+     "spent": 8.63,
+     "large_expenses": 0.0,
+     "buffer": 38.38,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-19",
+     "limit": 22.03,
+     "spent": 8.25,
+     "large_expenses": 0.0,
+     "buffer": 52.16,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-20",
+     "limit": 17.74,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 69.9,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-21",
+     "limit": 25.54,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 95.44,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-22",
+     "limit": 19.65,
+     "spent": 10.88,
+     "large_expenses": 0.0,
+     "buffer": 104.2,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-23",
+     "limit": 20.79,
+     "spent": 3.71,
+     "large_expenses": 0.0,
+     "buffer": 121.29,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-24",
+     "limit": 18.35,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 139.63,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-25",
+     "limit": 30.14,
+     "spent": 47.83,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 40.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-26",
+     "limit": 22.03,
+     "spent": 4.44,
+     "large_expenses": 0.0,
+     "buffer": 17.59,
+     "health": 51.9,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-27",
+     "limit": 17.74,
+     "spent": 73.55,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 41.5,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-28",
+     "limit": 25.54,
+     "spent": 20.42,
+     "large_expenses": 0.0,
+     "buffer": 5.12,
+     "health": 33.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-29",
+     "limit": 19.65,
+     "spent": 7.26,
+     "large_expenses": 0.0,
+     "buffer": 17.51,
+     "health": 33.2,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-30",
+     "limit": 20.79,
+     "spent": 41.23,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 29.3,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-31",
+     "limit": 18.35,
+     "spent": 36.98,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 23.4,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-01",
+     "limit": 30.14,
+     "spent": 13.21,
+     "large_expenses": 0.0,
+     "buffer": 16.93,
+     "health": 27.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-02",
+     "limit": 22.03,
+     "spent": 99.17,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 22.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-03",
+     "limit": 17.74,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 17.74,
+     "health": 21.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-04",
+     "limit": 25.54,
+     "spent": 9.33,
+     "large_expenses": 0.0,
+     "buffer": 33.95,
+     "health": 23.1,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-05",
+     "limit": 19.65,
+     "spent": 43.2,
+     "large_expenses": 0.0,
+     "buffer": 10.39,
+     "health": 18.5,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-06",
+     "limit": 20.79,
+     "spent": 75.69,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 14.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-07",
+     "limit": 18.35,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 18.35,
+     "health": 11.8,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-08",
+     "limit": 30.14,
+     "spent": 50.22,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-09",
+     "limit": 22.03,
+     "spent": 5.07,
+     "large_expenses": 0.0,
+     "buffer": 16.96,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-10",
+     "limit": 17.74,
+     "spent": 69.53,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-11",
+     "limit": 25.54,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 25.54,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-12",
+     "limit": 19.65,
+     "spent": 194.12,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-13",
+     "limit": 20.79,
+     "spent": 4.0,
+     "large_expenses": 0.0,
+     "buffer": 16.79,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-14",
+     "limit": 18.35,
+     "spent": 9.03,
+     "large_expenses": 0.0,
+     "buffer": 26.11,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-15",
+     "limit": 30.14,
+     "spent": 14.88,
+     "large_expenses": 0.0,
+     "buffer": 41.37,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-16",
+     "limit": 22.03,
+     "spent": 16.59,
+     "large_expenses": 0.0,
+     "buffer": 46.82,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-17",
+     "limit": 17.74,
+     "spent": 4.51,
+     "large_expenses": 0.0,
+     "buffer": 60.04,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-18",
+     "limit": 25.54,
+     "spent": 112.32,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-19",
+     "limit": 19.65,
+     "spent": 32.02,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-20",
+     "limit": 20.79,
+     "spent": 44.22,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-21",
+     "limit": 18.35,
+     "spent": 9.54,
+     "large_expenses": 0.0,
+     "buffer": 8.81,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-22",
+     "limit": 30.14,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 38.95,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-23",
+     "limit": 22.03,
+     "spent": 39.97,
+     "large_expenses": 0.0,
+     "buffer": 21.02,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-24",
+     "limit": 17.74,
+     "spent": 55.59,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-25",
+     "limit": 25.54,
+     "spent": 47.97,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 40.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-26",
+     "limit": 19.65,
+     "spent": 93.1,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 32.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-27",
+     "limit": 20.79,
+     "spent": 4.28,
+     "large_expenses": 0.0,
+     "buffer": 16.51,
+     "health": 25.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-28",
+     "limit": 18.35,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 34.86,
+     "health": 20.5,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-29",
+     "limit": 30.14,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 65.0,
+     "health": 25.6,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-30",
+     "limit": 22.03,
+     "spent": 56.75,
+     "large_expenses": 0.0,
+     "buffer": 65.0,
+     "health": 25.6,
+     "status": "today"
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-08-03",
+     "type": "swan_died",
+     "amount": null,
+     "health_delta": null,
+     "message": "Your swan did not make it this cycle. A new egg hatches next payday."
+    },
+    {
+     "date": "2026-08-25",
+     "type": "swan_reborn",
+     "amount": null,
+     "health_delta": null,
+     "message": "A new cygnet hatched. Fresh start!"
+    },
+    {
+     "date": "2026-09-08",
+     "type": "swan_died",
+     "amount": null,
+     "health_delta": null,
+     "message": "Your swan did not make it this cycle. A new egg hatches next payday."
+    },
+    {
+     "date": "2026-09-25",
+     "type": "swan_reborn",
+     "amount": null,
+     "health_delta": null,
+     "message": "A new cygnet hatched. Fresh start!"
+    }
+   ],
+   "highlights": [
+    {
+     "date": "2026-07-27",
+     "caption": "Day 4: one deli run costs almost four days of limit",
+     "today": {
+      "date": "2026-07-27",
+      "base_limit": 18.35,
+      "limit_reduction": 0.0,
+      "limit": 18.35,
+      "spent": 67.91,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 48.6,
+      "tier": "tired",
+      "mood": "worried",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 0
+     },
+     "month": {
+      "month": "2026-07",
+      "cycle_type": "wage",
+      "start": "2026-07-24",
+      "end": "2026-08-24",
+      "days_left": 28,
+      "buffer": 0.0,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 1,
+      "days_over": 2,
+      "large_expenses_total": 0.0,
+      "income": 2248.07,
+      "spent_total": 290.47,
+      "projected_end_balance": -562.07
+     },
+     "events_today": []
+    },
+    {
+     "date": "2026-08-02",
+     "caption": "Day 10: the weekly pace is far over, swan rotting",
+     "today": {
+      "date": "2026-08-02",
+      "base_limit": 20.79,
+      "limit_reduction": 0.0,
+      "limit": 20.79,
+      "spent": 29.34,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 12.8,
+      "tier": "rotting",
+      "mood": "critical",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 0
+     },
+     "month": {
+      "month": "2026-07",
+      "cycle_type": "wage",
+      "start": "2026-07-24",
+      "end": "2026-08-24",
+      "days_left": 22,
+      "buffer": 0.0,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 3,
+      "days_over": 6,
+      "large_expenses_total": 0.0,
+      "income": 2248.07,
+      "spent_total": 1481.63,
+      "projected_end_balance": -793.41
+     },
+     "events_today": []
+    },
+    {
+     "date": "2026-09-30",
+     "caption": "Today: third swan, running short before payday again",
+     "today": {
+      "date": "2026-09-30",
+      "base_limit": 22.03,
+      "limit_reduction": 0.0,
+      "limit": 22.03,
+      "spent": 56.75,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 25.6,
+      "tier": "sick",
+      "mood": "sad",
+      "alive": true,
+      "generation": 3,
+      "streak_days": 3
+     },
+     "month": {
+      "month": "2026-09",
+      "cycle_type": "wage",
+      "start": "2026-09-25",
+      "end": "2026-10-24",
+      "days_left": 24,
+      "buffer": 65.0,
+      "debt": 0.0,
+      "limit_reduction_per_day": 0.0,
+      "days_under": 3,
+      "days_over": 2,
+      "large_expenses_total": 0.0,
+      "income": 2107.56,
+      "spent_total": 202.1,
+      "projected_end_balance": -66.8
+     },
+     "events_today": []
+    }
+   ],
+   "final": {
+    "swan": {
+     "health": 25.6,
+     "tier": "sick",
+     "mood": "sad",
+     "alive": true,
+     "generation": 3,
+     "streak_days": 3
+    },
+    "month": {
+     "month": "2026-09",
+     "cycle_type": "wage",
+     "start": "2026-09-25",
+     "end": "2026-10-24",
+     "days_left": 24,
+     "buffer": 65.0,
+     "debt": 0.0,
+     "limit_reduction_per_day": 0.0,
+     "days_under": 3,
+     "days_over": 2,
+     "large_expenses_total": 0.0,
+     "income": 2107.56,
+     "spent_total": 202.1,
+     "projected_end_balance": -66.8
+    },
+    "total_invested": 0.0,
+    "swans_lost": 2
+   }
+  },
+  {
+   "key": "jonas_impulse",
+   "name": "Jonas, 26, sales rep",
+   "tagline": "Reckless big buys right after payday",
+   "verdict": "bad",
+   "story": "Day to day he is average, but the week after payday he buys what he wants: a designer bag, headphones, sneakers, a console. Within days of payday he has spent half his wage. The game flags each buy as unaffordable, his buffer cannot cover them, his limits drop to the floor and his swan dies.",
+   "enrolled_on": "2026-07-24",
+   "transactions": 277,
+   "model": {
+    "version": "stat-v1",
+    "confidence": "high",
+    "history_days": 90,
+    "baseline_daily": 31.3,
+    "savings_rate": 0.1,
+    "target_daily": 28.17,
+    "weekday_factors": {
+     "mon": 1.188,
+     "tue": 0.693,
+     "wed": 0.841,
+     "thu": 0.857,
+     "fri": 1.021,
+     "sat": 1.224,
+     "sun": 1.175
+    },
+    "large_expense_threshold": 100.0,
+    "recurring_merchants": [
+     "baloise",
+     "base",
+     "basic fit",
+     "disney",
+     "immo centrum",
+     "mega",
+     "spotify"
+    ],
+    "monthly_income": 2290.51,
+    "monthly_fixed_costs": 940.26,
+    "wage": {
+     "payer": "Velocity Sales BV",
+     "amount": 2290.51,
+     "day_of_month": 25
+    },
+    "affordable_daily": 39.92,
+    "spend_by_category": {
+     "groceries": 9.82,
+     "fast_food": 7.26,
+     "bars": 6.64,
+     "transport": 4.18,
+     "shopping": 3.55
+    },
+    "ignored_one_offs_total": 440.0
+   },
+   "history_monthly": {
+    "income": 2290.51,
+    "fixed": 857.08,
+    "recurring": 83.18,
+    "discretionary": 957.64,
+    "large": 148.82,
+    "left_after_habits": 392.61
+   },
+   "cycles": [
+    {
+     "start": "2026-07-24",
+     "end": "2026-08-24",
+     "planned_end": "2026-08-24",
+     "cycle_type": "wage",
+     "closed": true,
+     "days_under": 17,
+     "days_over": 15,
+     "large_expenses_total": 1358.0,
+     "swept": 0.0,
+     "swan_generation": 1,
+     "swan_died": true
+    },
+    {
+     "start": "2026-08-25",
+     "end": "2026-09-24",
+     "planned_end": "2026-09-24",
+     "cycle_type": "wage",
+     "closed": true,
+     "days_under": 9,
+     "days_over": 22,
+     "large_expenses_total": 898.0,
+     "swept": 0.0,
+     "swan_generation": 2,
+     "swan_died": true
+    },
+    {
+     "start": "2026-09-25",
+     "end": "2026-09-30",
+     "planned_end": "2026-10-24",
+     "cycle_type": "wage",
+     "closed": false,
+     "days_under": 0,
+     "days_over": 5,
+     "large_expenses_total": 679.0,
+     "swept": 0.0,
+     "swan_generation": 3,
+     "swan_died": true
+    }
+   ],
+   "days": [
+    {
+     "date": "2026-07-24",
+     "limit": 28.77,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 28.77,
+     "health": 76.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-25",
+     "limit": 20.68,
+     "spent": 42.32,
+     "large_expenses": 790.0,
+     "buffer": 0.0,
+     "health": 56.8,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-26",
+     "limit": 19.86,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 65.4,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-27",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 379.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-28",
+     "limit": 11.71,
+     "spent": 24.03,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-29",
+     "limit": 14.22,
+     "spent": 39.68,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-07-30",
+     "limit": 14.49,
+     "spent": 0.0,
+     "large_expenses": 189.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-07-31",
+     "limit": 17.26,
+     "spent": 10.02,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-01",
+     "limit": 20.68,
+     "spent": 26.74,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-02",
+     "limit": 19.86,
+     "spent": 31.66,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-03",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-04",
+     "limit": 11.71,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-05",
+     "limit": 14.22,
+     "spent": 10.68,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-06",
+     "limit": 14.49,
+     "spent": 9.3,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-07",
+     "limit": 17.26,
+     "spent": 38.11,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-08",
+     "limit": 20.68,
+     "spent": 58.23,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-09",
+     "limit": 19.86,
+     "spent": 22.91,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-10",
+     "limit": 20.08,
+     "spent": 58.37,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-11",
+     "limit": 11.71,
+     "spent": 89.56,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-12",
+     "limit": 14.22,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-13",
+     "limit": 14.49,
+     "spent": 12.19,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-14",
+     "limit": 17.26,
+     "spent": 10.72,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-15",
+     "limit": 20.68,
+     "spent": 34.64,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-16",
+     "limit": 19.86,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-17",
+     "limit": 20.08,
+     "spent": 11.82,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-18",
+     "limit": 11.71,
+     "spent": 12.54,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-19",
+     "limit": 14.22,
+     "spent": 39.55,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-20",
+     "limit": 14.49,
+     "spent": 15.24,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-21",
+     "limit": 17.26,
+     "spent": 14.78,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-22",
+     "limit": 20.68,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-23",
+     "limit": 19.86,
+     "spent": 126.29,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-24",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-25",
+     "limit": 19.52,
+     "spent": 23.35,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 52.1,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-26",
+     "limit": 14.22,
+     "spent": 30.51,
+     "large_expenses": 349.0,
+     "buffer": 0.0,
+     "health": 29.7,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-27",
+     "limit": 14.49,
+     "spent": 12.19,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 29.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-28",
+     "limit": 17.26,
+     "spent": 43.47,
+     "large_expenses": 549.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-29",
+     "limit": 20.68,
+     "spent": 54.55,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-08-30",
+     "limit": 19.86,
+     "spent": 15.63,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-08-31",
+     "limit": 20.08,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-01",
+     "limit": 11.71,
+     "spent": 18.94,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-02",
+     "limit": 14.22,
+     "spent": 59.47,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-03",
+     "limit": 14.49,
+     "spent": 42.97,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-04",
+     "limit": 17.26,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-05",
+     "limit": 20.68,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-06",
+     "limit": 19.86,
+     "spent": 23.41,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-07",
+     "limit": 20.08,
+     "spent": 38.74,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-08",
+     "limit": 11.71,
+     "spent": 24.59,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-09",
+     "limit": 14.22,
+     "spent": 44.44,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-10",
+     "limit": 14.49,
+     "spent": 30.48,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-11",
+     "limit": 17.26,
+     "spent": 46.31,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-12",
+     "limit": 20.68,
+     "spent": 54.12,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-13",
+     "limit": 19.86,
+     "spent": 88.35,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-14",
+     "limit": 20.08,
+     "spent": 12.41,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-15",
+     "limit": 11.71,
+     "spent": 15.03,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-16",
+     "limit": 14.22,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-17",
+     "limit": 14.49,
+     "spent": 21.79,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-18",
+     "limit": 17.26,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-19",
+     "limit": 20.68,
+     "spent": 26.98,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-20",
+     "limit": 19.86,
+     "spent": 63.1,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-21",
+     "limit": 20.08,
+     "spent": 69.21,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-22",
+     "limit": 11.71,
+     "spent": 45.7,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-23",
+     "limit": 14.22,
+     "spent": 54.4,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-24",
+     "limit": 14.49,
+     "spent": 0.0,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "under"
+    },
+    {
+     "date": "2026-09-25",
+     "limit": 28.77,
+     "spent": 55.92,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 40.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-26",
+     "limit": 20.68,
+     "spent": 87.85,
+     "large_expenses": 420.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-27",
+     "limit": 19.86,
+     "spent": 40.48,
+     "large_expenses": 259.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-28",
+     "limit": 20.08,
+     "spent": 40.49,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-29",
+     "limit": 11.71,
+     "spent": 53.34,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "over"
+    },
+    {
+     "date": "2026-09-30",
+     "limit": 14.22,
+     "spent": 50.39,
+     "large_expenses": 0.0,
+     "buffer": 0.0,
+     "health": 0.0,
+     "status": "today"
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-07-25",
+     "type": "limit_reduced",
+     "amount": 761.23,
+     "health_delta": null,
+     "message": "Buffer empty: EUR 761.23 to earn back, daily limit about EUR 25.37 lower."
+    },
+    {
+     "date": "2026-07-25",
+     "type": "large_expense_unaffordable",
+     "amount": 790.0,
+     "health_delta": -30.0,
+     "message": "Inno (designer bag): EUR 790.00. With this, you are on track to spend 111% of your income before next payday."
+    },
+    {
+     "date": "2026-07-27",
+     "type": "swan_died",
+     "amount": null,
+     "health_delta": null,
+     "message": "Your swan did not make it this cycle. A new egg hatches next payday."
+    },
+    {
+     "date": "2026-07-27",
+     "type": "large_expense_unaffordable",
+     "amount": 379.0,
+     "health_delta": -65.4,
+     "message": "MediaMarkt (headphones): EUR 379.00. With this, you are on track to spend 124% of your income before next payday."
+    },
+    {
+     "date": "2026-07-30",
+     "type": "large_expense_unaffordable",
+     "amount": 189.0,
+     "health_delta": 0.0,
+     "message": "Zalando (sneakers): EUR 189.00. With this, you are on track to spend 131% of your income before next payday."
+    },
+    {
+     "date": "2026-08-25",
+     "type": "swan_reborn",
+     "amount": null,
+     "health_delta": null,
+     "message": "A new cygnet hatched. Fresh start!"
+    },
+    {
+     "date": "2026-08-26",
+     "type": "limit_reduced",
+     "amount": 349.0,
+     "health_delta": null,
+     "message": "Buffer empty: EUR 349.00 to earn back, daily limit about EUR 12.03 lower."
+    },
+    {
+     "date": "2026-08-26",
+     "type": "large_expense_uncovered",
+     "amount": 349.0,
+     "health_delta": -15.0,
+     "message": "Coolblue (smartwatch): EUR 349.00, buffer could only cover EUR 0.00."
+    },
+    {
+     "date": "2026-08-28",
+     "type": "swan_died",
+     "amount": null,
+     "health_delta": null,
+     "message": "Your swan did not make it this cycle. A new egg hatches next payday."
+    },
+    {
+     "date": "2026-08-28",
+     "type": "large_expense_unaffordable",
+     "amount": 549.0,
+     "health_delta": -29.0,
+     "message": "Fnac (game console): EUR 549.00. With this, you are on track to spend 117% of your income before next payday."
+    },
+    {
+     "date": "2026-09-25",
+     "type": "swan_reborn",
+     "amount": null,
+     "health_delta": null,
+     "message": "A new cygnet hatched. Fresh start!"
+    },
+    {
+     "date": "2026-09-26",
+     "type": "limit_reduced",
+     "amount": 420.0,
+     "health_delta": null,
+     "message": "Buffer empty: EUR 420.00 to earn back, daily limit about EUR 15.00 lower."
+    },
+    {
+     "date": "2026-09-26",
+     "type": "large_expense_unaffordable",
+     "amount": 420.0,
+     "health_delta": -30.0,
+     "message": "Tomorrowland resale (tickets): EUR 420.00. With this, you are on track to spend 101% of your income before next payday."
+    },
+    {
+     "date": "2026-09-26",
+     "type": "swan_died",
+     "amount": null,
+     "health_delta": null,
+     "message": "Your swan did not make it this cycle. A new egg hatches next payday."
+    },
+    {
+     "date": "2026-09-27",
+     "type": "large_expense_unaffordable",
+     "amount": 259.0,
+     "health_delta": 0.0,
+     "message": "Zalando (jacket): EUR 259.00. With this, you are on track to spend 113% of your income before next payday."
+    }
+   ],
+   "highlights": [
+    {
+     "date": "2026-07-25",
+     "caption": "Day after payday: EUR 790 bag flagged as unaffordable",
+     "today": {
+      "date": "2026-07-25",
+      "base_limit": 34.47,
+      "limit_reduction": 13.79,
+      "limit": 20.68,
+      "spent": 42.32,
+      "remaining": 0.0,
+      "large_expenses": 790.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 46.0,
+      "tier": "tired",
+      "mood": "worried",
+      "alive": true,
+      "generation": 1,
+      "streak_days": 1
+     },
+     "month": {
+      "month": "2026-07",
+      "cycle_type": "wage",
+      "start": "2026-07-24",
+      "end": "2026-08-24",
+      "days_left": 30,
+      "buffer": 0.0,
+      "debt": 761.23,
+      "limit_reduction_per_day": 13.79,
+      "days_under": 1,
+      "days_over": 0,
+      "large_expenses_total": 790.0,
+      "income": 2407.9,
+      "spent_total": 832.32,
+      "projected_end_balance": -152.26
+     },
+     "events_today": [
+      {
+       "date": "2026-07-25",
+       "type": "large_expense_unaffordable",
+       "amount": 790.0,
+       "health_delta": -30.0,
+       "message": "Inno (designer bag): EUR 790.00. With this, you are on track to spend 111% of your income before next payday."
+      },
+      {
+       "date": "2026-07-25",
+       "type": "limit_reduced",
+       "amount": 761.23,
+       "health_delta": null,
+       "message": "Buffer empty: EUR 761.23 to earn back, daily limit about EUR 25.37 lower."
+      }
+     ]
+    },
+    {
+     "date": "2026-07-27",
+     "caption": "Headphones on top: swan dies on day 4",
+     "today": {
+      "date": "2026-07-27",
+      "base_limit": 33.46,
+      "limit_reduction": 13.39,
+      "limit": 20.08,
+      "spent": 0.0,
+      "remaining": 20.08,
+      "large_expenses": 379.0,
+      "status": "on_track"
+     },
+     "swan": {
+      "health": 0.0,
+      "tier": "dead",
+      "mood": "dead",
+      "alive": false,
+      "generation": 1,
+      "streak_days": 1
+     },
+     "month": {
+      "month": "2026-07",
+      "cycle_type": "wage",
+      "start": "2026-07-24",
+      "end": "2026-08-24",
+      "days_left": 28,
+      "buffer": 0.0,
+      "debt": 1107.12,
+      "limit_reduction_per_day": 13.39,
+      "days_under": 2,
+      "days_over": 1,
+      "large_expenses_total": 1169.0,
+      "income": 2407.9,
+      "spent_total": 1211.32,
+      "projected_end_balance": -462.44
+     },
+     "events_today": [
+      {
+       "date": "2026-07-27",
+       "type": "large_expense_unaffordable",
+       "amount": 379.0,
+       "health_delta": -65.4,
+       "message": "MediaMarkt (headphones): EUR 379.00. With this, you are on track to spend 124% of your income before next payday."
+      },
+      {
+       "date": "2026-07-27",
+       "type": "swan_died",
+       "amount": null,
+       "health_delta": null,
+       "message": "Your swan did not make it this cycle. A new egg hatches next payday."
+      }
+     ]
+    },
+    {
+     "date": "2026-09-30",
+     "caption": "Today: new cycle, same pattern, third swan dead",
+     "today": {
+      "date": "2026-09-30",
+      "base_limit": 23.7,
+      "limit_reduction": 9.48,
+      "limit": 14.22,
+      "spent": 50.39,
+      "remaining": 0.0,
+      "large_expenses": 0.0,
+      "status": "over"
+     },
+     "swan": {
+      "health": 0.0,
+      "tier": "dead",
+      "mood": "dead",
+      "alive": false,
+      "generation": 3,
+      "streak_days": 0
+     },
+     "month": {
+      "month": "2026-09",
+      "cycle_type": "wage",
+      "start": "2026-09-25",
+      "end": "2026-10-24",
+      "days_left": 24,
+      "buffer": 0.0,
+      "debt": 679.0,
+      "limit_reduction_per_day": 9.48,
+      "days_under": 0,
+      "days_over": 5,
+      "large_expenses_total": 679.0,
+      "income": 2257.41,
+      "spent_total": 1007.47,
+      "projected_end_balance": -627.24
+     },
+     "events_today": []
+    }
+   ],
+   "final": {
+    "swan": {
+     "health": 0.0,
+     "tier": "dead",
+     "mood": "dead",
+     "alive": false,
+     "generation": 3,
+     "streak_days": 0
+    },
+    "month": {
+     "month": "2026-09",
+     "cycle_type": "wage",
+     "start": "2026-09-25",
+     "end": "2026-10-24",
+     "days_left": 24,
+     "buffer": 0.0,
+     "debt": 679.0,
+     "limit_reduction_per_day": 9.48,
+     "days_under": 0,
+     "days_over": 5,
+     "large_expenses_total": 679.0,
+     "income": 2257.41,
+     "spent_total": 1007.47,
+     "projected_end_balance": -627.24
+    },
+    "total_invested": 0.0,
+    "swans_lost": 3
+   }
+  }
+ ]
+}

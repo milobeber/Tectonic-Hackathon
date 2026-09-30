@@ -1,0 +1,343 @@
+date,phase,merchant,category,amount_eur,model_kind
+2026-04-25,history,Delhaize,groceries,-81.95,discretionary
+2026-04-26,history,Normo Coffee,coffee,-4.11,discretionary
+2026-04-27,history,Delhaize,groceries,-66.40,discretionary
+2026-04-27,history,Patisserie Elisa,bakery,-11.49,discretionary
+2026-04-27,history,Normo Coffee,coffee,-5.34,discretionary
+2026-04-27,history,De Lijn,transport,-3.41,discretionary
+2026-04-28,history,Ici Paris XL,shopping,-33.48,discretionary
+2026-04-29,history,Delhaize,groceries,-47.76,discretionary
+2026-04-29,history,Patisserie Elisa,bakery,-11.59,discretionary
+2026-04-30,history,Carrefour Market,groceries,-61.79,discretionary
+2026-04-30,history,De Lijn,transport,-2.95,discretionary
+2026-04-30,history,De Lijn,transport,-3.00,discretionary
+2026-05-01,history,Immo Zuid,rent,-890.00,fixed
+2026-05-01,history,Rob The Gourmets' Market,groceries,-83.16,discretionary
+2026-05-01,history,Carrefour Market,groceries,-60.92,discretionary
+2026-05-02,history,De Lijn,transport,-2.81,discretionary
+2026-05-03,history,KBC Autolening,loan,-180.00,fixed
+2026-05-03,history,Normo Coffee,coffee,-4.02,discretionary
+2026-05-03,history,De Lijn,transport,-2.73,discretionary
+2026-05-04,history,Engie,utilities,-118.76,fixed
+2026-05-04,history,Carrefour Market,groceries,-60.28,discretionary
+2026-05-04,history,Patisserie Elisa,bakery,-10.47,discretionary
+2026-05-04,history,Normo Coffee,coffee,-5.38,discretionary
+2026-05-04,history,Normo Coffee,coffee,-4.10,discretionary
+2026-05-04,history,Uber Eats,takeaway,-30.29,discretionary
+2026-05-05,history,Delhaize,groceries,-71.49,discretionary
+2026-05-05,history,De Lijn,transport,-2.83,discretionary
+2026-05-05,history,De Lijn,transport,-2.83,discretionary
+2026-05-06,history,Ethias,insurance,-55.00,fixed
+2026-05-08,history,Orange,telecom,-60.00,recurring
+2026-05-08,history,Normo Coffee,coffee,-5.96,discretionary
+2026-05-09,history,Normo Coffee,coffee,-5.35,discretionary
+2026-05-09,history,Normo Coffee,coffee,-4.54,discretionary
+2026-05-09,history,Normo Coffee,coffee,-4.17,discretionary
+2026-05-10,history,Jims,sport,-39.00,recurring
+2026-05-10,history,Delhaize,groceries,-55.74,discretionary
+2026-05-10,history,Patisserie Elisa,bakery,-8.93,discretionary
+2026-05-10,history,De Lijn,transport,-3.47,discretionary
+2026-05-12,history,De Lijn,transport,-2.54,discretionary
+2026-05-13,history,Carrefour Market,groceries,-50.45,discretionary
+2026-05-13,history,Normo Coffee,coffee,-5.38,discretionary
+2026-05-13,history,Normo Coffee,coffee,-5.54,discretionary
+2026-05-14,history,Netflix,entertainment,-17.99,recurring
+2026-05-14,history,De Lijn,transport,-2.56,discretionary
+2026-05-15,history,Carrefour Market,groceries,-59.46,discretionary
+2026-05-15,history,Normo Coffee,coffee,-5.32,discretionary
+2026-05-16,history,De Lijn,transport,-3.07,discretionary
+2026-05-17,history,Delhaize,groceries,-44.93,discretionary
+2026-05-17,history,Normo Coffee,coffee,-5.91,discretionary
+2026-05-19,history,Normo Coffee,coffee,-4.31,discretionary
+2026-05-20,history,Spotify,entertainment,-11.99,recurring
+2026-05-20,history,De Lijn,transport,-2.61,discretionary
+2026-05-22,history,Normo Coffee,coffee,-4.89,discretionary
+2026-05-22,history,Rituals,shopping,-31.21,discretionary
+2026-05-23,history,Normo Coffee,coffee,-5.20,discretionary
+2026-05-25,history,Brightside Media NV,salary,2138.33,income
+2026-05-25,history,Normo Coffee,coffee,-5.79,discretionary
+2026-05-26,history,Carrefour Market,groceries,-43.77,discretionary
+2026-05-26,history,Normo Coffee,coffee,-4.01,discretionary
+2026-05-27,history,Patisserie Elisa,bakery,-9.72,discretionary
+2026-05-27,history,De Lijn,transport,-3.09,discretionary
+2026-05-28,history,Carrefour Market,groceries,-54.01,discretionary
+2026-05-28,history,Normo Coffee,coffee,-5.65,discretionary
+2026-05-28,history,Normo Coffee,coffee,-4.80,discretionary
+2026-05-28,history,Normo Coffee,coffee,-4.58,discretionary
+2026-05-29,history,Rob The Gourmets' Market,groceries,-80.90,discretionary
+2026-05-30,history,Patisserie Elisa,bakery,-11.79,discretionary
+2026-05-30,history,Normo Coffee,coffee,-5.17,discretionary
+2026-05-30,history,Deliveroo,takeaway,-35.49,discretionary
+2026-05-30,history,De Lijn,transport,-3.13,discretionary
+2026-05-31,history,Carrefour Market,groceries,-62.76,discretionary
+2026-05-31,history,Patisserie Elisa,bakery,-7.86,discretionary
+2026-06-01,history,Immo Zuid,rent,-890.00,fixed
+2026-06-01,history,Patisserie Elisa,bakery,-8.62,discretionary
+2026-06-01,history,Normo Coffee,coffee,-5.35,discretionary
+2026-06-02,history,Rob The Gourmets' Market,groceries,-41.62,discretionary
+2026-06-02,history,Rob The Gourmets' Market,groceries,-73.36,discretionary
+2026-06-03,history,KBC Autolening,loan,-180.00,fixed
+2026-06-03,history,Rob The Gourmets' Market,groceries,-63.95,discretionary
+2026-06-03,history,Patisserie Elisa,bakery,-9.08,discretionary
+2026-06-03,history,Normo Coffee,coffee,-4.83,discretionary
+2026-06-03,history,Uber Eats,takeaway,-24.40,discretionary
+2026-06-03,history,De Lijn,transport,-2.67,discretionary
+2026-06-04,history,Engie,utilities,-120.35,fixed
+2026-06-04,history,Patisserie Elisa,bakery,-10.31,discretionary
+2026-06-04,history,Normo Coffee,coffee,-4.85,discretionary
+2026-06-04,history,Normo Coffee,coffee,-4.50,discretionary
+2026-06-04,history,Zara,shopping,-60.93,discretionary
+2026-06-05,history,Carrefour Market,groceries,-68.98,discretionary
+2026-06-06,history,Ethias,insurance,-55.00,fixed
+2026-06-06,history,Patisserie Elisa,bakery,-8.94,discretionary
+2026-06-07,history,Delhaize,groceries,-46.35,discretionary
+2026-06-07,history,Patisserie Elisa,bakery,-9.46,discretionary
+2026-06-08,history,Orange,telecom,-60.00,recurring
+2026-06-08,history,Patisserie Elisa,bakery,-7.65,discretionary
+2026-06-08,history,De Lijn,transport,-3.03,discretionary
+2026-06-09,history,Carrefour Market,groceries,-64.11,discretionary
+2026-06-09,history,Patisserie Elisa,bakery,-11.06,discretionary
+2026-06-09,history,Patisserie Elisa,bakery,-7.90,discretionary
+2026-06-09,history,Normo Coffee,coffee,-5.17,discretionary
+2026-06-10,history,Jims,sport,-39.00,recurring
+2026-06-10,history,Patisserie Elisa,bakery,-6.24,discretionary
+2026-06-10,history,De Lijn,transport,-3.30,discretionary
+2026-06-10,history,De Lijn,transport,-2.95,discretionary
+2026-06-10,history,De Lijn,transport,-3.34,discretionary
+2026-06-11,history,Patisserie Elisa,bakery,-6.55,discretionary
+2026-06-11,history,Normo Coffee,coffee,-5.40,discretionary
+2026-06-12,history,Rob The Gourmets' Market,groceries,-75.98,discretionary
+2026-06-12,history,Normo Coffee,coffee,-4.76,discretionary
+2026-06-12,history,De Lijn,transport,-2.79,discretionary
+2026-06-13,history,Normo Coffee,coffee,-5.18,discretionary
+2026-06-14,history,Netflix,entertainment,-17.99,recurring
+2026-06-14,history,Patisserie Elisa,bakery,-7.49,discretionary
+2026-06-14,history,Normo Coffee,coffee,-5.76,discretionary
+2026-06-15,history,Carrefour Market,groceries,-75.94,discretionary
+2026-06-16,history,Carrefour Market,groceries,-59.81,discretionary
+2026-06-16,history,Carrefour Market,groceries,-64.06,discretionary
+2026-06-16,history,Deliveroo,takeaway,-25.23,discretionary
+2026-06-16,history,Rituals,shopping,-60.57,discretionary
+2026-06-17,history,Delhaize,groceries,-78.82,discretionary
+2026-06-17,history,Patisserie Elisa,bakery,-12.00,discretionary
+2026-06-18,history,Normo Coffee,coffee,-5.51,discretionary
+2026-06-19,history,Patisserie Elisa,bakery,-6.12,discretionary
+2026-06-20,history,Spotify,entertainment,-11.99,recurring
+2026-06-20,history,Carrefour Market,groceries,-62.95,discretionary
+2026-06-20,history,Normo Coffee,coffee,-4.93,discretionary
+2026-06-20,history,Ici Paris XL,shopping,-32.71,discretionary
+2026-06-21,history,Patisserie Elisa,bakery,-7.86,discretionary
+2026-06-21,history,Patisserie Elisa,bakery,-11.85,discretionary
+2026-06-21,history,Patisserie Elisa,bakery,-11.29,discretionary
+2026-06-23,history,Rob The Gourmets' Market,groceries,-75.03,discretionary
+2026-06-24,history,Rituals,shopping,-54.95,discretionary
+2026-06-24,history,Rituals,shopping,-51.67,discretionary
+2026-06-25,history,Brightside Media NV,salary,2138.62,income
+2026-06-25,history,Patisserie Elisa,bakery,-11.51,discretionary
+2026-06-25,history,Patisserie Elisa,bakery,-8.94,discretionary
+2026-06-26,history,Patisserie Elisa,bakery,-9.68,discretionary
+2026-06-26,history,Normo Coffee,coffee,-5.87,discretionary
+2026-06-27,history,Patisserie Elisa,bakery,-10.81,discretionary
+2026-06-30,history,Carrefour Market,groceries,-40.75,discretionary
+2026-06-30,history,Normo Coffee,coffee,-4.44,discretionary
+2026-07-01,history,Immo Zuid,rent,-890.00,fixed
+2026-07-01,history,De Lijn,transport,-2.83,discretionary
+2026-07-03,history,KBC Autolening,loan,-180.00,fixed
+2026-07-03,history,Delhaize,groceries,-59.90,discretionary
+2026-07-03,history,Normo Coffee,coffee,-4.09,discretionary
+2026-07-03,history,Normo Coffee,coffee,-4.10,discretionary
+2026-07-03,history,Normo Coffee,coffee,-4.46,discretionary
+2026-07-04,history,Engie,utilities,-118.20,fixed
+2026-07-04,history,Uber Eats,takeaway,-25.78,discretionary
+2026-07-05,history,Patisserie Elisa,bakery,-7.98,discretionary
+2026-07-05,history,Normo Coffee,coffee,-5.67,discretionary
+2026-07-05,history,Uber Eats,takeaway,-28.78,discretionary
+2026-07-06,history,Ethias,insurance,-55.00,fixed
+2026-07-06,history,Delhaize,groceries,-71.76,discretionary
+2026-07-06,history,Normo Coffee,coffee,-5.37,discretionary
+2026-07-07,history,Delhaize,groceries,-62.37,discretionary
+2026-07-07,history,Carrefour Market,groceries,-80.72,discretionary
+2026-07-07,history,Normo Coffee,coffee,-5.19,discretionary
+2026-07-07,history,Normo Coffee,coffee,-5.40,discretionary
+2026-07-08,history,Orange,telecom,-60.00,recurring
+2026-07-09,history,De Lijn,transport,-3.25,discretionary
+2026-07-10,history,Jims,sport,-39.00,recurring
+2026-07-11,history,Uber Eats,takeaway,-33.73,discretionary
+2026-07-11,history,Zara,shopping,-29.68,discretionary
+2026-07-11,history,De Lijn,transport,-3.02,discretionary
+2026-07-12,history,Delhaize,groceries,-69.52,discretionary
+2026-07-12,history,Delhaize,groceries,-53.15,discretionary
+2026-07-12,history,Patisserie Elisa,bakery,-8.48,discretionary
+2026-07-12,history,Normo Coffee,coffee,-4.17,discretionary
+2026-07-12,history,De Lijn,transport,-2.70,discretionary
+2026-07-13,history,Patisserie Elisa,bakery,-7.04,discretionary
+2026-07-14,history,Netflix,entertainment,-17.99,recurring
+2026-07-14,history,Carrefour Market,groceries,-71.15,discretionary
+2026-07-14,history,Patisserie Elisa,bakery,-11.65,discretionary
+2026-07-16,history,Carrefour Market,groceries,-75.00,discretionary
+2026-07-16,history,Patisserie Elisa,bakery,-7.30,discretionary
+2026-07-16,history,De Lijn,transport,-3.22,discretionary
+2026-07-17,history,Carrefour Market,groceries,-48.80,discretionary
+2026-07-18,history,Delhaize,groceries,-56.94,discretionary
+2026-07-18,history,De Lijn,transport,-3.12,discretionary
+2026-07-19,history,Normo Coffee,coffee,-5.89,discretionary
+2026-07-20,history,Spotify,entertainment,-11.99,recurring
+2026-07-21,history,De Lijn,transport,-2.68,discretionary
+2026-07-22,history,Delhaize,groceries,-75.00,discretionary
+2026-07-22,history,Normo Coffee,coffee,-5.11,discretionary
+2026-07-23,history,Patisserie Elisa,bakery,-10.26,discretionary
+2026-07-23,history,Normo Coffee,coffee,-5.94,discretionary
+2026-07-24,game,Brightside Media NV,salary,2158.50,income
+2026-07-25,game,Carrefour Market,groceries,-75.30,discretionary
+2026-07-25,game,Uber Eats,takeaway,-33.36,discretionary
+2026-07-26,game,Carrefour Market,groceries,-37.62,discretionary
+2026-07-26,game,Carrefour Market,groceries,-70.45,discretionary
+2026-07-26,game,Patisserie Elisa,bakery,-5.83,discretionary
+2026-07-27,game,Delhaize,groceries,-51.25,discretionary
+2026-07-27,game,Normo Coffee,coffee,-4.01,discretionary
+2026-07-27,game,Normo Coffee,coffee,-4.17,discretionary
+2026-07-27,game,De Lijn,transport,-2.66,discretionary
+2026-07-27,game,De Lijn,transport,-2.78,discretionary
+2026-07-27,game,De Lijn,transport,-3.04,discretionary
+2026-07-29,game,De Lijn,transport,-2.63,discretionary
+2026-07-30,game,Delhaize,groceries,-60.31,discretionary
+2026-07-30,game,Patisserie Elisa,bakery,-9.49,discretionary
+2026-07-30,game,Deliveroo,takeaway,-32.57,discretionary
+2026-07-31,game,Rob The Gourmets' Market,groceries,-58.30,discretionary
+2026-07-31,game,Delhaize,groceries,-43.20,discretionary
+2026-07-31,game,Patisserie Elisa,bakery,-10.19,discretionary
+2026-07-31,game,Patisserie Elisa,bakery,-9.51,discretionary
+2026-08-01,game,Immo Zuid,rent,-890.00,fixed
+2026-08-01,game,Patisserie Elisa,bakery,-8.36,discretionary
+2026-08-01,game,Normo Coffee,coffee,-4.39,discretionary
+2026-08-01,game,Normo Coffee,coffee,-3.76,discretionary
+2026-08-01,game,Deliveroo,takeaway,-26.44,discretionary
+2026-08-01,game,De Lijn,transport,-2.67,discretionary
+2026-08-02,game,Patisserie Elisa,bakery,-9.31,discretionary
+2026-08-02,game,Uber Eats,takeaway,-20.03,discretionary
+2026-08-03,game,KBC Autolening,loan,-180.00,fixed
+2026-08-03,game,Normo Coffee,coffee,-5.30,discretionary
+2026-08-03,game,Normo Coffee,coffee,-3.65,discretionary
+2026-08-03,game,De Lijn,transport,-2.30,discretionary
+2026-08-04,game,Engie,utilities,-122.15,fixed
+2026-08-04,game,Deliveroo,takeaway,-30.22,discretionary
+2026-08-05,game,Delhaize,groceries,-68.21,discretionary
+2026-08-05,game,Normo Coffee,coffee,-4.81,discretionary
+2026-08-06,game,Ethias,insurance,-55.00,fixed
+2026-08-06,game,Rob The Gourmets' Market,groceries,-51.68,discretionary
+2026-08-06,game,Normo Coffee,coffee,-4.88,discretionary
+2026-08-06,game,De Lijn,transport,-2.40,discretionary
+2026-08-06,game,De Lijn,transport,-2.54,discretionary
+2026-08-07,game,Patisserie Elisa,bakery,-10.74,discretionary
+2026-08-07,game,Normo Coffee,coffee,-5.38,discretionary
+2026-08-07,game,Ici Paris XL,shopping,-28.41,discretionary
+2026-08-08,game,Orange,telecom,-60.00,recurring
+2026-08-08,game,Rob The Gourmets' Market,groceries,-45.32,discretionary
+2026-08-08,game,De Lijn,transport,-2.27,discretionary
+2026-08-09,game,Normo Coffee,coffee,-4.57,discretionary
+2026-08-09,game,Uber Eats,takeaway,-22.02,discretionary
+2026-08-09,game,Deliveroo,takeaway,-28.05,discretionary
+2026-08-10,game,Jims,sport,-39.00,recurring
+2026-08-10,game,Normo Coffee,coffee,-4.56,discretionary
+2026-08-11,game,Patisserie Elisa,bakery,-10.23,discretionary
+2026-08-11,game,Patisserie Elisa,bakery,-7.54,discretionary
+2026-08-11,game,Deliveroo,takeaway,-31.99,discretionary
+2026-08-11,game,De Lijn,transport,-3.12,discretionary
+2026-08-12,game,Carrefour Market,groceries,-73.73,discretionary
+2026-08-13,game,De Lijn,transport,-3.04,discretionary
+2026-08-13,game,De Lijn,transport,-3.02,discretionary
+2026-08-14,game,Netflix,entertainment,-17.99,recurring
+2026-08-14,game,Normo Coffee,coffee,-5.16,discretionary
+2026-08-15,game,Patisserie Elisa,bakery,-10.72,discretionary
+2026-08-15,game,De Lijn,transport,-2.41,discretionary
+2026-08-16,game,Uber Eats,takeaway,-23.31,discretionary
+2026-08-16,game,Deliveroo,takeaway,-28.43,discretionary
+2026-08-17,game,Patisserie Elisa,bakery,-9.11,discretionary
+2026-08-18,game,Normo Coffee,coffee,-3.82,discretionary
+2026-08-18,game,Normo Coffee,coffee,-4.81,discretionary
+2026-08-19,game,Patisserie Elisa,bakery,-8.25,discretionary
+2026-08-20,game,Spotify,entertainment,-11.99,recurring
+2026-08-22,game,Patisserie Elisa,bakery,-7.89,discretionary
+2026-08-22,game,De Lijn,transport,-2.99,discretionary
+2026-08-23,game,Normo Coffee,coffee,-3.71,discretionary
+2026-08-25,game,Brightside Media NV,salary,2134.17,income
+2026-08-25,game,Carrefour Market,groceries,-44.69,discretionary
+2026-08-25,game,De Lijn,transport,-3.14,discretionary
+2026-08-26,game,Normo Coffee,coffee,-4.44,discretionary
+2026-08-27,game,Carrefour Market,groceries,-65.83,discretionary
+2026-08-27,game,Patisserie Elisa,bakery,-7.72,discretionary
+2026-08-28,game,Patisserie Elisa,bakery,-7.35,discretionary
+2026-08-28,game,Patisserie Elisa,bakery,-7.96,discretionary
+2026-08-28,game,Normo Coffee,coffee,-5.11,discretionary
+2026-08-29,game,Normo Coffee,coffee,-4.74,discretionary
+2026-08-29,game,De Lijn,transport,-2.52,discretionary
+2026-08-30,game,Rob The Gourmets' Market,groceries,-36.77,discretionary
+2026-08-30,game,Normo Coffee,coffee,-4.46,discretionary
+2026-08-31,game,Patisserie Elisa,bakery,-8.88,discretionary
+2026-08-31,game,Uber Eats,takeaway,-22.92,discretionary
+2026-08-31,game,De Lijn,transport,-2.47,discretionary
+2026-08-31,game,De Lijn,transport,-2.71,discretionary
+2026-09-01,game,Immo Zuid,rent,-890.00,fixed
+2026-09-01,game,Patisserie Elisa,bakery,-9.00,discretionary
+2026-09-01,game,Normo Coffee,coffee,-4.21,discretionary
+2026-09-02,game,Rob The Gourmets' Market,groceries,-65.75,discretionary
+2026-09-02,game,Patisserie Elisa,bakery,-5.59,discretionary
+2026-09-02,game,Zara,shopping,-27.83,discretionary
+2026-09-03,game,KBC Autolening,loan,-180.00,fixed
+2026-09-04,game,Engie,utilities,-120.08,fixed
+2026-09-04,game,Normo Coffee,coffee,-4.77,discretionary
+2026-09-04,game,Normo Coffee,coffee,-4.56,discretionary
+2026-09-05,game,Normo Coffee,coffee,-4.64,discretionary
+2026-09-05,game,Normo Coffee,coffee,-4.62,discretionary
+2026-09-05,game,Deliveroo,takeaway,-33.94,discretionary
+2026-09-06,game,Ethias,insurance,-55.00,fixed
+2026-09-06,game,Rob The Gourmets' Market,groceries,-61.88,discretionary
+2026-09-06,game,Patisserie Elisa,bakery,-5.52,discretionary
+2026-09-06,game,Normo Coffee,coffee,-4.16,discretionary
+2026-09-06,game,Normo Coffee,coffee,-4.13,discretionary
+2026-09-08,game,Orange,telecom,-60.00,recurring
+2026-09-08,game,Rob The Gourmets' Market,groceries,-50.22,discretionary
+2026-09-09,game,Normo Coffee,coffee,-5.07,discretionary
+2026-09-10,game,Jims,sport,-39.00,recurring
+2026-09-10,game,Rob The Gourmets' Market,groceries,-69.53,discretionary
+2026-09-12,game,Rob The Gourmets' Market,groceries,-76.12,discretionary
+2026-09-12,game,Carrefour Market,groceries,-68.02,discretionary
+2026-09-12,game,Normo Coffee,coffee,-3.64,discretionary
+2026-09-12,game,Normo Coffee,coffee,-5.39,discretionary
+2026-09-12,game,Normo Coffee,coffee,-4.53,discretionary
+2026-09-12,game,Uber Eats,takeaway,-33.30,discretionary
+2026-09-12,game,De Lijn,transport,-3.12,discretionary
+2026-09-13,game,Normo Coffee,coffee,-4.00,discretionary
+2026-09-14,game,Netflix,entertainment,-17.99,recurring
+2026-09-14,game,Normo Coffee,coffee,-4.97,discretionary
+2026-09-14,game,Normo Coffee,coffee,-4.06,discretionary
+2026-09-15,game,Patisserie Elisa,bakery,-7.18,discretionary
+2026-09-15,game,Normo Coffee,coffee,-4.04,discretionary
+2026-09-15,game,Normo Coffee,coffee,-3.66,discretionary
+2026-09-16,game,Patisserie Elisa,bakery,-7.82,discretionary
+2026-09-16,game,Patisserie Elisa,bakery,-8.77,discretionary
+2026-09-17,game,Normo Coffee,coffee,-4.51,discretionary
+2026-09-18,game,Carrefour Market,groceries,-37.38,discretionary
+2026-09-18,game,Delhaize,groceries,-74.94,discretionary
+2026-09-19,game,Normo Coffee,coffee,-4.93,discretionary
+2026-09-19,game,Uber Eats,takeaway,-27.09,discretionary
+2026-09-20,game,Spotify,entertainment,-11.99,recurring
+2026-09-20,game,Rob The Gourmets' Market,groceries,-41.65,discretionary
+2026-09-20,game,De Lijn,transport,-2.57,discretionary
+2026-09-21,game,Patisserie Elisa,bakery,-9.54,discretionary
+2026-09-23,game,Rob The Gourmets' Market,groceries,-36.05,discretionary
+2026-09-23,game,Normo Coffee,coffee,-3.92,discretionary
+2026-09-24,game,Carrefour Market,groceries,-36.81,discretionary
+2026-09-24,game,Patisserie Elisa,bakery,-6.39,discretionary
+2026-09-24,game,Normo Coffee,coffee,-4.82,discretionary
+2026-09-24,game,Normo Coffee,coffee,-5.31,discretionary
+2026-09-24,game,De Lijn,transport,-2.26,discretionary
+2026-09-25,game,Brightside Media NV,salary,2138.13,income
+2026-09-25,game,Rob The Gourmets' Market,groceries,-42.84,discretionary
+2026-09-25,game,Normo Coffee,coffee,-5.13,discretionary
+2026-09-26,game,Rob The Gourmets' Market,groceries,-67.48,discretionary
+2026-09-26,game,Uber Eats,takeaway,-25.62,discretionary
+2026-09-27,game,Normo Coffee,coffee,-4.28,discretionary
+2026-09-30,game,Rob The Gourmets' Market,groceries,-48.45,discretionary
+2026-09-30,game,Patisserie Elisa,bakery,-5.60,discretionary
+2026-09-30,game,De Lijn,transport,-2.70,discretionary

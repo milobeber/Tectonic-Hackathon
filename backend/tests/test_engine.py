@@ -37,13 +37,18 @@ def test_over_limit_day_hurts_but_creates_no_debt(tx, enrollment):
     assert s.swan.streak_days == 0
 
 
-def test_buffer_cushions_overspending(tx, enrollment):
-    games = [tx(day(1), 0.0)] + [tx(day(2), -27)]  # day 1 saves 18, day 2 is 9 over, fully covered
+def test_swan_judges_weekly_pace_not_single_days(tx, enrollment):
+    games = [tx(day(1), 0.0)] + [tx(day(2), -27)]  # quiet day, then 9 over: 27 spent vs 36 of limits
     s = run(tx, enrollment, games, as_of=day(3))
-    # effective overspend 4.5 -> score 0.5
     assert s.history[1].status == "over"
     assert s.month.buffer == pytest.approx(9)
-    assert s.swan.health == pytest.approx(76 + 0.2 * (50 - 76))
+    assert s.swan.health == pytest.approx(80.8)  # pace still fine, swan keeps healing
+
+
+def test_habitual_overspending_hurts_even_with_quiet_days(tx, enrollment):
+    games = [tx(day(n), -60) for n in range(1, 13, 2)]  # 60 every other day = 30/day vs limit 18
+    s = run(tx, enrollment, games, as_of=day(13))
+    assert s.swan.health < 40
 
 
 def test_large_expense_absorbed_by_buffer_costs_no_health(tx, enrollment):

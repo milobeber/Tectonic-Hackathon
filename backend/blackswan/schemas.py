@@ -20,6 +20,7 @@ EventType = Literal[
     "day_over",
     "large_expense_absorbed",
     "large_expense_uncovered",
+    "large_expense_unaffordable",
     "limit_reduced",
     "limit_restored",
     "swan_died",
@@ -93,6 +94,12 @@ class Fund(BaseModel):
     expected_annual_return: float = Field(..., description="Illustrative only, not a performance promise.")
 
 
+class Wage(BaseModel):
+    payer: str
+    amount: float
+    day_of_month: int
+
+
 class SpendingProfile(BaseModel):
     """What the model learned about the user. Also used to explain the limit."""
 
@@ -107,6 +114,10 @@ class SpendingProfile(BaseModel):
     recurring_merchants: list[str]
     monthly_income: float
     monthly_fixed_costs: float
+    wage: Wage | None = Field(None, description="Detected wage. Game cycles run payday to payday; calendar months if None.")
+    affordable_daily: float | None = Field(None, description="Cap from income: 90% of (income - fixed costs) per day.")
+    spend_by_category: dict[str, float] = Field(default_factory=dict, description="Average EUR/day per category in history.")
+    ignored_one_offs_total: float = Field(0.0, description="Large one-offs in history left out of the baseline.")
 
 
 class SwanState(BaseModel):
@@ -130,9 +141,12 @@ class TodayState(BaseModel):
 
 
 class MonthState(BaseModel):
-    month: str
+    """The current game cycle: payday to payday if a wage was found, else the calendar month."""
+
+    month: str = Field(..., description="YYYY-MM of the cycle start.")
+    cycle_type: Literal["wage", "calendar"]
     start: date
-    end: date
+    end: date = Field(..., description="Planned last day: the day before the expected payday, or the month end.")
     days_left: int
     buffer: float = Field(..., description="Money saved vs. the limit so far; swept to the fund at month end.")
     debt: float = Field(..., description="Overspend not covered by the buffer; earned back through lower limits.")
@@ -140,6 +154,11 @@ class MonthState(BaseModel):
     days_under: int
     days_over: int
     large_expenses_total: float
+    income: float = Field(..., description="Expected income for this cycle.")
+    spent_total: float = Field(..., description="Everything spent this cycle, fixed costs included.")
+    projected_end_balance: float = Field(
+        ..., description="Income minus projected spending by cycle end at the current pace. Negative = running short."
+    )
 
 
 class DayRecord(BaseModel):
@@ -164,6 +183,32 @@ class Sweep(BaseModel):
     month: str
     amount: float
     fund_id: str
+    cycle_start: date | None = None
+    cycle_end: date | None = None
+
+
+class CycleSummary(BaseModel):
+    start: date
+    end: date = Field(..., description="Last played day (as_of for the open cycle).")
+    planned_end: date
+    cycle_type: Literal["wage", "calendar"]
+    closed: bool
+    days_under: int
+    days_over: int
+    large_expenses_total: float
+    swept: float
+    swan_generation: int
+    swan_died: bool
+
+
+class Timeline(BaseModel):
+    """Every day since enrollment, across cycles (for charts and scrubbing)."""
+
+    user_id: str
+    as_of: date
+    cycles: list[CycleSummary]
+    days: list[DayRecord]
+    events: list[GameEvent] = Field(default_factory=list, description="Notable events since enrollment, oldest first.")
 
 
 class Rewards(BaseModel):
@@ -182,7 +227,9 @@ class GameState(BaseModel):
     month: MonthState
     rewards: Rewards
     history: list[DayRecord] = Field(..., description="Settled days + today for the current month.")
-    events: list[GameEvent] = Field(..., description="Most recent first, current + previous month.")
+    events: list[GameEvent] = Field(
+        ..., description="Newest first. Notable events from the current + previous cycle, daily ones from the last 14 days."
+    )
     model: SpendingProfile
 
 

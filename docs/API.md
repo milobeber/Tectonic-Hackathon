@@ -13,8 +13,10 @@ Full OpenAPI spec: `/docs` (Swagger UI) or `/openapi.json`.
 3. **Ongoing.** KBC pushes new transactions as they book (single or batch).
    Each push returns the updated `GameState`, so no second call is needed.
 4. **Render.** Whenever the swan screen opens, call `GET /v1/users/{user_id}/game-state`.
-5. **Month end.** `game_state.rewards.sweeps` lists `{month, amount, fund_id}`:
-   the amount KBC should invest for each closed month.
+5. **Payday.** Game cycles run from payday to payday (the wage is detected
+   automatically; calendar months if there is none). `game_state.rewards.sweeps`
+   lists `{month, amount, fund_id, cycle_start, cycle_end}`: the amount KBC
+   should invest for each closed cycle.
 6. **Opt-out.** `DELETE /v1/users/{user_id}/enrollment` deletes the enrollment
    and all transactions.
 
@@ -33,10 +35,11 @@ duplicate deliveries are safe: `transaction_id` is the idempotency key.
 | DELETE | `/v1/users/{id}/enrollment` | Opt out and delete all data |
 | POST | `/v1/users/{id}/transactions` | Push transactions and get `GameState` back (`?include_state=false` to skip) |
 | GET | `/v1/users/{id}/game-state` | `GameState` for rendering (`?as_of=YYYY-MM-DD` to time-travel) |
+| GET | `/v1/users/{id}/timeline` | Every day since enrollment across all cycles, per-cycle summaries, notable events (for charts) |
 | GET | `/v1/users/{id}/profile` | What the model learned (explains the limit) |
 | POST | `/v1/evaluate` | Stateless: send enrollment and transactions, get `GameState`, nothing stored |
-| GET | `/v1/demo/personas` | Demo personas |
-| POST | `/v1/demo/seed` | Create an enrolled demo user with synthetic history |
+| GET | `/v1/demo/personas` | Deck cases first (`kind: "case"`), then generic personas |
+| POST | `/v1/demo/seed` | Create an enrolled demo user with synthetic history. Deck cases keep their own story dates (enrolled 2026-07-24 / 2026-08-01) |
 
 ## Transaction (input)
 
@@ -86,8 +89,11 @@ Render hints:
 - `swan.tier`: `thriving | healthy | tired | sick | rotting | dead`. Drives the swan sprite.
 - `swan.mood`: `happy | content | worried | sad | critical | dead`. Turns `worried` when today is over the limit.
 - `today.status`: `on_track | at_risk` (at least 80% of the limit spent) `| over`.
-- `events[]`: newest first. Use them for notifications and animations.
-  Types: `day_under, day_over, large_expense_absorbed, large_expense_uncovered, limit_reduced, limit_restored, swan_died, swan_reborn, month_swept`.
+- `events[]`: newest first; notable events from the current and previous cycle, daily ones from the last 14 days.
+  Types: `day_under, day_over, large_expense_absorbed, large_expense_uncovered, large_expense_unaffordable, limit_reduced, limit_restored, swan_died, swan_reborn, month_swept` (fires at the end of every cycle).
+- `month` is the current **cycle**: `cycle_type` (`wage | calendar`), `start`, planned `end`, `income`,
+  `spent_total` and `projected_end_balance` (negative = heading for a shortfall before payday).
+- `model.wage`, `model.affordable_daily`, `model.spend_by_category` explain the goal.
 
 ## Next integration steps
 

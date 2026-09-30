@@ -18,7 +18,7 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 
 from .config import MODEL, ModelConfig
-from .schemas import SpendingProfile, Transaction, TxKind
+from .schemas import SpendingProfile, Transaction, TxKind, Wage
 
 MODEL_VERSION = "stat-v1"
 WEEKDAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
@@ -44,6 +44,17 @@ def quantile(values: list[float], q: float) -> float:
 
 
 @dataclass(frozen=True)
+class WageInfo:
+    payer: str  # normalized merchant name
+    display_name: str
+    amount: float  # typical (median) wage
+    day_of_month: int  # typical payday
+
+    def matches(self, tx: Transaction) -> bool:
+        return tx.amount >= 0.5 * self.amount and normalize_merchant(tx.merchant) == self.payer
+
+
+@dataclass(frozen=True)
 class Profile:
     history_days: int
     baseline_daily: float
@@ -55,6 +66,10 @@ class Profile:
     monthly_income: float
     monthly_fixed_costs: float
     confidence: str
+    wage: WageInfo | None = None
+    affordable_daily: float | None = None
+    spend_by_category: tuple[tuple[str, float], ...] = ()
+    ignored_one_offs: tuple[tuple[date, str, float], ...] = ()
 
     def base_limit(self, day: date) -> float:
         return self.target_daily * self.weekday_factors[day.weekday()]
@@ -83,32 +98,54 @@ class Profile:
             recurring_merchants=sorted(self.recurring_merchants),
             monthly_income=round(self.monthly_income, 2),
             monthly_fixed_costs=round(self.monthly_fixed_costs, 2),
+            wage=None
+            if self.wage is None
+            else Wage(payer=self.wage.display_name, amount=round(self.wage.amount, 2), day_of_month=self.wage.day_of_month),
+            affordable_daily=None if self.affordable_daily is None else round(self.affordable_daily, 2),
+            spend_by_category={c: round(v, 2) for c, v in self.spend_by_category},
+            ignored_one_offs_total=round(sum(a for _, _, a in self.ignored_one_offs), 2),
         )
 
 
-def detect_recurring(debits: list[Transaction], cfg: ModelConfig = MODEL) -> set[str]:
-    """Merchants charged roughly monthly with a stable amount (subscriptions, phone, gym...)."""
+def _monthly_series(txs: list[Transaction], max_cv: float, cfg: ModelConfig) -> dict[str, list[Transaction]]:
+    """Group by merchant and keep groups that repeat about once a month with a stable amount."""
     by_merchant: dict[str, list[Transaction]] = defaultdict(list)
-    for tx in debits:
+    for tx in txs:
         key = normalize_merchant(tx.merchant)
         if key:
             by_merchant[key].append(tx)
 
-    recurring = set()
+    monthly = {}
     lo_gap, hi_gap = cfg.recurring_gap_days
-    for merchant, txs in by_merchant.items():
-        months = {(t.booking_date.year, t.booking_date.month) for t in txs}
-        if len(months) < cfg.recurring_min_months or len(txs) > cfg.recurring_max_per_month * len(months):
+    for merchant, group in by_merchant.items():
+        months = {(t.booking_date.year, t.booking_date.month) for t in group}
+        if len(months) < cfg.recurring_min_months or len(group) > cfg.recurring_max_per_month * len(months):
             continue
-        amounts = [-t.amount for t in txs]
+        amounts = [abs(t.amount) for t in group]
         mean = statistics.fmean(amounts)
-        if mean <= 0 or statistics.pstdev(amounts) / mean > cfg.recurring_max_amount_cv:
+        if mean <= 0 or statistics.pstdev(amounts) / mean > max_cv:
             continue
-        dates = sorted(t.booking_date for t in txs)
+        dates = sorted(t.booking_date for t in group)
         gaps = [(b - a).days for a, b in zip(dates, dates[1:])]
-        if lo_gap <= statistics.median(gaps) <= hi_gap:
-            recurring.add(merchant)
-    return recurring
+        if all(lo_gap <= g <= hi_gap for g in gaps):
+            monthly[merchant] = group
+    return monthly
+
+
+def detect_recurring(debits: list[Transaction], cfg: ModelConfig = MODEL) -> set[str]:
+    """Merchants charged roughly monthly with a stable amount (subscriptions, phone, gym...)."""
+    return set(_monthly_series(debits, cfg.recurring_max_amount_cv, cfg))
+
+
+def detect_wage(credits: list[Transaction], cfg: ModelConfig = MODEL) -> WageInfo | None:
+    """The wage is the biggest income that comes in about once a month."""
+    candidates = []
+    for payer, group in _monthly_series(credits, cfg.wage_max_amount_cv, cfg).items():
+        amount = statistics.median(t.amount for t in group)
+        if amount >= cfg.wage_min_amount:
+            day = round(statistics.median(t.booking_date.day for t in group))
+            candidates.append(WageInfo(payer, group[-1].merchant or payer, amount, day))
+    return max(candidates, key=lambda w: w.amount, default=None)
 
 
 def _weekday_factors(daily: dict[date, float], cfg: ModelConfig) -> tuple[float, ...]:
@@ -151,11 +188,26 @@ def build_profile(
     discretionary = [t for t in debits if t.transaction_id not in fixed_ids]
 
     months = max(history_days, 30) / DAYS_PER_MONTH
-    monthly_income = sum(t.amount for t in credits) / months
+    wage = detect_wage(credits, cfg)
+    if wage:
+        # Count the wage once per month: a 90-day window can hold 2 or 3 paydays.
+        other = [t for t in credits if not wage.matches(t)]
+        monthly_income = wage.amount + sum(t.amount for t in other) / months
+    else:
+        monthly_income = sum(t.amount for t in credits) / months
     monthly_fixed = sum(-t.amount for t in fixed) / months
 
     tx_sizes = [-t.amount for t in discretionary]
     history_large = max(cfg.large_expense_floor, cfg.large_expense_p95_multiplier * quantile(tx_sizes, 0.95))
+    one_offs = tuple(
+        (t.booking_date, t.merchant or "", -t.amount) for t in discretionary if -t.amount > history_large
+    )
+    by_category: dict[str, float] = defaultdict(float)
+    for t in discretionary:
+        if -t.amount <= history_large:
+            by_category[(t.category or "other").lower()] += -t.amount
+    per_day = max(history_days, 1)
+    spend_by_category = tuple(sorted(((c, v / per_day) for c, v in by_category.items()), key=lambda cv: -cv[1]))
 
     if history_days < cfg.min_history_days:
         baseline = cfg.fallback_daily_target
@@ -172,9 +224,11 @@ def build_profile(
         weekday = _weekday_factors(winsorized, cfg) if history_days >= cfg.weekday_min_history_days else (1.0,) * 7
 
     target = baseline * (1 - savings_rate)
+    affordable = None
     if monthly_income > 0:
         disposable_daily = (monthly_income - monthly_fixed) / DAYS_PER_MONTH
-        target = min(target, max(disposable_daily * cfg.affordability_share, cfg.min_daily_limit))
+        affordable = max(disposable_daily * cfg.affordability_share, cfg.min_daily_limit)
+        target = min(target, affordable)
     target = max(target, cfg.min_daily_limit)
 
     confidence = "high" if history_days >= 60 else "medium" if history_days >= 28 else "low"
@@ -189,4 +243,8 @@ def build_profile(
         monthly_income=monthly_income,
         monthly_fixed_costs=monthly_fixed,
         confidence=confidence,
+        wage=wage,
+        affordable_daily=affordable,
+        spend_by_category=spend_by_category,
+        ignored_one_offs=one_offs,
     )

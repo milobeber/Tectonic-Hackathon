@@ -1,0 +1,322 @@
+date,phase,merchant,category,amount_eur,model_kind
+2026-05-03,history,Sociaal Verzekeringsfonds,taxes,-240.00,fixed
+2026-05-03,history,Mok Coffee,coffee,-4.27,discretionary
+2026-05-03,history,Mok Coffee,coffee,-4.23,discretionary
+2026-05-03,history,Bar Nova,bars,-24.61,discretionary
+2026-05-03,history,Cambio,transport,-5.18,discretionary
+2026-05-04,history,Delhaize,groceries,-49.49,discretionary
+2026-05-04,history,Mok Coffee,coffee,-4.28,discretionary
+2026-05-05,history,Luminus,utilities,-110.19,fixed
+2026-05-05,history,Delhaize,groceries,-58.19,discretionary
+2026-05-05,history,Exki,lunch,-15.41,discretionary
+2026-05-06,history,Bar Nova,bars,-29.62,discretionary
+2026-05-09,history,Telenet,telecom,-55.00,recurring
+2026-05-10,history,Studio Noord,income,2024.60,income
+2026-05-10,history,Mok Coffee,coffee,-3.12,discretionary
+2026-05-10,history,Mok Coffee,coffee,-4.06,discretionary
+2026-05-10,history,Cambio,transport,-21.80,discretionary
+2026-05-11,history,Mok Coffee,coffee,-3.73,discretionary
+2026-05-11,history,Cambio,transport,-15.22,discretionary
+2026-05-12,history,Brouwerij Het Anker,income,656.18,income
+2026-05-12,history,Adobe,software,-59.99,recurring
+2026-05-12,history,Balls & Glory,lunch,-11.23,discretionary
+2026-05-12,history,Cambio,transport,-7.76,discretionary
+2026-05-13,history,Balls & Glory,lunch,-10.28,discretionary
+2026-05-13,history,Mok Coffee,coffee,-4.39,discretionary
+2026-05-14,history,Mok Coffee,coffee,-4.33,discretionary
+2026-05-14,history,Mok Coffee,coffee,-3.19,discretionary
+2026-05-15,history,Delhaize,groceries,-58.33,discretionary
+2026-05-15,history,Balls & Glory,lunch,-14.01,discretionary
+2026-05-16,history,Delhaize,groceries,-59.08,discretionary
+2026-05-17,history,Delhaize,groceries,-58.86,discretionary
+2026-05-18,history,Netflix,entertainment,-13.99,recurring
+2026-05-18,history,Mok Coffee,coffee,-3.36,discretionary
+2026-05-19,history,Lidl,groceries,-32.47,discretionary
+2026-05-19,history,Mok Coffee,coffee,-3.75,discretionary
+2026-05-19,history,Cambio,transport,-14.90,discretionary
+2026-05-20,history,Panos,lunch,-11.25,discretionary
+2026-05-21,history,Mok Coffee,coffee,-3.32,discretionary
+2026-05-21,history,Mok Coffee,coffee,-3.40,discretionary
+2026-05-22,history,Delhaize,groceries,-46.72,discretionary
+2026-05-22,history,Cambio,transport,-12.66,discretionary
+2026-05-23,history,Balls & Glory,lunch,-13.26,discretionary
+2026-05-23,history,Mok Coffee,coffee,-3.69,discretionary
+2026-05-24,history,Lidl,groceries,-31.74,discretionary
+2026-05-24,history,Mok Coffee,coffee,-3.19,discretionary
+2026-05-24,history,Mok Coffee,coffee,-3.34,discretionary
+2026-05-24,history,Mok Coffee,coffee,-4.03,discretionary
+2026-05-24,history,NMBS,transport,-18.84,discretionary
+2026-05-25,history,Atelier Vos,income,256.70,income
+2026-05-25,history,Lidl,groceries,-28.06,discretionary
+2026-05-25,history,Exki,lunch,-12.04,discretionary
+2026-05-26,history,Balls & Glory,lunch,-12.74,discretionary
+2026-05-26,history,Standaard Boekhandel,shopping,-62.84,discretionary
+2026-05-27,history,Studio Noord,income,2373.58,income
+2026-05-27,history,Delhaize,groceries,-51.40,discretionary
+2026-05-27,history,NMBS,transport,-14.35,discretionary
+2026-05-28,history,Exki,lunch,-12.79,discretionary
+2026-05-28,history,Mok Coffee,coffee,-3.98,discretionary
+2026-05-29,history,Brouwerij Het Anker,income,910.00,income
+2026-05-29,history,Exki,lunch,-14.79,discretionary
+2026-05-30,history,Mok Coffee,coffee,-3.79,discretionary
+2026-05-31,history,Kunstencentrum Nova,income,1463.82,income
+2026-05-31,history,Balls & Glory,lunch,-14.61,discretionary
+2026-05-31,history,Mok Coffee,coffee,-3.26,discretionary
+2026-05-31,history,Mok Coffee,coffee,-3.90,discretionary
+2026-05-31,history,Mok Coffee,coffee,-3.94,discretionary
+2026-05-31,history,Mok Coffee,coffee,-3.04,discretionary
+2026-05-31,history,Mok Coffee,coffee,-4.44,discretionary
+2026-05-31,history,NMBS,transport,-18.42,discretionary
+2026-06-01,history,Immo Brugmann,rent,-950.00,fixed
+2026-06-01,history,Delhaize,groceries,-50.84,discretionary
+2026-06-01,history,Panos,lunch,-13.34,discretionary
+2026-06-01,history,NMBS,transport,-20.41,discretionary
+2026-06-01,history,Cambio,transport,-7.32,discretionary
+2026-06-03,history,Sociaal Verzekeringsfonds,taxes,-240.00,fixed
+2026-06-03,history,Balls & Glory,lunch,-12.38,discretionary
+2026-06-03,history,Mok Coffee,coffee,-3.41,discretionary
+2026-06-04,history,Studio Noord,income,502.95,income
+2026-06-04,history,Delhaize,groceries,-48.84,discretionary
+2026-06-04,history,Mok Coffee,coffee,-3.56,discretionary
+2026-06-04,history,Bar Nova,bars,-30.95,discretionary
+2026-06-05,history,Luminus,utilities,-111.10,fixed
+2026-06-05,history,Delhaize,groceries,-36.11,discretionary
+2026-06-05,history,Panos,lunch,-11.39,discretionary
+2026-06-05,history,Panos,lunch,-15.85,discretionary
+2026-06-06,history,Exki,lunch,-14.64,discretionary
+2026-06-06,history,Mok Coffee,coffee,-3.17,discretionary
+2026-06-07,history,Cafe Het Hemelrijk,bars,-29.50,discretionary
+2026-06-07,history,Bol.com,shopping,-46.36,discretionary
+2026-06-07,history,Coolblue,electronics,-420.00,large
+2026-06-08,history,Panos,lunch,-14.38,discretionary
+2026-06-08,history,Exki,lunch,-11.29,discretionary
+2026-06-08,history,Mok Coffee,coffee,-3.90,discretionary
+2026-06-09,history,Telenet,telecom,-55.00,recurring
+2026-06-09,history,Balls & Glory,lunch,-14.79,discretionary
+2026-06-09,history,Balls & Glory,lunch,-10.74,discretionary
+2026-06-09,history,Mok Coffee,coffee,-4.37,discretionary
+2026-06-11,history,Mok Coffee,coffee,-3.57,discretionary
+2026-06-12,history,Adobe,software,-59.99,recurring
+2026-06-12,history,Lidl,groceries,-39.65,discretionary
+2026-06-12,history,Mok Coffee,coffee,-3.30,discretionary
+2026-06-12,history,Standaard Boekhandel,shopping,-54.32,discretionary
+2026-06-13,history,Mok Coffee,coffee,-3.81,discretionary
+2026-06-15,history,Cambio,transport,-8.30,discretionary
+2026-06-15,history,Cambio,transport,-8.05,discretionary
+2026-06-16,history,Brouwerij Het Anker,income,760.67,income
+2026-06-16,history,Lidl,groceries,-46.83,discretionary
+2026-06-16,history,Mok Coffee,coffee,-3.37,discretionary
+2026-06-16,history,NMBS,transport,-20.86,discretionary
+2026-06-18,history,Netflix,entertainment,-13.99,recurring
+2026-06-18,history,Lidl,groceries,-52.88,discretionary
+2026-06-18,history,Balls & Glory,lunch,-10.67,discretionary
+2026-06-19,history,Cambio,transport,-17.08,discretionary
+2026-06-20,history,Delhaize,groceries,-48.15,discretionary
+2026-06-20,history,Exki,lunch,-13.22,discretionary
+2026-06-20,history,Cafe Het Hemelrijk,bars,-20.56,discretionary
+2026-06-20,history,NMBS,transport,-10.49,discretionary
+2026-06-21,history,Delhaize,groceries,-27.20,discretionary
+2026-06-21,history,Balls & Glory,lunch,-15.99,discretionary
+2026-06-21,history,Exki,lunch,-14.85,discretionary
+2026-06-21,history,Mok Coffee,coffee,-3.52,discretionary
+2026-06-22,history,NMBS,transport,-21.68,discretionary
+2026-06-22,history,NMBS,transport,-7.90,discretionary
+2026-06-23,history,Mok Coffee,coffee,-3.52,discretionary
+2026-06-23,history,Bar Nova,bars,-22.22,discretionary
+2026-06-24,history,Lidl,groceries,-30.53,discretionary
+2026-06-24,history,Panos,lunch,-13.94,discretionary
+2026-06-25,history,Balls & Glory,lunch,-12.90,discretionary
+2026-06-25,history,Cafe Het Hemelrijk,bars,-33.95,discretionary
+2026-06-26,history,Mok Coffee,coffee,-4.15,discretionary
+2026-06-26,history,Mok Coffee,coffee,-3.62,discretionary
+2026-06-27,history,Delhaize,groceries,-31.19,discretionary
+2026-06-27,history,Panos,lunch,-13.13,discretionary
+2026-06-27,history,Balls & Glory,lunch,-12.26,discretionary
+2026-06-27,history,Standaard Boekhandel,shopping,-35.80,discretionary
+2026-06-30,history,Mok Coffee,coffee,-3.07,discretionary
+2026-07-01,history,Brouwerij Het Anker,income,778.26,income
+2026-07-01,history,Immo Brugmann,rent,-950.00,fixed
+2026-07-01,history,Balls & Glory,lunch,-9.65,discretionary
+2026-07-01,history,Balls & Glory,lunch,-14.74,discretionary
+2026-07-01,history,Mok Coffee,coffee,-3.57,discretionary
+2026-07-03,history,Sociaal Verzekeringsfonds,taxes,-240.00,fixed
+2026-07-03,history,Lidl,groceries,-50.04,discretionary
+2026-07-04,history,Lidl,groceries,-29.42,discretionary
+2026-07-05,history,Luminus,utilities,-113.00,fixed
+2026-07-06,history,Mok Coffee,coffee,-3.88,discretionary
+2026-07-07,history,Mok Coffee,coffee,-4.29,discretionary
+2026-07-07,history,Mok Coffee,coffee,-4.28,discretionary
+2026-07-08,history,Brouwerij Het Anker,income,643.15,income
+2026-07-08,history,Lidl,groceries,-27.91,discretionary
+2026-07-09,history,Telenet,telecom,-55.00,recurring
+2026-07-09,history,Delhaize,groceries,-35.40,discretionary
+2026-07-09,history,Mok Coffee,coffee,-3.69,discretionary
+2026-07-09,history,Cafe Het Hemelrijk,bars,-31.01,discretionary
+2026-07-10,history,Exki,lunch,-10.58,discretionary
+2026-07-11,history,Mok Coffee,coffee,-4.40,discretionary
+2026-07-12,history,Adobe,software,-59.99,recurring
+2026-07-13,history,Lidl,groceries,-30.85,discretionary
+2026-07-13,history,Balls & Glory,lunch,-15.38,discretionary
+2026-07-13,history,Mok Coffee,coffee,-4.19,discretionary
+2026-07-13,history,Bar Nova,bars,-35.99,discretionary
+2026-07-14,history,Exki,lunch,-15.92,discretionary
+2026-07-14,history,Panos,lunch,-12.52,discretionary
+2026-07-15,history,Lidl,groceries,-28.32,discretionary
+2026-07-15,history,Mok Coffee,coffee,-3.41,discretionary
+2026-07-16,history,Delhaize,groceries,-51.82,discretionary
+2026-07-18,history,Netflix,entertainment,-13.99,recurring
+2026-07-18,history,Mok Coffee,coffee,-3.23,discretionary
+2026-07-18,history,Mok Coffee,coffee,-4.43,discretionary
+2026-07-19,history,Mok Coffee,coffee,-4.45,discretionary
+2026-07-19,history,Cafe Het Hemelrijk,bars,-24.09,discretionary
+2026-07-19,history,Cambio,transport,-10.12,discretionary
+2026-07-20,history,Panos,lunch,-11.23,discretionary
+2026-07-21,history,Delhaize,groceries,-46.18,discretionary
+2026-07-22,history,Delhaize,groceries,-40.98,discretionary
+2026-07-22,history,Balls & Glory,lunch,-15.41,discretionary
+2026-07-22,history,Exki,lunch,-9.51,discretionary
+2026-07-22,history,Panos,lunch,-14.88,discretionary
+2026-07-23,history,Balls & Glory,lunch,-16.00,discretionary
+2026-07-24,history,Lidl,groceries,-37.21,discretionary
+2026-07-24,history,Mok Coffee,coffee,-4.28,discretionary
+2026-07-25,history,Exki,lunch,-10.39,discretionary
+2026-07-25,history,NMBS,transport,-15.70,discretionary
+2026-07-26,history,Mok Coffee,coffee,-3.44,discretionary
+2026-07-26,history,Mok Coffee,coffee,-3.82,discretionary
+2026-07-26,history,Cafe Het Hemelrijk,bars,-39.45,discretionary
+2026-07-27,history,Brouwerij Het Anker,income,753.55,income
+2026-07-27,history,Delhaize,groceries,-39.45,discretionary
+2026-07-27,history,Exki,lunch,-13.43,discretionary
+2026-07-27,history,Mok Coffee,coffee,-3.84,discretionary
+2026-07-27,history,Mok Coffee,coffee,-3.57,discretionary
+2026-07-29,history,Balls & Glory,lunch,-11.04,discretionary
+2026-07-29,history,Cafe Het Hemelrijk,bars,-30.54,discretionary
+2026-07-29,history,Cambio,transport,-7.55,discretionary
+2026-07-30,history,Lidl,groceries,-50.87,discretionary
+2026-07-30,history,Mok Coffee,coffee,-4.32,discretionary
+2026-07-31,history,Cambio,transport,-18.37,discretionary
+2026-08-01,game,Immo Brugmann,rent,-950.00,fixed
+2026-08-01,game,Exki,lunch,-6.94,discretionary
+2026-08-02,game,Lidl,groceries,-29.13,discretionary
+2026-08-02,game,Balls & Glory,lunch,-8.67,discretionary
+2026-08-02,game,Mok Coffee,coffee,-2.42,discretionary
+2026-08-03,game,Sociaal Verzekeringsfonds,taxes,-240.00,fixed
+2026-08-03,game,Mok Coffee,coffee,-3.02,discretionary
+2026-08-04,game,Exki,lunch,-7.67,discretionary
+2026-08-04,game,Balls & Glory,lunch,-7.65,discretionary
+2026-08-04,game,Mok Coffee,coffee,-2.31,discretionary
+2026-08-04,game,Mok Coffee,coffee,-2.59,discretionary
+2026-08-04,game,Cambio,transport,-10.22,discretionary
+2026-08-05,game,Luminus,utilities,-106.74,fixed
+2026-08-05,game,Lidl,groceries,-35.84,discretionary
+2026-08-05,game,Exki,lunch,-6.33,discretionary
+2026-08-06,game,Kunstencentrum Nova,income,510.78,income
+2026-08-06,game,Balls & Glory,lunch,-8.21,discretionary
+2026-08-06,game,Exki,lunch,-10.85,discretionary
+2026-08-08,game,Mok Coffee,coffee,-2.31,discretionary
+2026-08-09,game,Telenet,telecom,-55.00,recurring
+2026-08-11,game,Balls & Glory,lunch,-6.14,discretionary
+2026-08-12,game,Adobe,software,-59.99,recurring
+2026-08-12,game,Delhaize,groceries,-30.45,discretionary
+2026-08-12,game,Balls & Glory,lunch,-9.92,discretionary
+2026-08-14,game,Atelier Vos,income,1207.22,income
+2026-08-14,game,Panos,lunch,-9.70,discretionary
+2026-08-15,game,Mok Coffee,coffee,-2.27,discretionary
+2026-08-15,game,Cafe Het Hemelrijk,bars,-18.03,discretionary
+2026-08-16,game,Delhaize,groceries,-26.12,discretionary
+2026-08-17,game,Mok Coffee,coffee,-2.83,discretionary
+2026-08-18,game,Netflix,entertainment,-13.99,recurring
+2026-08-18,game,Mok Coffee,coffee,-2.17,discretionary
+2026-08-19,game,Atelier Vos,income,647.83,income
+2026-08-21,game,Kunstencentrum Nova,income,525.09,income
+2026-08-21,game,Lidl,groceries,-40.01,discretionary
+2026-08-21,game,Balls & Glory,lunch,-6.30,discretionary
+2026-08-21,game,Mok Coffee,coffee,-2.16,discretionary
+2026-08-22,game,Brouwerij Het Anker,income,763.32,income
+2026-08-22,game,Mok Coffee,coffee,-2.70,discretionary
+2026-08-22,game,Cambio,transport,-7.61,discretionary
+2026-08-23,game,Mok Coffee,coffee,-2.64,discretionary
+2026-08-24,game,Balls & Glory,lunch,-10.87,discretionary
+2026-08-24,game,Bar Nova,bars,-25.89,discretionary
+2026-08-25,game,Lidl,groceries,-36.90,discretionary
+2026-08-25,game,Delhaize,groceries,-36.69,discretionary
+2026-08-25,game,NMBS,transport,-14.87,discretionary
+2026-08-26,game,Delhaize,groceries,-27.23,discretionary
+2026-08-26,game,Cambio,transport,-14.31,discretionary
+2026-08-27,game,Exki,lunch,-6.66,discretionary
+2026-08-27,game,Cafe Het Hemelrijk,bars,-27.51,discretionary
+2026-08-27,game,Fietsen Janssens,transport,-135.00,large
+2026-08-28,game,Mok Coffee,coffee,-2.35,discretionary
+2026-08-28,game,Mok Coffee,coffee,-2.38,discretionary
+2026-08-29,game,Lidl,groceries,-21.24,discretionary
+2026-08-29,game,Mok Coffee,coffee,-2.98,discretionary
+2026-08-29,game,Mok Coffee,coffee,-2.41,discretionary
+2026-08-29,game,Cafe Het Hemelrijk,bars,-24.76,discretionary
+2026-08-31,game,Lidl,groceries,-29.04,discretionary
+2026-08-31,game,Balls & Glory,lunch,-7.90,discretionary
+2026-08-31,game,Mok Coffee,coffee,-2.18,discretionary
+2026-09-01,game,Immo Brugmann,rent,-950.00,fixed
+2026-09-01,game,Mok Coffee,coffee,-2.31,discretionary
+2026-09-02,game,Bol.com,shopping,-16.46,discretionary
+2026-09-03,game,Atelier Vos,income,389.39,income
+2026-09-03,game,Sociaal Verzekeringsfonds,taxes,-240.00,fixed
+2026-09-03,game,Delhaize,groceries,-28.93,discretionary
+2026-09-03,game,Exki,lunch,-8.28,discretionary
+2026-09-04,game,Lidl,groceries,-37.53,discretionary
+2026-09-04,game,Mok Coffee,coffee,-2.80,discretionary
+2026-09-05,game,Luminus,utilities,-112.00,fixed
+2026-09-05,game,Cafe Het Hemelrijk,bars,-29.02,discretionary
+2026-09-05,game,Cambio,transport,-3.57,discretionary
+2026-09-06,game,Cafe Het Hemelrijk,bars,-29.77,discretionary
+2026-09-07,game,Atelier Vos,income,855.66,income
+2026-09-07,game,Brouwerij Het Anker,income,569.44,income
+2026-09-07,game,Lidl,groceries,-32.79,discretionary
+2026-09-07,game,Cafe Het Hemelrijk,bars,-26.81,discretionary
+2026-09-08,game,Mok Coffee,coffee,-2.10,discretionary
+2026-09-08,game,NMBS,transport,-4.31,discretionary
+2026-09-09,game,Telenet,telecom,-55.00,recurring
+2026-09-09,game,Panos,lunch,-9.82,discretionary
+2026-09-09,game,Panos,lunch,-6.94,discretionary
+2026-09-10,game,Delhaize,groceries,-23.24,discretionary
+2026-09-10,game,Mok Coffee,coffee,-2.12,discretionary
+2026-09-11,game,Mok Coffee,coffee,-2.69,discretionary
+2026-09-11,game,NMBS,transport,-7.09,discretionary
+2026-09-12,game,Adobe,software,-59.99,recurring
+2026-09-12,game,Mok Coffee,coffee,-2.06,discretionary
+2026-09-12,game,Cafe Het Hemelrijk,bars,-26.74,discretionary
+2026-09-12,game,Cafe Het Hemelrijk,bars,-25.75,discretionary
+2026-09-12,game,Cafe Het Hemelrijk,bars,-13.69,discretionary
+2026-09-13,game,Lidl,groceries,-26.37,discretionary
+2026-09-13,game,Balls & Glory,lunch,-7.36,discretionary
+2026-09-14,game,Exki,lunch,-10.02,discretionary
+2026-09-14,game,Balls & Glory,lunch,-6.67,discretionary
+2026-09-14,game,Balls & Glory,lunch,-8.41,discretionary
+2026-09-14,game,Cambio,transport,-4.96,discretionary
+2026-09-15,game,Balls & Glory,lunch,-7.98,discretionary
+2026-09-15,game,Cambio,transport,-13.76,discretionary
+2026-09-16,game,Lidl,groceries,-36.77,discretionary
+2026-09-16,game,Mok Coffee,coffee,-2.04,discretionary
+2026-09-17,game,Delhaize,groceries,-34.09,discretionary
+2026-09-17,game,Mok Coffee,coffee,-2.51,discretionary
+2026-09-17,game,Cambio,transport,-7.46,discretionary
+2026-09-18,game,Netflix,entertainment,-13.99,recurring
+2026-09-19,game,Lidl,groceries,-30.55,discretionary
+2026-09-19,game,Lidl,groceries,-29.91,discretionary
+2026-09-19,game,Lidl,groceries,-34.31,discretionary
+2026-09-19,game,Delhaize,groceries,-32.38,discretionary
+2026-09-19,game,NMBS,transport,-12.67,discretionary
+2026-09-20,game,Panos,lunch,-10.43,discretionary
+2026-09-22,game,Lidl,groceries,-28.86,discretionary
+2026-09-22,game,Mok Coffee,coffee,-2.63,discretionary
+2026-09-22,game,Mok Coffee,coffee,-2.84,discretionary
+2026-09-23,game,Mok Coffee,coffee,-2.47,discretionary
+2026-09-24,game,Mok Coffee,coffee,-2.17,discretionary
+2026-09-25,game,Bar Nova,bars,-29.19,discretionary
+2026-09-25,game,Bar Nova,bars,-21.21,discretionary
+2026-09-26,game,Mok Coffee,coffee,-2.58,discretionary
+2026-09-26,game,Bar Nova,bars,-28.85,discretionary
+2026-09-26,game,Cambio,transport,-12.50,discretionary
+2026-09-26,game,Bol.com,shopping,-33.94,discretionary
+2026-09-29,game,Exki,lunch,-7.11,discretionary
+2026-09-29,game,Panos,lunch,-10.56,discretionary
+2026-09-30,game,Bar Nova,bars,-15.58,discretionary
