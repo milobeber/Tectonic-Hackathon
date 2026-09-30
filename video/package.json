@@ -1,0 +1,21 @@
+{
+  "name": "video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.97 preview",
+    "check": "npx --yes hyperframes@0.8.97 check",
+    "render": "npx --yes hyperframes@0.8.97 render",
+    "publish": "npx --yes hyperframes@0.8.97 publish",
+    "data": "../.venv/bin/python build/export_data.py",
+    "snippets": "NODE_PATH=../frontend/node_modules esbuild build/snippets.tsx --bundle --platform=node --format=cjs --jsx=automatic --loader:.webp=file --loader:.png=file --loader:.svg=file --asset-names=img/[name]-[hash] --public-path=assets --outfile=build/.out/snippets.cjs --log-level=warning && mkdir -p assets/img && cp build/.out/img/* assets/img/ && node build/.out/snippets.cjs",
+    "app-css": "node build/app-css.mjs",
+    "build": "npm run data && npm run snippets && npm run app-css && npm run story",
+    "cues": "node build/cues.mjs",
+    "vo": "python3 build/vo.py && python3 build/vo.py --anchors && python3 build/sync-cues.py && node build/cues.mjs",
+    "story": "node build/story.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12"
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s06-template">
+      <style>
+        #s06-root { position: absolute; inset: 0; overflow: hidden; background: #2aaef0; }
+        #s06-root .cam { position: absolute; inset: 0; }
+        #s06-root .space { position: absolute; left: 0; top: 0; width: 960px; height: 540px; }
+        #s06-root .space .pond { height: 540px; }
+        #s06-root .chapter { color: #fff; text-shadow: 0 2px 12px rgba(0, 40, 80, 0.3); }
+        #s06-root .cal { position: absolute; left: 110px; top: 150px; display: flex; align-items: center; gap: 26px; }
+        #s06-root .cal .page { width: 150px; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 24px 50px -20px rgba(0, 30, 60, 0.5); text-align: center; }
+        #s06-root .cal .page b { display: block; padding: 8px 0; background: #e5484d; color: #fff; font: 700 26px var(--body); letter-spacing: 0.08em; }
+        #s06-root .cal .page span { display: block; padding: 6px 0 12px; font: 800 84px/1 var(--display); color: var(--ink); }
+        #s06-root .cal .kt { font-size: 120px; color: #fff; text-shadow: 0 4px 30px rgba(0, 40, 90, 0.35); }
+        #s06-root .sub { position: absolute; left: 114px; top: 360px; width: 820px; font: 600 46px/1.25 var(--body); color: #fff; text-shadow: 0 3px 20px rgba(0, 40, 90, 0.45); }
+        #s06-root .h2 { position: absolute; left: 110px; top: 360px; width: 900px; color: #fff; text-shadow: 0 4px 30px rgba(0, 40, 90, 0.4); opacity: 0; }
+        #s06-root .h2 .kt { font-size: 96px; }
+        #s06-root .drop { position: absolute; left: 0; top: 0; width: 200px; height: 260px; z-index: 6; }
+        #s06-root .drop svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 20px 30px rgba(0, 40, 90, 0.35)); }
+        #s06-root .drop .amt { position: absolute; left: 50%; top: 58%; transform: translate(-50%, -50%); font: 800 40px var(--display); color: #fff; white-space: nowrap; text-shadow: 0 2px 8px rgba(0, 40, 90, 0.4); }
+        #s06-root .fundcard { position: absolute; right: 90px; top: 150px; width: 560px; padding: 34px 36px; border-radius: 32px; background: #fff; box-shadow: 0 30px 60px -30px rgba(0, 30, 60, 0.6); }
+        #s06-root .fundcard-top { display: flex; align-items: center; gap: 18px; }
+        #s06-root .fundcard-top img { width: 64px; height: 64px; }
+        #s06-root .fundcard-top p { font: 700 32px/1.15 var(--body); color: var(--ink); }
+        #s06-root .fundcard-top small { display: block; font-size: 22px; font-weight: 500; color: var(--ink-2); }
+        #s06-root .risk { margin-top: 20px; display: flex; gap: 6px; align-items: center; font: 500 22px var(--body); color: var(--ink-2); }
+        #s06-root .risk i { width: 14px; height: 26px; border-radius: 4px; background: var(--line); }
+        #s06-root .risk i.lit { background: var(--kbc-navy); }
+        #s06-root .risk span { margin-left: 12px; }
+        #s06-root .inv { margin-top: 26px; font: 500 24px var(--body); color: var(--ink-2); }
+        #s06-root .inv b { display: block; margin-top: 4px; font: 700 80px/1 var(--display); letter-spacing: -0.03em; color: var(--kbc-navy); font-variant-numeric: tabular-nums; }
+        #s06-root .yr { margin-top: 22px; padding: 16px 20px; border-radius: 16px; background: #e1f4fd; color: #0079b0; font: 700 34px var(--body); font-variant-numeric: tabular-nums; }
+        #s06-root .yr small { display: block; font-size: 20px; font-weight: 500; color: #3d7fa6; }
+        #s06-root .disc { position: absolute; right: 90px; bottom: 44px; font: 500 20px var(--body); color: rgba(255, 255, 255, 0.85); }
+        #s06-root .splash { position: absolute; left: 960px; top: 740px; width: 300px; height: 70px; margin: -35px 0 0 -150px; border-radius: 50%; border: 5px solid rgba(255, 255, 255, 0.9); opacity: 0; z-index: 5; }
+        #s06-root .deep { position: absolute; inset: 0; background: radial-gradient(1200px 800px at 50% 30%, #0a5f98, #002a50 60%, #001b36); opacity: 0; z-index: 20; }
+      </style>
+
+      <div id="s06-root" class="hf" data-composition-id="s06" data-start="0" data-width="1920" data-height="1080">
+        <div class="cam" id="s06-cam"><div class="space" id="s06-space"></div></div>
+        <div class="splash" id="s06-splash"></div>
+        <div class="splash" id="s06-splash2"></div>
+        <div class="drop" id="s06-drop">
+          <svg viewBox="0 0 40 52" aria-hidden="true"><path d="M20 2C20 2 4 22 4 33a16 16 0 0 0 32 0C36 22 20 2 20 2z" fill="#00aeef" stroke="#fff" stroke-width="1.6" /></svg>
+          <span class="amt" id="s06-amt">€ 132,25</span>
+        </div>
+
+        <div class="chapter" id="s06-chapter"><b>06</b><i></i>Payday</div>
+        <div class="cal" id="s06-cal"><div class="page"><b>SEPT</b><span>25</span></div><span class="kt">Payday.</span></div>
+        <p class="sub" id="s06-sub">Your buffer is invested in your KBC fund.</p>
+        <div class="h2" id="s06-lake"><p class="kt">Your lake grows.</p></div>
+        <div class="h2" id="s06-passive"><p class="kt">Good habits become passive income.</p></div>
+
+        <div class="fundcard" id="s06-fund">
+          <div class="fundcard-top"><img src="assets/kbc/kbc-app-icon.svg" alt="" /><p id="s06-fundname">Sustainable Balanced<small>KBC fund you picked</small></p></div>
+          <div class="risk"><i class="lit"></i><i class="lit"></i><i class="lit"></i><i></i><i></i><i></i><i></i><span>risk 3 / 7</span></div>
+          <p class="inv">Invested so far<b id="s06-inv">€ 175,25</b></p>
+          <p class="yr"><span id="s06-yr">≈ € 7,01 a year</span><small>passive income at an assumed 4% return</small></p>
+        </div>
+        <p class="disc" id="s06-disc"></p>
+        <div class="deep" id="s06-deep"></div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s06
+          const B = C.b
+          const P = window.STORY.payday
+          const space = document.getElementById('s06-space')
+          HF.mount(space, 'world_thriving')
+          const pond = space.querySelector('.pond')
+          document.getElementById('s06-amt').textContent = HF.money(P.bufferEve)
+          document.getElementById('s06-disc').textContent = P.disclaimer
+          const lakeScale = (x) => 0.7 + 0.4 * Math.min(1, Math.log10(1 + Math.max(x, 0)) / Math.log10(1 + 2500))
+
+          const tl = gsap.timeline({ paused: true })
+          const drv = HF.driver(tl)
+          gsap.set(space, { scale: 2, transformOrigin: '0px 0px' })
+          gsap.set('#s06-cam', { transformOrigin: '960px 760px' })
+          // Where the lake is on the canvas: centre x 960, water around y 780.
+          const lake = { x: 960, y: 780 }
+
+          tl.fromTo('#s06-cam', { scale: 1.18 }, { scale: 1.0, duration: 1.4, ease: 'expo.out' }, 0)
+          tl.fromTo('#s06-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.1)
+
+          // ---- "And on payday, your buffer is invested in your KBC fund."
+          tl.fromTo('#s06-cal .page', { rotationX: -90, opacity: 0, transformOrigin: '50% 0%' }, { rotationX: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)' }, B.payday)
+          tl.fromTo('#s06-cal .kt', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'expo.out' }, B.payday + 0.15)
+          tl.fromTo('#s06-sub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, B.payday + 0.9)
+          tl.fromTo('#s06-fund', { opacity: 0, x: 120, rotationY: -20 }, { opacity: 1, x: 0, rotationY: 0, duration: 0.8, ease: 'expo.out' }, B.payday + 0.6)
+          // The buffer drop appears, then falls into the lake.
+          tl.fromTo('#s06-drop', { x: 860, y: 260, scale: 0, opacity: 1 }, { x: 860, y: 300, scale: 1, duration: 0.6, ease: 'back.out(2)' }, B.payday + 1.0)
+          tl.to('#s06-drop', { x: lake.x - 100, y: lake.y - 200, scale: 0.4, duration: 0.7, ease: 'power2.in' }, B.payday + 2.1)
+          tl.to('#s06-drop', { opacity: 0, duration: 0.12 }, B.payday + 2.72)
+          ;['#s06-splash', '#s06-splash2'].forEach((sp, i) => {
+            tl.fromTo(sp, { scale: 0.2, opacity: 0.95 }, { scale: 1.6 + i * 0.7, opacity: 0, duration: 1.1 + i * 0.3, ease: 'power2.out' }, B.payday + 2.75 + i * 0.12)
+          })
+          HF.count(drv, document.getElementById('s06-inv'), P.investedBefore, P.investedAfter, B.payday + 2.8, 1.1, HF.money, 'power3.out')
+          tl.fromTo('#s06-inv', { scale: 1 }, { scale: 1.06, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: '0% 50%', ease: 'power2.out' }, B.payday + 2.8)
+
+          // ---- "Your lake grows."
+          tl.to('#s06-sub', { opacity: 0, y: -24, duration: 0.3, ease: 'power2.in' }, B.lake - 0.3)
+          tl.to('#s06-cal', { opacity: 0, y: -24, duration: 0.3, ease: 'power2.in' }, B.lake - 0.3)
+          tl.fromTo('#s06-lake', { opacity: 0, y: 40 }, { opacity: 1, y: -210, duration: 0.6, ease: 'expo.out' }, B.lake)
+          tl.fromTo(pond, { '--lake-scale': lakeScale(P.investedBefore) }, { '--lake-scale': 1.1, duration: 2.2, ease: 'power2.inOut' }, B.lake - 0.1)
+          tl.to('#s06-cam', { scale: 0.96, duration: 2.4, ease: 'sine.inOut' }, B.lake)
+
+          // ---- "Good habits... become passive income."
+          tl.to('#s06-lake', { opacity: 0, duration: 0.3, ease: 'power2.in' }, B.passive - 0.3)
+          tl.fromTo('#s06-passive', { opacity: 0, y: 40 }, { opacity: 1, y: -210, duration: 0.7, ease: 'power4.out' }, B.passive)
+          HF.count(drv, document.getElementById('s06-yr'), P.passiveBefore, P.passiveAfter, B.passive + 0.6, 1.2, (v) => `≈ ${HF.money(v)} a year`, 'power2.out')
+          tl.fromTo('#s06-yr', { scale: 1 }, { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: '0% 50%' }, B.passive + 1.8)
+          tl.fromTo('#s06-disc', { opacity: 0 }, { opacity: 1, duration: 0.5 }, B.passive + 0.8)
+
+          // ---- dive: under the surface, where the model lives
+          tl.to(['#s06-fund', '#s06-passive', '#s06-chapter', '#s06-disc'], { opacity: 0, y: -30, duration: 0.3, ease: 'power2.in' }, B.dive - 0.6)
+          tl.to('#s06-cam', { scale: 5, y: 60, duration: 0.9, ease: 'power3.in' }, B.dive - 0.4)
+          tl.to('#s06-deep', { opacity: 1, duration: 0.45, ease: 'power1.in' }, B.dive + 0.05)
+
+          window.__timelines['s06'] = tl
+        })()
+      </script>
+    </template>
+  </body>
+</html>

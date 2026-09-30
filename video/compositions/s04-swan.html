@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s04-template">
+      <style>
+        #s04-root { position: absolute; inset: 0; overflow: hidden; background: #101826; }
+        #s04-root .cam { position: absolute; inset: 0; }
+        #s04-root .space { position: absolute; left: 0; top: 0; width: 960px; height: 540px; }
+        #s04-root .wl { position: absolute; left: 0; top: 0; width: 960px; height: 540px; }
+        #s04-root .wl .pond { height: 540px; }
+
+        #s04-root .chapter { color: #fff; text-shadow: 0 2px 12px rgba(0, 20, 40, 0.4); }
+        #s04-root .hud { position: absolute; right: 88px; top: 56px; display: flex; align-items: center; gap: 22px; padding: 18px 30px 18px 24px; border-radius: 999px; background: rgba(0, 38, 76, 0.38); backdrop-filter: blur(14px); color: #fff; font: 700 38px var(--body); }
+        #s04-root .hud svg { color: #ff8aa1; }
+        #s04-root .hud .bar { width: 220px; height: 16px; border-radius: 8px; background: rgba(255, 255, 255, 0.3); overflow: hidden; }
+        #s04-root .hud .bar i { display: block; width: 100%; height: 100%; border-radius: 8px; background: #fff; transform-origin: 0 50%; }
+        #s04-root .hud .num { font-variant-numeric: tabular-nums; min-width: 64px; text-align: right; opacity: 0.85; }
+        #s04-root .hud .word { min-width: 170px; }
+
+        #s04-root .cap { position: absolute; left: 120px; bottom: 120px; width: 1400px; color: #fff; text-shadow: 0 4px 28px rgba(0, 20, 50, 0.45); }
+        #s04-root .cap .kt { font-size: 112px; }
+        #s04-root .cap .small { font-size: 64px; opacity: 0.92; }
+        #s04-root .capx { position: absolute; left: 0; bottom: 0; width: 1400px; opacity: 0; }
+
+        #s04-root .charts { position: absolute; right: 80px; top: 180px; width: 980px; display: grid; gap: 24px; }
+        #s04-root .chart { padding: 26px 32px 22px; border-radius: 28px; background: rgba(8, 18, 32, 0.66); backdrop-filter: blur(16px); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08); color: #fff; opacity: 0; }
+        #s04-root .chart-head { display: flex; justify-content: space-between; align-items: baseline; }
+        #s04-root .chart-head .kt { font-size: 56px; }
+        #s04-root .chart-head .delta { font: 700 40px var(--body); font-variant-numeric: tabular-nums; }
+        #s04-root .chart-head .delta.little { color: #ffd166; }
+        #s04-root .chart-head .delta.lot { color: #ff7b80; }
+        #s04-root .chart svg { display: block; margin-top: 12px; overflow: visible; }
+        #s04-root .chart .legend { margin-top: 8px; display: flex; gap: 28px; font: 500 22px var(--body); color: #b9cadb; }
+        #s04-root .chart .legend span { display: inline-flex; align-items: center; gap: 10px; }
+        #s04-root .chart .legend i { width: 18px; height: 18px; border-radius: 4px; }
+        #s04-root .rule { position: absolute; left: 110px; top: 180px; width: 700px; color: #fff; opacity: 0; }
+        #s04-root .rule .kt { font-size: 84px; text-shadow: 0 4px 28px rgba(0, 20, 50, 0.45); }
+        #s04-root .rule .mono { margin-top: 34px; display: inline-block; padding: 18px 24px; border-radius: 16px; background: rgba(8, 18, 32, 0.66); font-size: 26px; line-height: 1.6; color: #cfe6f7; }
+        #s04-root .rule .mono b { color: #7fd3ff; font-weight: 600; }
+        #s04-root .white { position: absolute; inset: 0; background: #eef4f8; opacity: 0; }
+      </style>
+
+      <div id="s04-root" class="hf" data-composition-id="s04" data-start="0" data-width="1920" data-height="1080">
+        <div class="cam" id="s04-cam">
+          <div class="space" id="s04-space">
+            <div id="s04-worlds"></div>
+          </div>
+        </div>
+
+        <div class="chapter" id="s04-chapter"><b>04</b><i></i>Your swan</div>
+        <div class="hud" id="s04-hud">
+          <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.2 0 3.6 1.2 4.3 2.4.7-1.2 2.1-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z" fill="currentColor" /></svg>
+          <span class="bar"><i id="s04-bar"></i></span>
+          <span class="num" id="s04-num">92</span>
+          <span class="word" id="s04-word">Thriving</span>
+        </div>
+
+        <div class="cap">
+          <div class="capx" id="s04-c1"><p class="line"><span class="kt small">Stay under it,</span></p><p class="line"><span class="kt">your swan thrives.</span></p></div>
+          <div class="capx" id="s04-c2"><p class="line"><span class="kt small">Keep overspending…</span></p><p class="line"><span class="kt">the weather turns.</span></p></div>
+          <div class="capx" id="s04-c3"><p class="line"><span class="kt">Tired…</span></p></div>
+          <div class="capx" id="s04-c4"><p class="line"><span class="kt">then sick…</span></p></div>
+          <div class="capx" id="s04-c5"><p class="line"><span class="kt small">and if you let it go,</span></p><p class="line"><span class="kt">it dies.</span></p></div>
+        </div>
+
+        <div class="rule" id="s04-rule">
+          <p class="kt">A pattern, not a single day.</p>
+        </div>
+        <div class="charts">
+          <div class="chart" id="s04-ch1">
+            <div class="chart-head"><span class="kt">One bad day</span><span class="delta little" id="s04-d1">0</span></div>
+            <svg id="s04-svg1" width="916" height="160"></svg>
+          </div>
+          <div class="chart" id="s04-ch2">
+            <div class="chart-head"><span class="kt">A bad habit</span><span class="delta lot" id="s04-d2">0</span></div>
+            <svg id="s04-svg2" width="916" height="160"></svg>
+            <div class="legend"><span><i style="background: #2aaef0"></i>Under the limit</span><span><i style="background: #e5484d"></i>Over</span><span><i style="background: #fff"></i>Swan health</span></div>
+          </div>
+        </div>
+        <div class="white" id="s04-white"></div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s04
+          const B = C.b
+          const TIERS = ['thriving', 'healthy', 'tired', 'sick', 'rotting', 'dead']
+          const WORD = { thriving: 'Thriving', healthy: 'Healthy', tired: 'Tired', sick: 'Sick', rotting: 'Rotting', dead: 'Gone' }
+          const HEALTH = { thriving: 92, healthy: 70, tired: 50, sick: 30, rotting: 14, dead: 0 }
+
+          const worlds = document.getElementById('s04-worlds')
+          const layers = TIERS.map((t, i) => {
+            const w = document.createElement('div')
+            w.className = 'wl'
+            w.style.opacity = i === 0 ? 1 : 0
+            HF.mount(w, 'world_' + t)
+            worlds.appendChild(w)
+            // One swan per frame: each world carries its own swan (the app draws it inside the
+            // World SVG). Shrink it about the waterline so the taller sprite stays in frame.
+            HF.swanRig(w, 0.55, 0, 60)
+            const s = w.querySelector('.world-swan')
+            s.style.opacity = i === 0 ? 1 : 0
+            const img = s.querySelector('.swan-sprite')
+            return { w, s, src: img ? img.getAttribute('href') : t }
+          })
+
+          // When each tier arrives (scene seconds).
+          const AT = { healthy: B.turns + 0.4, tired: B.tired + 0.6, sick: B.sick + 0.3, rotting: B.dies + 0.2, dead: B.dead - 0.3 }
+
+          // Health model for the two mini charts: the engine's own rule (config.py GameConfig):
+          // score = 1 if the last 7 days are on budget, else max(0, 1 - 2 * over); health += 0.2 * (100 * score - health).
+          const simulate = (ratios) => {
+            let h = 85
+            return ratios.map((r, i) => {
+              const win = ratios.slice(Math.max(0, i - 6), i + 1)
+              const over = win.reduce((a, b) => a + b, 0) / win.length - 1
+              const score = over <= 0 ? 1 : Math.max(0, 1 - 2 * over)
+              h += 0.2 * (100 * score - h)
+              return h
+            })
+          }
+          const N = 21
+          const oneDay = Array.from({ length: N }, (_, i) => (i === 6 ? 3.4 : [0.62, 0.7, 0.55, 0.72, 0.6, 0.68, 0.58][i % 7]))
+          const habit = Array.from({ length: N }, (_, i) => [1.3, 1.45, 1.25, 1.5, 1.35, 1.4, 1.3][i % 7])
+          const drawChart = (svg, ratios) => {
+            const W = 916
+            const H = 160
+            const bw = W / N
+            const hs = simulate(ratios)
+            const bars = ratios
+              .map((r, i) => {
+                const h = Math.min(r, 3.4) * 40
+                const c = r > 1 ? '#e5484d' : '#2aaef0'
+                return `<rect class="b" x="${i * bw + 6}" y="${H}" width="${bw - 12}" height="0" data-h="${h}" rx="5" fill="${c}" />`
+              })
+              .join('')
+            const pts = hs.map((h, i) => `${i * bw + bw / 2},${H - 10 - (h / 100) * (H - 20)}`).join(' ')
+            svg.innerHTML = `<line x1="0" x2="${W}" y1="${H - 40}" y2="${H - 40}" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="6 8"/>${bars}<polyline class="hl" points="${pts}" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>`
+            // Biggest drop from any earlier point: the dip one bad day causes, the slide a habit causes.
+            let peak = hs[0]
+            let drop = 0
+            for (const h of hs) (peak = Math.max(peak, h)), (drop = Math.min(drop, h - peak))
+            return Math.round(drop)
+          }
+          const d1 = drawChart(document.getElementById('s04-svg1'), oneDay)
+          const d2 = drawChart(document.getElementById('s04-svg2'), habit)
+
+          const tl = gsap.timeline({ paused: true })
+          const drv = HF.driver(tl)
+          const cam = document.getElementById('s04-cam')
+          const space = document.getElementById('s04-space')
+          gsap.set(space, { scale: 2, transformOrigin: '0px 0px' })
+          gsap.set(cam, { transformOrigin: '960px 696px' })
+
+          // ---- from s03's push-in: blur resolves, the camera settles on the swan
+          tl.fromTo(cam, { scale: 1.25, filter: 'blur(6px)' }, { scale: 1.12, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out' }, 0)
+          tl.to(cam, { scale: 1.2, duration: B.bad - 1.2, ease: 'sine.inOut' }, 0.9)
+          tl.fromTo('#s04-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.3)
+          tl.fromTo('#s04-hud', { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.6)' }, 0.4)
+
+          // ---- the tiers: weather cross-fades, the swan morphs, the HUD follows
+          TIERS.slice(1).forEach((t, i) => {
+            const at = AT[t]
+            // Never two swans at once: the same drawing swaps in place, a new one dips through.
+            if (layers[i].src === layers[i + 1].src) {
+              tl.set(layers[i + 1].s, { opacity: 1 }, at + 0.5)
+              tl.set(layers[i].s, { opacity: 0 }, at + 0.5)
+            } else {
+              tl.to(layers[i].s, { opacity: 0, duration: 0.3, ease: 'sine.in' }, at + 0.3)
+              tl.to(layers[i + 1].s, { opacity: 1, duration: 0.35, ease: 'sine.out' }, at + 0.6)
+            }
+            tl.to(layers[i + 1].w, { opacity: 1, duration: 1.1, ease: 'sine.inOut' }, at - 0.2)
+            tl.set(layers[i].w, { opacity: 0 }, at + 0.95)
+          })
+          const hpAt = [[0, 92], [AT.healthy, 70], [AT.tired, 50], [AT.sick, 30], [AT.rotting, 14], [AT.dead, 0]]
+          drv.add((t) => {
+            let h = 92
+            for (let i = 1; i < hpAt.length; i++) h -= (hpAt[i - 1][1] - hpAt[i][1]) * HF.prog(t, hpAt[i][0], 0.9, 'power2.out')
+            document.getElementById('s04-bar').style.transform = `scaleX(${Math.max(h, 0) / 100})`
+            document.getElementById('s04-num').textContent = Math.round(h)
+            let tier = 'thriving'
+            for (const k of TIERS.slice(1)) if (t >= AT[k] + 0.3) tier = k
+            document.getElementById('s04-word').textContent = WORD[tier]
+          })
+          // The storm: a slow push in as it goes dark.
+          tl.to(cam, { y: -20, duration: 2, ease: 'sine.inOut' }, AT.rotting)
+
+          // ---- captions
+          const caps = [
+            ['#s04-c1', B.thrive, B.turns],
+            ['#s04-c2', B.turns, B.tired],
+            ['#s04-c3', B.tired, B.sick],
+            ['#s04-c4', B.sick, B.dies],
+            ['#s04-c5', B.dies, B.bad],
+          ]
+          caps.forEach(([sel, a, b], i) => {
+            tl.fromTo(sel, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: i % 2 ? 'expo.out' : 'power4.out' }, a)
+            tl.to(sel, { opacity: 0, y: -30, duration: 0.25, ease: 'power2.in' }, b - 0.25)
+          })
+
+          // ---- one bad day vs a bad habit
+          tl.to(cam, { x: -330, y: -40, scale: 1.36, duration: 1.1, ease: 'power3.inOut' }, B.bad - 0.4)
+          tl.fromTo('#s04-rule', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, B.bad)
+          const showChart = (id, svgId, dId, delta, at) => {
+            tl.fromTo(id, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power4.out' }, at)
+            // Bars grow from the baseline (drawn per frame: SVG transforms need layout GSAP can't read while hidden).
+            const bars = [...document.getElementById(svgId.slice(1)).querySelectorAll('.b')]
+            drv.add((t) => bars.forEach((b, i) => {
+              const h = +b.dataset.h * HF.prog(t, at + 0.2 + i * 0.03, 0.35, 'back.out(1.8)')
+              b.setAttribute('height', Math.max(0, h))
+              b.setAttribute('y', 160 - Math.max(0, h))
+            }))
+            tl.to(`${svgId} .hl`, { strokeDashoffset: 0, duration: 1.2, ease: 'power1.inOut' }, at + 0.5)
+            HF.count(drv, document.getElementById(dId), 0, delta, at + 0.5, 1.2, (v) => `health ${Math.round(v)}`, 'power1.inOut')
+          }
+          showChart('#s04-ch1', '#s04-svg1', 's04-d1', d1, B.bad + 0.1)
+          showChart('#s04-ch2', '#s04-svg2', 's04-d2', d2, B.habit)
+
+          // ---- hand-off to s05: a lightning white-out
+          tl.to('#s04-white', { opacity: 1, duration: 0.4, ease: 'power2.in' }, C.dur - 0.4)
+
+          window.__timelines['s04'] = tl
+        })()
+      </script>
+    </template>
+  </body>
+</html>

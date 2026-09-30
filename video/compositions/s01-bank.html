@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template id="s01-template">
+      <style>
+        #s01-root { position: absolute; inset: 0; overflow: hidden; background: var(--k-page); }
+        #s01-root .grid { position: absolute; inset: -60px; background-image: radial-gradient(rgba(13, 42, 80, 0.13) 1.6px, transparent 1.8px); background-size: 34px 34px; }
+        #s01-root .glow { position: absolute; left: -200px; top: 60px; width: 1300px; height: 1000px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 151, 219, 0.2), transparent); }
+        #s01-root .chapter { color: var(--k-text-light); }
+        #s01-root .stage3d { position: absolute; inset: 0; perspective: 1800px; }
+        #s01-root .phone-slot { left: 300px; top: 106px; }
+        #s01-root .copy { position: absolute; left: 860px; top: 0; width: 980px; height: 1080px; font-family: var(--k-font); color: var(--k-navy); }
+        #s01-root .intro { position: absolute; left: 0; top: 214px; font-size: 52px; font-weight: 700; color: var(--k-text-light); letter-spacing: -0.01em; }
+        #s01-root .every { position: absolute; left: 0; top: 318px; display: grid; gap: 40px; }
+        #s01-root .every .row { display: grid; justify-items: start; gap: 6px; }
+        #s01-root .every .big { font-size: 90px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; white-space: nowrap; }
+        #s01-root .every .amt { display: inline-flex; gap: 14px; padding: 7px 16px; border-radius: 8px; background: var(--k-pale); box-shadow: inset 0 0 0 2px var(--k-blue); font-size: 26px; font-weight: 700; color: var(--k-navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
+        #s01-root .every .amt b { color: var(--k-blue-600); }
+        #s01-root .tells { position: absolute; left: 0; top: 400px; width: 960px; font-size: 92px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; }
+        #s01-root .tells .after { color: var(--k-red); }
+        #s01-root .tells .l2 { margin-top: 22px; }
+      </style>
+
+      <div data-hf-id="hf-n2ux" id="s01-root" class="hf" data-composition-id="s01" data-start="0" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-w1pt" class="grid" id="s01-grid"></div>
+        <div data-hf-id="hf-0ell" class="glow" id="s01-glow"></div>
+        <div data-hf-id="hf-n3me" class="chapter" id="s01-chapter"><b data-hf-id="hf-27a2">01</b><i data-hf-id="hf-wt6k"></i>KBC Mobile, today</div>
+
+        <div data-hf-id="hf-5t4z" class="stage3d">
+          <div data-hf-id="hf-7f7g" class="phone-slot" id="s01-phone"><div data-hf-id="hf-8htt" class="phone-shadow"></div></div>
+        </div>
+
+        <div data-hf-id="hf-bdx3" class="copy">
+          <p data-hf-id="hf-801c" class="intro" id="s01-intro">This is your banking app.</p>
+          <div data-hf-id="hf-f83d" class="every">
+            <div data-hf-id="hf-yrak" class="row" id="s01-l1"><span data-hf-id="hf-3jsu" class="amt">Coffee Lab <b data-hf-id="hf-g1zb">-3,80 EUR</b></span><span data-hf-id="hf-cvhe" class="big">Every coffee.</span></div>
+            <div data-hf-id="hf-9ms7" class="row" id="s01-l2"><span data-hf-id="hf-yqil" class="amt">Colruyt <b data-hf-id="hf-eg8c">-41,98 EUR</b></span><span data-hf-id="hf-2hzs" class="big">Every grocery run.</span></div>
+            <div data-hf-id="hf-3h2e" class="row" id="s01-l3"><span data-hf-id="hf-2bkg" class="amt">Deliveroo <b data-hf-id="hf-exn1">-27,40 EUR</b></span><span data-hf-id="hf-wwff" class="big">Every late-night order.</span></div>
+          </div>
+          <div data-hf-id="hf-j3nb" class="tells" id="s01-tells">
+            <div data-hf-id="hf-u19b" class="line l1"><span data-hf-id="hf-67jv" id="s01-t1">It tells you exactly what you spent…</span></div>
+            <div data-hf-id="hf-lddg" class="line l2"><span data-hf-id="hf-kjmp" id="s01-t2">…<span data-hf-id="hf-jegx" class="after">after</span> you've spent it.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        ;(function () {
+          const C = window.CUES.s01
+          const B = C.b
+          const root = document.getElementById('s01-root')
+          const slot = document.getElementById('s01-phone')
+          const shadow = slot.querySelector('.phone-shadow')
+          const device = HF.phoneWith(slot, KBC.home(KBC.TX))
+          slot.prepend(shadow)
+          KBC.tabbar(device, 'start', false)
+          device.querySelector('.statusbar').classList.add('statusbar--solid')
+          device.querySelector('.device-screen').insertAdjacentHTML('beforeend', KBC.fab())
+          const screen = device.querySelector('.kbc-home')
+          const rows = [...screen.querySelectorAll('.kbc-tx-row')]
+          const hl = (i) => rows[i].querySelector('.kbc-tx-hl')
+
+          const tl = gsap.timeline({ paused: true })
+
+          // Ambient: the dot grid drifts, the glow breathes.
+          tl.fromTo('#s01-grid', { x: 0, y: 0 }, { x: -34, y: -34, duration: C.dur, ease: 'none' }, 0)
+          tl.fromTo('#s01-glow', { scale: 0.92, opacity: 0.7 }, { scale: 1.06, opacity: 1, duration: C.dur, ease: 'sine.inOut' }, 0)
+          tl.fromTo('#s01-chapter', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.25)
+
+          // The phone rises into place, turned slightly toward the copy.
+          tl.fromTo(slot, { y: 90, opacity: 0, rotationY: 24, rotationX: 6 }, { y: 0, opacity: 1, rotationY: 12, rotationX: 2, duration: 1.3, ease: 'expo.out' }, B.app - 0.2)
+          // ...and keeps a slow drift so the frame never freezes.
+          tl.to(slot, { rotationY: 8, y: -8, duration: C.dur - B.app - 1.1, ease: 'sine.inOut' }, B.app + 1.1)
+          // The list scrolls on its own, like a thumb idly flicking through it.
+          tl.fromTo(screen, { y: 0 }, { y: -150, duration: C.dur - 0.4, ease: 'power1.inOut' }, 0.4)
+
+          tl.fromTo('#s01-intro', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, B.app + 0.2)
+
+          // Every coffee / grocery run / late-night order, each lighting up its row.
+          const beats = [
+            ['#s01-l1', 1, B.coffee],
+            ['#s01-l2', 3, B.grocery],
+            ['#s01-l3', 5, B.late],
+          ]
+          beats.forEach(([sel, row, at], i) => {
+            tl.fromTo(`${sel} .big`, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.55, ease: i === 1 ? 'back.out(1.6)' : 'power4.out' }, at)
+            tl.fromTo(`${sel} .amt`, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, at + 0.1)
+            tl.fromTo(hl(row), { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' }, at + 0.05)
+          })
+
+          // "It tells you exactly what you spent..." The list stays, the words give way.
+          tl.to('#s01-intro', { opacity: 0, y: -20, duration: 0.3, ease: 'power2.in' }, B.tells - 0.35)
+          tl.to(['#s01-l1', '#s01-l2', '#s01-l3'], { opacity: 0, y: -40, duration: 0.35, ease: 'power3.in', stagger: 0.05 }, B.tells - 0.35)
+          tl.fromTo('#s01-t1', { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: 'power4.out' }, B.tells)
+          tl.fromTo('#s01-t2', { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: 'expo.out' }, B.after)
+          // ...after you've spent it: the list goes grey, the past tense.
+          tl.to(rows.map((r, i) => hl(i)), { opacity: 0, duration: 0.5, ease: 'power1.out' }, B.after)
+          tl.to(rows, { opacity: 0.42, duration: 0.9, ease: 'sine.inOut', stagger: 0.02 }, B.after + 0.1)
+          tl.to(device.querySelector('.device-screen'), { filter: 'grayscale(0.85)', duration: 1.1, ease: 'sine.inOut' }, B.after + 0.1)
+
+          // Hand-off to s02: the copy clears, the phone holds its pose.
+          tl.to(['#s01-tells', '#s01-chapter'], { opacity: 0, y: -40, filter: 'blur(8px)', duration: 0.35, ease: 'power2.in' }, C.dur - 0.4)
+
+          window.__timelines['s01'] = tl
+        })()
+      </script>
+    </template>
+  </body>
+</html>
