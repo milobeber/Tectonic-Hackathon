@@ -213,6 +213,36 @@ curl -s -X POST localhost:8000/v1/demo/seed -H 'X-API-Key: dev-key' -H 'content-
 
 Then scrub through time with `GET /v1/users/demo-big_purchase/game-state?as_of=2026-09-14`.
 
+## Run the frontend
+
+```bash
+cd frontend
+npm install
+npm run dev          # http://localhost:5173
+```
+
+The demo shows the swan screen inside a phone frame, the way it would appear in KBC Mobile.
+It starts on an **in-browser mock** of the model and engine, so it works with no backend.
+Click **Live API** in the demo controls (or open `/?live`) to use the real backend on port 8000.
+`/?api=http://<ip>:8000` points it at another machine, `/?gallery` shows all six swan states.
+
+What the screen shows, all taken from the API's `GameState`:
+
+- **Big number in the sky**: what is left to spend today, or how much over the limit.
+- **Swan and weather**: the swan's health tier, from thriving in the sun to dead in a night storm.
+- **Lake**: grows with the money invested in the fund so far, plus the estimated yearly return.
+- **Saved since payday / left by payday**: the cycle's buffer, any debt, and the projected balance.
+- **Cycle bars**: spent vs limit for every day of the current cycle, one-offs marked.
+- **Why €X today?**: the model's explanation (habits, savings rate, weekday factor, noise ignored).
+- **Recent**: the latest game events.
+
+Demo controls (hide with **H**, **Space** plays the timeline, **←/→** steps a day): pick a
+customer (the four deck cases first), scrub the timeline, add a purchase for today, preview any
+swan look, or run the opt-in flow (difficulty, fund, consent, egg hatching).
+
+Optional config in `frontend/.env.local`: `VITE_API_URL`, `VITE_API_KEY` (demo key only, it
+ships in the browser bundle). Full details in [frontend/README.md](frontend/README.md).
+
 ## Tests
 
 ```bash
