@@ -1,0 +1,270 @@
+date,phase,merchant,category,amount_eur,model_kind
+2026-04-25,history,Pizzeria Da Mario,restaurants,-25.73,discretionary
+2026-04-25,history,Pizzeria Da Mario,restaurants,-37.97,discretionary
+2026-04-26,history,Aldi,groceries,-35.81,discretionary
+2026-04-26,history,Bakkerij Mertens,bakery,-3.99,discretionary
+2026-04-26,history,De Lijn,transport,-10.90,discretionary
+2026-04-27,history,Colruyt,groceries,-48.51,discretionary
+2026-04-27,history,Bakkerij Mertens,bakery,-4.00,discretionary
+2026-04-28,history,Bakkerij Mertens,bakery,-5.65,discretionary
+2026-04-28,history,Bakkerij Mertens,bakery,-6.77,discretionary
+2026-04-28,history,Coffee Lab,coffee,-3.75,discretionary
+2026-04-28,history,Coffee Lab,coffee,-4.85,discretionary
+2026-04-29,history,Bakkerij Mertens,bakery,-7.76,discretionary
+2026-04-30,history,Lidl,groceries,-51.12,discretionary
+2026-04-30,history,De Lijn,transport,-11.07,discretionary
+2026-05-01,history,Immo De Vos,rent,-780.00,fixed
+2026-05-01,history,NMBS,transport,-5.99,discretionary
+2026-05-02,history,Coffee Lab,coffee,-4.48,discretionary
+2026-05-02,history,Coffee Lab,coffee,-3.41,discretionary
+2026-05-02,history,NMBS,transport,-6.17,discretionary
+2026-05-03,history,Aldi,groceries,-22.16,discretionary
+2026-05-03,history,Lidl,groceries,-53.99,discretionary
+2026-05-03,history,Bol.com,shopping,-51.52,discretionary
+2026-05-04,history,Engie,utilities,-92.72,fixed
+2026-05-04,history,Coffee Lab,coffee,-3.36,discretionary
+2026-05-06,history,AG Insurance,insurance,-45.00,fixed
+2026-05-06,history,Aldi,groceries,-49.87,discretionary
+2026-05-06,history,Bakkerij Mertens,bakery,-7.84,discretionary
+2026-05-07,history,Bakkerij Mertens,bakery,-4.43,discretionary
+2026-05-07,history,Bakkerij Mertens,bakery,-6.85,discretionary
+2026-05-08,history,Proximus,telecom,-20.00,recurring
+2026-05-08,history,Bakkerij Mertens,bakery,-6.11,discretionary
+2026-05-09,history,Aldi,groceries,-23.66,discretionary
+2026-05-10,history,Basic-Fit,sport,-25.00,recurring
+2026-05-10,history,Lidl,groceries,-26.62,discretionary
+2026-05-10,history,Bakkerij Mertens,bakery,-4.26,discretionary
+2026-05-10,history,NMBS,transport,-10.54,discretionary
+2026-05-10,history,NMBS,transport,-7.72,discretionary
+2026-05-11,history,Bakkerij Mertens,bakery,-5.35,discretionary
+2026-05-11,history,NMBS,transport,-11.15,discretionary
+2026-05-11,history,NMBS,transport,-10.97,discretionary
+2026-05-13,history,Coffee Lab,coffee,-4.95,discretionary
+2026-05-14,history,Bakkerij Mertens,bakery,-6.22,discretionary
+2026-05-15,history,Spotify,entertainment,-11.99,recurring
+2026-05-15,history,Coffee Lab,coffee,-4.67,discretionary
+2026-05-15,history,Cafe De Markt,restaurants,-35.93,discretionary
+2026-05-15,history,NMBS,transport,-7.08,discretionary
+2026-05-16,history,Bakkerij Mertens,bakery,-3.12,discretionary
+2026-05-16,history,Coffee Lab,coffee,-4.20,discretionary
+2026-05-16,history,Coffee Lab,coffee,-4.52,discretionary
+2026-05-16,history,Pizzeria Da Mario,restaurants,-33.35,discretionary
+2026-05-18,history,Bakkerij Mertens,bakery,-4.94,discretionary
+2026-05-18,history,Bakkerij Mertens,bakery,-4.42,discretionary
+2026-05-20,history,De Lijn,transport,-6.42,discretionary
+2026-05-21,history,Hema,shopping,-39.26,discretionary
+2026-05-22,history,Bakkerij Mertens,bakery,-3.48,discretionary
+2026-05-23,history,Bakkerij Mertens,bakery,-6.67,discretionary
+2026-05-23,history,Coffee Lab,coffee,-3.47,discretionary
+2026-05-23,history,Coffee Lab,coffee,-3.22,discretionary
+2026-05-25,history,Zorggroep Aurora,salary,2473.95,income
+2026-05-25,history,De Lijn,transport,-4.13,discretionary
+2026-05-26,history,Aldi,groceries,-45.88,discretionary
+2026-05-27,history,Bakkerij Mertens,bakery,-5.53,discretionary
+2026-05-27,history,Bakkerij Mertens,bakery,-5.82,discretionary
+2026-05-28,history,Bol.com,shopping,-32.46,discretionary
+2026-05-29,history,Aldi,groceries,-54.90,discretionary
+2026-05-29,history,NMBS,transport,-7.69,discretionary
+2026-05-30,history,Bakkerij Mertens,bakery,-6.71,discretionary
+2026-05-30,history,Pizzeria Da Mario,restaurants,-35.49,discretionary
+2026-05-30,history,NMBS,transport,-4.71,discretionary
+2026-05-31,history,Bakkerij Mertens,bakery,-6.35,discretionary
+2026-05-31,history,Bakkerij Mertens,bakery,-5.55,discretionary
+2026-06-01,history,Immo De Vos,rent,-780.00,fixed
+2026-06-01,history,Bakkerij Mertens,bakery,-4.33,discretionary
+2026-06-01,history,NMBS,transport,-4.61,discretionary
+2026-06-02,history,Bakkerij Mertens,bakery,-7.56,discretionary
+2026-06-03,history,Coffee Lab,coffee,-4.20,discretionary
+2026-06-03,history,De Lijn,transport,-3.49,discretionary
+2026-06-04,history,Engie,utilities,-96.22,fixed
+2026-06-04,history,Bakkerij Mertens,bakery,-3.47,discretionary
+2026-06-04,history,De Lijn,transport,-6.89,discretionary
+2026-06-06,history,AG Insurance,insurance,-45.00,fixed
+2026-06-07,history,Colruyt,groceries,-24.68,discretionary
+2026-06-07,history,Cafe De Markt,restaurants,-22.30,discretionary
+2026-06-08,history,Proximus,telecom,-20.00,recurring
+2026-06-08,history,Aldi,groceries,-28.51,discretionary
+2026-06-08,history,NMBS,transport,-5.58,discretionary
+2026-06-09,history,Bakkerij Mertens,bakery,-6.88,discretionary
+2026-06-09,history,Coffee Lab,coffee,-4.24,discretionary
+2026-06-10,history,Basic-Fit,sport,-25.00,recurring
+2026-06-10,history,Colruyt,groceries,-35.71,discretionary
+2026-06-10,history,Cafe De Markt,restaurants,-27.25,discretionary
+2026-06-11,history,Lidl,groceries,-43.47,discretionary
+2026-06-11,history,Hema,shopping,-32.22,discretionary
+2026-06-13,history,Bakkerij Mertens,bakery,-4.80,discretionary
+2026-06-13,history,Coffee Lab,coffee,-3.93,discretionary
+2026-06-13,history,Hema,shopping,-21.13,discretionary
+2026-06-14,history,Aldi,groceries,-34.48,discretionary
+2026-06-14,history,Bakkerij Mertens,bakery,-5.83,discretionary
+2026-06-14,history,Pizzeria Da Mario,restaurants,-35.75,discretionary
+2026-06-14,history,Ikea,home,-329.00,large
+2026-06-15,history,Spotify,entertainment,-11.99,recurring
+2026-06-15,history,Lidl,groceries,-27.76,discretionary
+2026-06-15,history,Coffee Lab,coffee,-3.13,discretionary
+2026-06-15,history,Cafe De Markt,restaurants,-35.16,discretionary
+2026-06-16,history,Bakkerij Mertens,bakery,-4.49,discretionary
+2026-06-16,history,Coffee Lab,coffee,-4.98,discretionary
+2026-06-16,history,Coffee Lab,coffee,-4.09,discretionary
+2026-06-16,history,Coffee Lab,coffee,-4.66,discretionary
+2026-06-17,history,Lidl,groceries,-32.81,discretionary
+2026-06-17,history,Bakkerij Mertens,bakery,-4.41,discretionary
+2026-06-17,history,Cafe De Markt,restaurants,-19.48,discretionary
+2026-06-18,history,Bakkerij Mertens,bakery,-5.77,discretionary
+2026-06-18,history,Coffee Lab,coffee,-4.60,discretionary
+2026-06-18,history,De Lijn,transport,-7.97,discretionary
+2026-06-19,history,NMBS,transport,-3.11,discretionary
+2026-06-19,history,NMBS,transport,-5.20,discretionary
+2026-06-20,history,Aldi,groceries,-44.37,discretionary
+2026-06-20,history,Bakkerij Mertens,bakery,-3.40,discretionary
+2026-06-21,history,Bakkerij Mertens,bakery,-3.09,discretionary
+2026-06-23,history,Colruyt,groceries,-26.43,discretionary
+2026-06-24,history,Bakkerij Mertens,bakery,-5.37,discretionary
+2026-06-24,history,Bakkerij Mertens,bakery,-5.90,discretionary
+2026-06-24,history,Coffee Lab,coffee,-4.17,discretionary
+2026-06-24,history,NMBS,transport,-6.69,discretionary
+2026-06-25,history,Zorggroep Aurora,salary,2503.40,income
+2026-06-25,history,Bakkerij Mertens,bakery,-3.93,discretionary
+2026-06-25,history,Cafe De Markt,restaurants,-31.95,discretionary
+2026-06-25,history,Pizzeria Da Mario,restaurants,-20.28,discretionary
+2026-06-26,history,Bakkerij Mertens,bakery,-5.37,discretionary
+2026-06-26,history,Coffee Lab,coffee,-4.08,discretionary
+2026-06-26,history,De Lijn,transport,-8.08,discretionary
+2026-06-27,history,Bakkerij Mertens,bakery,-7.83,discretionary
+2026-06-27,history,Pizzeria Da Mario,restaurants,-35.03,discretionary
+2026-06-28,history,De Lijn,transport,-6.61,discretionary
+2026-06-28,history,Kruidvat,shopping,-26.01,discretionary
+2026-06-29,history,Bakkerij Mertens,bakery,-4.51,discretionary
+2026-07-01,history,Immo De Vos,rent,-780.00,fixed
+2026-07-01,history,Lidl,groceries,-34.23,discretionary
+2026-07-01,history,Coffee Lab,coffee,-4.63,discretionary
+2026-07-03,history,Lidl,groceries,-42.37,discretionary
+2026-07-03,history,Coffee Lab,coffee,-3.88,discretionary
+2026-07-04,history,Engie,utilities,-95.52,fixed
+2026-07-04,history,Pizzeria Da Mario,restaurants,-24.57,discretionary
+2026-07-05,history,Aldi,groceries,-43.25,discretionary
+2026-07-05,history,Bakkerij Mertens,bakery,-3.14,discretionary
+2026-07-05,history,Cafe De Markt,restaurants,-25.93,discretionary
+2026-07-05,history,Cafe De Markt,restaurants,-39.53,discretionary
+2026-07-06,history,AG Insurance,insurance,-45.00,fixed
+2026-07-06,history,Aldi,groceries,-24.97,discretionary
+2026-07-06,history,Coffee Lab,coffee,-4.96,discretionary
+2026-07-07,history,Coffee Lab,coffee,-4.74,discretionary
+2026-07-08,history,Proximus,telecom,-20.00,recurring
+2026-07-08,history,Bakkerij Mertens,bakery,-3.34,discretionary
+2026-07-09,history,Bakkerij Mertens,bakery,-3.80,discretionary
+2026-07-09,history,Pizzeria Da Mario,restaurants,-21.30,discretionary
+2026-07-10,history,Basic-Fit,sport,-25.00,recurring
+2026-07-10,history,Aldi,groceries,-37.96,discretionary
+2026-07-10,history,Coffee Lab,coffee,-4.07,discretionary
+2026-07-14,history,Bakkerij Mertens,bakery,-8.00,discretionary
+2026-07-14,history,Bakkerij Mertens,bakery,-4.68,discretionary
+2026-07-14,history,Cafe De Markt,restaurants,-28.91,discretionary
+2026-07-15,history,Spotify,entertainment,-11.99,recurring
+2026-07-17,history,Bakkerij Mertens,bakery,-5.46,discretionary
+2026-07-19,history,Coffee Lab,coffee,-3.25,discretionary
+2026-07-19,history,De Lijn,transport,-6.48,discretionary
+2026-07-23,history,NMBS,transport,-11.79,discretionary
+2026-07-23,history,Kruidvat,shopping,-18.81,discretionary
+2026-07-24,game,Zorggroep Aurora,salary,2494.30,income
+2026-07-26,game,Lidl,groceries,-22.76,discretionary
+2026-07-26,game,Coffee Lab,coffee,-3.69,discretionary
+2026-07-26,game,Pizzeria Da Mario,restaurants,-17.53,discretionary
+2026-07-26,game,De Lijn,transport,-2.38,discretionary
+2026-07-28,game,Cafe De Markt,restaurants,-31.69,discretionary
+2026-07-29,game,Colruyt,groceries,-40.85,discretionary
+2026-07-30,game,Aldi,groceries,-23.32,discretionary
+2026-07-30,game,Bakkerij Mertens,bakery,-3.18,discretionary
+2026-07-31,game,Lidl,groceries,-41.37,discretionary
+2026-08-01,game,Immo De Vos,rent,-780.00,fixed
+2026-08-02,game,Bakkerij Mertens,bakery,-3.07,discretionary
+2026-08-03,game,Bakkerij Mertens,bakery,-5.94,discretionary
+2026-08-04,game,Engie,utilities,-94.28,fixed
+2026-08-05,game,De Lijn,transport,-8.00,discretionary
+2026-08-06,game,AG Insurance,insurance,-45.00,fixed
+2026-08-06,game,Hema,shopping,-37.40,discretionary
+2026-08-07,game,Lidl,groceries,-30.11,discretionary
+2026-08-07,game,Bakkerij Mertens,bakery,-4.56,discretionary
+2026-08-08,game,Proximus,telecom,-20.00,recurring
+2026-08-08,game,Bakkerij Mertens,bakery,-6.33,discretionary
+2026-08-08,game,Pizzeria Da Mario,restaurants,-31.81,discretionary
+2026-08-09,game,Bakkerij Mertens,bakery,-2.81,discretionary
+2026-08-09,game,Cafe De Markt,restaurants,-18.00,discretionary
+2026-08-09,game,NMBS,transport,-7.57,discretionary
+2026-08-09,game,Kruidvat,shopping,-32.90,discretionary
+2026-08-10,game,Basic-Fit,sport,-25.00,recurring
+2026-08-10,game,Coffee Lab,coffee,-2.71,discretionary
+2026-08-10,game,De Lijn,transport,-5.05,discretionary
+2026-08-11,game,Aldi,groceries,-24.06,discretionary
+2026-08-14,game,Aldi,groceries,-18.27,discretionary
+2026-08-14,game,Bakkerij Mertens,bakery,-2.78,discretionary
+2026-08-15,game,Spotify,entertainment,-11.99,recurring
+2026-08-15,game,Coffee Lab,coffee,-3.36,discretionary
+2026-08-15,game,Cafe De Markt,restaurants,-14.40,discretionary
+2026-08-17,game,Bakkerij Mertens,bakery,-3.66,discretionary
+2026-08-17,game,Bakkerij Mertens,bakery,-6.33,discretionary
+2026-08-17,game,Coffee Lab,coffee,-2.89,discretionary
+2026-08-17,game,Cafe De Markt,restaurants,-18.65,discretionary
+2026-08-19,game,De Lijn,transport,-8.29,discretionary
+2026-08-22,game,Bakkerij Mertens,bakery,-3.94,discretionary
+2026-08-23,game,Bakkerij Mertens,bakery,-4.20,discretionary
+2026-08-23,game,Coffee Lab,coffee,-2.45,discretionary
+2026-08-24,game,Lidl,groceries,-26.88,discretionary
+2026-08-25,game,Zorggroep Aurora,salary,2474.46,income
+2026-08-25,game,Bakkerij Mertens,bakery,-4.70,discretionary
+2026-08-26,game,Bakkerij Mertens,bakery,-3.09,discretionary
+2026-08-26,game,Coffee Lab,coffee,-2.52,discretionary
+2026-08-28,game,Pizzeria Da Mario,restaurants,-26.47,discretionary
+2026-08-30,game,Cafe De Markt,restaurants,-26.99,discretionary
+2026-08-30,game,NMBS,transport,-5.85,discretionary
+2026-08-31,game,Bakkerij Mertens,bakery,-5.65,discretionary
+2026-08-31,game,Coffee Lab,coffee,-2.58,discretionary
+2026-09-01,game,Immo De Vos,rent,-780.00,fixed
+2026-09-01,game,Aldi,groceries,-38.91,discretionary
+2026-09-01,game,Coffee Lab,coffee,-3.90,discretionary
+2026-09-01,game,Coffee Lab,coffee,-3.50,discretionary
+2026-09-03,game,De Lijn,transport,-9.46,discretionary
+2026-09-04,game,Engie,utilities,-95.57,fixed
+2026-09-04,game,Bakkerij Mertens,bakery,-4.52,discretionary
+2026-09-05,game,Coffee Lab,coffee,-3.72,discretionary
+2026-09-06,game,AG Insurance,insurance,-45.00,fixed
+2026-09-06,game,Bakkerij Mertens,bakery,-2.97,discretionary
+2026-09-06,game,Cafe De Markt,restaurants,-28.34,discretionary
+2026-09-08,game,Proximus,telecom,-20.00,recurring
+2026-09-08,game,Coffee Lab,coffee,-3.55,discretionary
+2026-09-08,game,Coffee Lab,coffee,-2.47,discretionary
+2026-09-10,game,Basic-Fit,sport,-25.00,recurring
+2026-09-10,game,Colruyt,groceries,-30.42,discretionary
+2026-09-10,game,Lidl,groceries,-35.54,discretionary
+2026-09-10,game,Bakkerij Mertens,bakery,-3.58,discretionary
+2026-09-11,game,Bakkerij Mertens,bakery,-2.58,discretionary
+2026-09-11,game,Bakkerij Mertens,bakery,-3.51,discretionary
+2026-09-11,game,Bakkerij Mertens,bakery,-4.60,discretionary
+2026-09-12,game,Colruyt,groceries,-28.26,discretionary
+2026-09-13,game,Aldi,groceries,-32.90,discretionary
+2026-09-13,game,Bakkerij Mertens,bakery,-2.74,discretionary
+2026-09-14,game,Bakkerij Mertens,bakery,-2.50,discretionary
+2026-09-15,game,Spotify,entertainment,-11.99,recurring
+2026-09-15,game,Colruyt,groceries,-41.98,discretionary
+2026-09-15,game,Coffee Lab,coffee,-2.75,discretionary
+2026-09-16,game,Aldi,groceries,-34.87,discretionary
+2026-09-17,game,Bakkerij Mertens,bakery,-5.63,discretionary
+2026-09-17,game,Bakkerij Mertens,bakery,-3.04,discretionary
+2026-09-18,game,De Lijn,transport,-8.36,discretionary
+2026-09-19,game,Colruyt,groceries,-18.74,discretionary
+2026-09-19,game,Bakkerij Mertens,bakery,-4.96,discretionary
+2026-09-21,game,Pizzeria Da Mario,restaurants,-24.65,discretionary
+2026-09-21,game,Cafe De Markt,restaurants,-20.69,discretionary
+2026-09-21,game,De Lijn,transport,-6.63,discretionary
+2026-09-21,game,Bol.com,shopping,-11.74,discretionary
+2026-09-23,game,Bakkerij Mertens,bakery,-3.60,discretionary
+2026-09-24,game,Bakkerij Mertens,bakery,-4.66,discretionary
+2026-09-25,game,Zorggroep Aurora,salary,2493.26,income
+2026-09-26,game,Colruyt,groceries,-24.22,discretionary
+2026-09-26,game,Colruyt,groceries,-29.66,discretionary
+2026-09-26,game,Lidl,groceries,-33.90,discretionary
+2026-09-26,game,Cafe De Markt,restaurants,-27.82,discretionary
+2026-09-26,game,NMBS,transport,-3.16,discretionary
+2026-09-27,game,Coffee Lab,coffee,-3.81,discretionary
+2026-09-28,game,Aldi,groceries,-36.06,discretionary
+2026-09-30,game,Colruyt,groceries,-41.04,discretionary

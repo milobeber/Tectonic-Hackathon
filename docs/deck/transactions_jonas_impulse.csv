@@ -1,0 +1,278 @@
+date,phase,merchant,category,amount_eur,model_kind
+2026-04-25,history,Pitta Palace,fast_food,-8.77,discretionary
+2026-04-25,history,Club Vaag,bars,-22.02,discretionary
+2026-04-27,history,Aldi,groceries,-19.60,discretionary
+2026-04-27,history,Pitta Palace,fast_food,-12.19,discretionary
+2026-04-29,history,McDonald's,fast_food,-8.37,discretionary
+2026-05-01,history,Immo Centrum,rent,-720.00,fixed
+2026-05-01,history,Uber,transport,-18.58,discretionary
+2026-05-02,history,Pitta Palace,fast_food,-12.33,discretionary
+2026-05-02,history,Pitta Palace,fast_food,-11.10,discretionary
+2026-05-02,history,Club Vaag,bars,-27.97,discretionary
+2026-05-03,history,Club Vaag,bars,-23.86,discretionary
+2026-05-03,history,Club Vaag,bars,-38.04,discretionary
+2026-05-04,history,Mega,utilities,-84.39,fixed
+2026-05-04,history,McDonald's,fast_food,-10.74,discretionary
+2026-05-04,history,McDonald's,fast_food,-14.87,discretionary
+2026-05-05,history,Pitta Palace,fast_food,-14.19,discretionary
+2026-05-06,history,Baloise,insurance,-40.00,fixed
+2026-05-06,history,McDonald's,fast_food,-13.41,discretionary
+2026-05-07,history,McDonald's,fast_food,-14.65,discretionary
+2026-05-08,history,Base,telecom,-25.00,recurring
+2026-05-08,history,McDonald's,fast_food,-12.69,discretionary
+2026-05-08,history,Quick,fast_food,-14.76,discretionary
+2026-05-09,history,Cafe Den Engel,bars,-22.87,discretionary
+2026-05-10,history,Q8,transport,-22.11,discretionary
+2026-05-11,history,Basic-Fit,sport,-30.00,recurring
+2026-05-11,history,Aldi,groceries,-37.52,discretionary
+2026-05-12,history,McDonald's,fast_food,-8.13,discretionary
+2026-05-13,history,Q8,transport,-22.31,discretionary
+2026-05-13,history,Uber,transport,-20.10,discretionary
+2026-05-14,history,Quick,fast_food,-13.43,discretionary
+2026-05-15,history,Aldi,groceries,-32.83,discretionary
+2026-05-15,history,Club Vaag,bars,-38.21,discretionary
+2026-05-16,history,Spotify,entertainment,-11.99,recurring
+2026-05-16,history,Carrefour Express,groceries,-21.46,discretionary
+2026-05-16,history,McDonald's,fast_food,-14.54,discretionary
+2026-05-16,history,Pitta Palace,fast_food,-12.52,discretionary
+2026-05-16,history,Cafe Den Engel,bars,-24.25,discretionary
+2026-05-17,history,Aldi,groceries,-38.83,discretionary
+2026-05-18,history,Carrefour Express,groceries,-16.40,discretionary
+2026-05-18,history,Quick,fast_food,-9.70,discretionary
+2026-05-18,history,McDonald's,fast_food,-9.34,discretionary
+2026-05-19,history,Carrefour Express,groceries,-27.24,discretionary
+2026-05-20,history,Aldi,groceries,-39.12,discretionary
+2026-05-20,history,Quick,fast_food,-11.53,discretionary
+2026-05-21,history,Quick,fast_food,-12.80,discretionary
+2026-05-21,history,McDonald's,fast_food,-8.44,discretionary
+2026-05-21,history,Bol.com,shopping,-58.84,discretionary
+2026-05-22,history,Disney+,entertainment,-14.99,recurring
+2026-05-22,history,JD Sports,shopping,-65.85,discretionary
+2026-05-23,history,Club Vaag,bars,-15.28,discretionary
+2026-05-23,history,Zalando,shopping,-180.00,large
+2026-05-24,history,Club Vaag,bars,-38.95,discretionary
+2026-05-25,history,Velocity Sales BV,salary,2292.08,income
+2026-05-25,history,Aldi,groceries,-16.81,discretionary
+2026-05-25,history,Aldi,groceries,-35.84,discretionary
+2026-05-25,history,Q8,transport,-30.66,discretionary
+2026-05-26,history,Aldi,groceries,-31.53,discretionary
+2026-05-28,history,Pitta Palace,fast_food,-9.77,discretionary
+2026-05-28,history,Uber,transport,-10.97,discretionary
+2026-05-29,history,McDonald's,fast_food,-8.10,discretionary
+2026-05-29,history,Uber,transport,-13.88,discretionary
+2026-05-30,history,McDonald's,fast_food,-13.54,discretionary
+2026-05-30,history,Uber,transport,-18.78,discretionary
+2026-05-31,history,Aldi,groceries,-16.36,discretionary
+2026-05-31,history,Carrefour Express,groceries,-33.13,discretionary
+2026-05-31,history,Aldi,groceries,-16.37,discretionary
+2026-06-01,history,Immo Centrum,rent,-720.00,fixed
+2026-06-01,history,Aldi,groceries,-33.32,discretionary
+2026-06-02,history,Pitta Palace,fast_food,-10.68,discretionary
+2026-06-04,history,Mega,utilities,-83.06,fixed
+2026-06-04,history,McDonald's,fast_food,-10.15,discretionary
+2026-06-05,history,Bol.com,shopping,-55.90,discretionary
+2026-06-06,history,Baloise,insurance,-40.00,fixed
+2026-06-06,history,McDonald's,fast_food,-13.46,discretionary
+2026-06-06,history,Q8,transport,-27.76,discretionary
+2026-06-07,history,McDonald's,fast_food,-8.35,discretionary
+2026-06-08,history,Base,telecom,-25.00,recurring
+2026-06-08,history,Aldi,groceries,-38.09,discretionary
+2026-06-08,history,Carrefour Express,groceries,-27.51,discretionary
+2026-06-08,history,Uber,transport,-13.24,discretionary
+2026-06-11,history,Basic-Fit,sport,-30.00,recurring
+2026-06-11,history,Carrefour Express,groceries,-19.23,discretionary
+2026-06-11,history,Pitta Palace,fast_food,-10.27,discretionary
+2026-06-12,history,Aldi,groceries,-23.76,discretionary
+2026-06-12,history,Club Vaag,bars,-34.25,discretionary
+2026-06-12,history,Q8,transport,-12.69,discretionary
+2026-06-13,history,Quick,fast_food,-9.45,discretionary
+2026-06-13,history,Club Vaag,bars,-24.82,discretionary
+2026-06-13,history,JD Sports,shopping,-28.93,discretionary
+2026-06-14,history,Club Vaag,bars,-36.36,discretionary
+2026-06-15,history,Pitta Palace,fast_food,-8.32,discretionary
+2026-06-15,history,Q8,transport,-21.81,discretionary
+2026-06-16,history,Spotify,entertainment,-11.99,recurring
+2026-06-16,history,Carrefour Express,groceries,-18.36,discretionary
+2026-06-16,history,McDonald's,fast_food,-12.10,discretionary
+2026-06-17,history,McDonald's,fast_food,-13.83,discretionary
+2026-06-19,history,Aldi,groceries,-21.68,discretionary
+2026-06-19,history,McDonald's,fast_food,-12.48,discretionary
+2026-06-20,history,Quick,fast_food,-10.76,discretionary
+2026-06-20,history,Cafe Den Engel,bars,-21.81,discretionary
+2026-06-20,history,Uber,transport,-15.51,discretionary
+2026-06-21,history,Pitta Palace,fast_food,-11.68,discretionary
+2026-06-21,history,Pitta Palace,fast_food,-12.75,discretionary
+2026-06-21,history,Uber,transport,-15.97,discretionary
+2026-06-22,history,Disney+,entertainment,-14.99,recurring
+2026-06-22,history,Aldi,groceries,-32.55,discretionary
+2026-06-22,history,Q8,transport,-19.31,discretionary
+2026-06-23,history,Aldi,groceries,-16.37,discretionary
+2026-06-23,history,McDonald's,fast_food,-13.03,discretionary
+2026-06-23,history,McDonald's,fast_food,-13.91,discretionary
+2026-06-24,history,Fnac,electronics,-260.00,large
+2026-06-25,history,Velocity Sales BV,salary,2288.95,income
+2026-06-25,history,Club Vaag,bars,-20.37,discretionary
+2026-06-26,history,McDonald's,fast_food,-14.28,discretionary
+2026-06-26,history,Quick,fast_food,-9.21,discretionary
+2026-06-27,history,McDonald's,fast_food,-8.24,discretionary
+2026-06-27,history,Quick,fast_food,-14.89,discretionary
+2026-06-27,history,Uber,transport,-14.18,discretionary
+2026-06-28,history,Aldi,groceries,-27.30,discretionary
+2026-06-28,history,Cafe Den Engel,bars,-18.60,discretionary
+2026-06-28,history,Q8,transport,-14.48,discretionary
+2026-06-29,history,Carrefour Express,groceries,-29.70,discretionary
+2026-06-29,history,McDonald's,fast_food,-12.15,discretionary
+2026-07-01,history,Immo Centrum,rent,-720.00,fixed
+2026-07-01,history,Carrefour Express,groceries,-39.67,discretionary
+2026-07-01,history,Carrefour Express,groceries,-39.95,discretionary
+2026-07-01,history,JD Sports,shopping,-23.54,discretionary
+2026-07-02,history,Pitta Palace,fast_food,-9.65,discretionary
+2026-07-04,history,Mega,utilities,-86.61,fixed
+2026-07-04,history,Pitta Palace,fast_food,-11.17,discretionary
+2026-07-04,history,McDonald's,fast_food,-8.19,discretionary
+2026-07-04,history,JD Sports,shopping,-23.99,discretionary
+2026-07-05,history,Club Vaag,bars,-18.14,discretionary
+2026-07-06,history,Baloise,insurance,-40.00,fixed
+2026-07-07,history,McDonald's,fast_food,-12.04,discretionary
+2026-07-08,history,Base,telecom,-25.00,recurring
+2026-07-09,history,Pitta Palace,fast_food,-9.81,discretionary
+2026-07-09,history,Club Vaag,bars,-30.10,discretionary
+2026-07-11,history,Basic-Fit,sport,-30.00,recurring
+2026-07-11,history,Cafe Den Engel,bars,-29.71,discretionary
+2026-07-11,history,Cafe Den Engel,bars,-33.99,discretionary
+2026-07-11,history,JD Sports,shopping,-29.37,discretionary
+2026-07-12,history,Carrefour Express,groceries,-27.31,discretionary
+2026-07-12,history,Club Vaag,bars,-17.19,discretionary
+2026-07-13,history,Carrefour Express,groceries,-36.23,discretionary
+2026-07-13,history,Carrefour Express,groceries,-35.07,discretionary
+2026-07-13,history,Pitta Palace,fast_food,-13.61,discretionary
+2026-07-14,history,Quick,fast_food,-11.48,discretionary
+2026-07-15,history,Quick,fast_food,-11.82,discretionary
+2026-07-16,history,Spotify,entertainment,-11.99,recurring
+2026-07-16,history,Club Vaag,bars,-29.00,discretionary
+2026-07-18,history,McDonald's,fast_food,-9.31,discretionary
+2026-07-19,history,Cafe Den Engel,bars,-32.24,discretionary
+2026-07-19,history,Q8,transport,-24.69,discretionary
+2026-07-19,history,Bol.com,shopping,-33.22,discretionary
+2026-07-21,history,Quick,fast_food,-9.65,discretionary
+2026-07-22,history,Disney+,entertainment,-14.99,recurring
+2026-07-22,history,Aldi,groceries,-35.11,discretionary
+2026-07-22,history,Quick,fast_food,-11.42,discretionary
+2026-07-22,history,Uber,transport,-21.63,discretionary
+2026-07-23,history,McDonald's,fast_food,-10.55,discretionary
+2026-07-23,history,Quick,fast_food,-14.47,discretionary
+2026-07-23,history,Uber,transport,-17.75,discretionary
+2026-07-24,game,Velocity Sales BV,salary,2309.30,income
+2026-07-25,game,Carrefour Express,groceries,-26.19,discretionary
+2026-07-25,game,Pitta Palace,fast_food,-16.13,discretionary
+2026-07-25,game,Inno (designer bag),shopping,-790.00,large
+2026-07-27,game,MediaMarkt (headphones),electronics,-379.00,large
+2026-07-28,game,Carrefour Express,groceries,-24.03,discretionary
+2026-07-29,game,Aldi,groceries,-23.35,discretionary
+2026-07-29,game,McDonald's,fast_food,-16.33,discretionary
+2026-07-30,game,Zalando (sneakers),shopping,-189.00,large
+2026-07-31,game,Pitta Palace,fast_food,-10.02,discretionary
+2026-08-01,game,Immo Centrum,rent,-720.00,fixed
+2026-08-01,game,Cafe Den Engel,bars,-26.74,discretionary
+2026-08-02,game,Carrefour Express,groceries,-18.69,discretionary
+2026-08-02,game,Quick,fast_food,-12.97,discretionary
+2026-08-04,game,Mega,utilities,-85.16,fixed
+2026-08-05,game,McDonald's,fast_food,-10.68,discretionary
+2026-08-06,game,Baloise,insurance,-40.00,fixed
+2026-08-06,game,Quick,fast_food,-9.30,discretionary
+2026-08-07,game,McDonald's,fast_food,-11.23,discretionary
+2026-08-07,game,Uber,transport,-26.88,discretionary
+2026-08-08,game,Base,telecom,-25.00,recurring
+2026-08-08,game,Quick,fast_food,-10.73,discretionary
+2026-08-08,game,Pitta Palace,fast_food,-14.78,discretionary
+2026-08-08,game,Cafe Den Engel,bars,-32.72,discretionary
+2026-08-09,game,Uber,transport,-22.91,discretionary
+2026-08-10,game,Aldi,groceries,-21.38,discretionary
+2026-08-10,game,Uber,transport,-36.99,discretionary
+2026-08-11,game,Basic-Fit,sport,-30.00,recurring
+2026-08-11,game,Carrefour Express,groceries,-18.73,discretionary
+2026-08-11,game,McDonald's,fast_food,-12.10,discretionary
+2026-08-11,game,Bol.com,shopping,-58.73,discretionary
+2026-08-13,game,McDonald's,fast_food,-12.19,discretionary
+2026-08-14,game,Quick,fast_food,-10.72,discretionary
+2026-08-15,game,Aldi,groceries,-34.64,discretionary
+2026-08-16,game,Spotify,entertainment,-11.99,recurring
+2026-08-17,game,Uber,transport,-11.82,discretionary
+2026-08-18,game,McDonald's,fast_food,-12.54,discretionary
+2026-08-19,game,Pitta Palace,fast_food,-9.85,discretionary
+2026-08-19,game,Q8,transport,-29.70,discretionary
+2026-08-20,game,McDonald's,fast_food,-15.24,discretionary
+2026-08-21,game,Uber,transport,-14.78,discretionary
+2026-08-22,game,Disney+,entertainment,-14.99,recurring
+2026-08-23,game,Pitta Palace,fast_food,-14.13,discretionary
+2026-08-23,game,Cafe Den Engel,bars,-36.08,discretionary
+2026-08-23,game,Club Vaag,bars,-38.68,discretionary
+2026-08-23,game,Uber,transport,-37.40,discretionary
+2026-08-25,game,Velocity Sales BV,salary,2317.89,income
+2026-08-25,game,Q8,transport,-23.35,discretionary
+2026-08-26,game,Carrefour Express,groceries,-30.51,discretionary
+2026-08-26,game,Coolblue (smartwatch),electronics,-349.00,large
+2026-08-27,game,McDonald's,fast_food,-12.19,discretionary
+2026-08-28,game,Aldi,groceries,-21.89,discretionary
+2026-08-28,game,Uber,transport,-21.58,discretionary
+2026-08-28,game,Fnac (game console),electronics,-549.00,large
+2026-08-29,game,Carrefour Express,groceries,-26.65,discretionary
+2026-08-29,game,Pitta Palace,fast_food,-13.43,discretionary
+2026-08-29,game,Pitta Palace,fast_food,-14.47,discretionary
+2026-08-30,game,Quick,fast_food,-15.63,discretionary
+2026-09-01,game,Immo Centrum,rent,-720.00,fixed
+2026-09-01,game,Cafe Den Engel,bars,-18.94,discretionary
+2026-09-02,game,Aldi,groceries,-32.22,discretionary
+2026-09-02,game,Quick,fast_food,-11.92,discretionary
+2026-09-02,game,Uber,transport,-15.33,discretionary
+2026-09-03,game,Carrefour Express,groceries,-31.00,discretionary
+2026-09-03,game,McDonald's,fast_food,-11.97,discretionary
+2026-09-04,game,Mega,utilities,-87.37,fixed
+2026-09-06,game,Baloise,insurance,-40.00,fixed
+2026-09-06,game,Club Vaag,bars,-23.41,discretionary
+2026-09-07,game,Carrefour Express,groceries,-27.59,discretionary
+2026-09-07,game,McDonald's,fast_food,-11.15,discretionary
+2026-09-08,game,Base,telecom,-25.00,recurring
+2026-09-08,game,Pitta Palace,fast_food,-10.40,discretionary
+2026-09-08,game,McDonald's,fast_food,-14.19,discretionary
+2026-09-09,game,McDonald's,fast_food,-9.91,discretionary
+2026-09-09,game,Cafe Den Engel,bars,-34.53,discretionary
+2026-09-10,game,JD Sports,shopping,-30.48,discretionary
+2026-09-11,game,Basic-Fit,sport,-30.00,recurring
+2026-09-11,game,Aldi,groceries,-37.18,discretionary
+2026-09-11,game,Quick,fast_food,-9.13,discretionary
+2026-09-12,game,Carrefour Express,groceries,-36.62,discretionary
+2026-09-12,game,Uber,transport,-17.50,discretionary
+2026-09-13,game,Club Vaag,bars,-22.45,discretionary
+2026-09-13,game,Club Vaag,bars,-38.74,discretionary
+2026-09-13,game,Club Vaag,bars,-27.16,discretionary
+2026-09-14,game,Pitta Palace,fast_food,-12.41,discretionary
+2026-09-15,game,Pitta Palace,fast_food,-15.03,discretionary
+2026-09-16,game,Spotify,entertainment,-11.99,recurring
+2026-09-17,game,Carrefour Express,groceries,-21.79,discretionary
+2026-09-19,game,Cafe Den Engel,bars,-26.98,discretionary
+2026-09-20,game,Club Vaag,bars,-23.85,discretionary
+2026-09-20,game,Club Vaag,bars,-39.25,discretionary
+2026-09-21,game,Q8,transport,-17.89,discretionary
+2026-09-21,game,Bol.com,shopping,-51.32,discretionary
+2026-09-22,game,Disney+,entertainment,-14.99,recurring
+2026-09-22,game,Pitta Palace,fast_food,-14.44,discretionary
+2026-09-22,game,Quick,fast_food,-16.13,discretionary
+2026-09-22,game,Pitta Palace,fast_food,-15.13,discretionary
+2026-09-23,game,Aldi,groceries,-37.84,discretionary
+2026-09-23,game,Q8,transport,-16.56,discretionary
+2026-09-25,game,Velocity Sales BV,salary,2288.01,income
+2026-09-25,game,Carrefour Express,groceries,-31.31,discretionary
+2026-09-25,game,Cafe Den Engel,bars,-24.61,discretionary
+2026-09-26,game,McDonald's,fast_food,-8.98,discretionary
+2026-09-26,game,Quick,fast_food,-12.74,discretionary
+2026-09-26,game,Cafe Den Engel,bars,-29.52,discretionary
+2026-09-26,game,Cafe Den Engel,bars,-36.61,discretionary
+2026-09-26,game,Tomorrowland resale (tickets),entertainment,-420.00,large
+2026-09-27,game,Aldi,groceries,-40.48,discretionary
+2026-09-27,game,Zalando (jacket),shopping,-259.00,large
+2026-09-28,game,Carrefour Express,groceries,-40.49,discretionary
+2026-09-29,game,Pitta Palace,fast_food,-16.46,discretionary
+2026-09-29,game,Cafe Den Engel,bars,-36.88,discretionary
+2026-09-30,game,Aldi,groceries,-30.61,discretionary
+2026-09-30,game,Q8,transport,-19.78,discretionary
