@@ -1,0 +1,189 @@
+"""API contract between KBC and the Black Swan service.
+
+KBC sends: enrollment (opt-in) + transactions.
+We send back: a GameState that KBC renders in the swan screen.
+"""
+
+from datetime import date
+from typing import Literal
+
+from pydantic import BaseModel, Field
+
+Difficulty = Literal["easy", "normal", "hard"]
+Tier = Literal["thriving", "healthy", "tired", "sick", "rotting", "dead"]
+Mood = Literal["happy", "content", "worried", "sad", "critical", "dead"]
+DayStatus = Literal["under", "over", "today"]
+TodayStatus = Literal["on_track", "at_risk", "over"]
+TxKind = Literal["income", "fixed", "recurring", "discretionary", "large"]
+EventType = Literal[
+    "day_under",
+    "day_over",
+    "large_expense_absorbed",
+    "large_expense_uncovered",
+    "limit_reduced",
+    "limit_restored",
+    "swan_died",
+    "swan_reborn",
+    "month_swept",
+]
+
+
+# ---------------------------------------------------------------- input
+
+
+class Transaction(BaseModel):
+    """One booked transaction, roughly the shape of a PSD2 account transaction."""
+
+    transaction_id: str = Field(..., examples=["tx_2026_09_14_0001"])
+    booking_date: date
+    amount: float = Field(..., description="Signed amount in EUR. Negative = money out.", examples=[-23.5])
+    currency: str = "EUR"
+    merchant: str | None = Field(None, examples=["Delhaize"])
+    category: str | None = Field(None, description="KBC category, lower_snake_case.", examples=["groceries"])
+    description: str | None = None
+
+
+class EnrollmentRequest(BaseModel):
+    difficulty: Difficulty = "normal"
+    fund_id: str = "kbc-sustainable-balanced"
+    enrolled_on: date | None = Field(None, description="Defaults to today.")
+
+
+class Enrollment(BaseModel):
+    user_id: str
+    difficulty: Difficulty
+    fund_id: str
+    enrolled_on: date
+
+
+class TransactionBatch(BaseModel):
+    transactions: list[Transaction]
+
+
+class IngestResult(BaseModel):
+    accepted: int
+    duplicates: int
+    game_state: "GameState | None" = None
+
+
+class EvaluateRequest(BaseModel):
+    """Stateless evaluation: send everything, get a game state back, nothing is stored."""
+
+    user_id: str = "anonymous"
+    enrollment: EnrollmentRequest
+    transactions: list[Transaction]
+    as_of: date | None = None
+
+
+class DemoSeedRequest(BaseModel):
+    persona: str = "steady_saver"
+    user_id: str | None = None
+    as_of: date | None = Field(None, description="Last day of generated data. Defaults to today.")
+    enrolled_days_ago: int = Field(20, ge=0, le=200)
+    seed: int = 42
+
+
+# ---------------------------------------------------------------- output
+
+
+class Fund(BaseModel):
+    id: str
+    name: str
+    risk_class: int = Field(..., ge=1, le=7)
+    expected_annual_return: float = Field(..., description="Illustrative only, not a performance promise.")
+
+
+class SpendingProfile(BaseModel):
+    """What the model learned about the user. Also used to explain the limit."""
+
+    version: str
+    confidence: Literal["low", "medium", "high"]
+    history_days: int
+    baseline_daily: float = Field(..., description="Average daily discretionary spend, noise removed.")
+    savings_rate: float
+    target_daily: float = Field(..., description="Average daily limit before weekday adjustment.")
+    weekday_factors: dict[str, float]
+    large_expense_threshold: float
+    recurring_merchants: list[str]
+    monthly_income: float
+    monthly_fixed_costs: float
+
+
+class SwanState(BaseModel):
+    health: float = Field(..., ge=0, le=100)
+    tier: Tier
+    mood: Mood
+    alive: bool
+    generation: int = Field(..., description="Increments each time a new swan hatches after a death.")
+    streak_days: int = Field(..., description="Consecutive settled days within the limit.")
+
+
+class TodayState(BaseModel):
+    date: date
+    base_limit: float
+    limit_reduction: float
+    limit: float
+    spent: float
+    remaining: float
+    large_expenses: float
+    status: TodayStatus
+
+
+class MonthState(BaseModel):
+    month: str
+    start: date
+    end: date
+    days_left: int
+    buffer: float = Field(..., description="Money saved vs. the limit so far; swept to the fund at month end.")
+    debt: float = Field(..., description="Overspend not covered by the buffer; earned back through lower limits.")
+    limit_reduction_per_day: float
+    days_under: int
+    days_over: int
+    large_expenses_total: float
+
+
+class DayRecord(BaseModel):
+    date: date
+    limit: float
+    spent: float
+    large_expenses: float
+    buffer: float
+    health: float
+    status: DayStatus
+
+
+class GameEvent(BaseModel):
+    date: date
+    type: EventType
+    amount: float | None = None
+    health_delta: float | None = None
+    message: str
+
+
+class Sweep(BaseModel):
+    month: str
+    amount: float
+    fund_id: str
+
+
+class Rewards(BaseModel):
+    fund: Fund
+    total_invested: float
+    sweeps: list[Sweep]
+    estimated_annual_passive_income: float
+    disclaimer: str = "Illustrative estimate based on an assumed return. Not investment advice."
+
+
+class GameState(BaseModel):
+    user_id: str
+    as_of: date
+    swan: SwanState
+    today: TodayState
+    month: MonthState
+    rewards: Rewards
+    history: list[DayRecord] = Field(..., description="Settled days + today for the current month.")
+    events: list[GameEvent] = Field(..., description="Most recent first, current + previous month.")
+    model: SpendingProfile
+
+
+IngestResult.model_rebuild()
